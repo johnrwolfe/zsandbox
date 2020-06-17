@@ -29,10 +29,10 @@ INSERT INTO O_ATTR
 	VALUES ("7e42a956-78c5-4651-8efb-01820a985edd",
 	"d8528470-976c-421b-a087-1201ac24302f",
 	"00000000-0000-0000-0000-000000000000",
-	'Name',
+	'FName',
 	'',
 	'',
-	'Name',
+	'FName',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
@@ -87,6 +87,42 @@ INSERT INTO O_ATTR
 	'',
 	'',
 	'Birth_Date',
+	0,
+	"ba5eda7a-def5-0000-0000-00000000000e",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("af90ebd4-1702-491f-85cd-2d5dbfad46bb",
+	"d8528470-976c-421b-a087-1201ac24302f");
+INSERT INTO O_BATTR
+	VALUES ("af90ebd4-1702-491f-85cd-2d5dbfad46bb",
+	"d8528470-976c-421b-a087-1201ac24302f");
+INSERT INTO O_ATTR
+	VALUES ("af90ebd4-1702-491f-85cd-2d5dbfad46bb",
+	"d8528470-976c-421b-a087-1201ac24302f",
+	"6fcbb260-360b-49c7-9abc-fd92603b44a0",
+	'LName',
+	'',
+	'',
+	'LName',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("43f89e8d-d809-4067-a812-d1d57bb3a42d",
+	"d8528470-976c-421b-a087-1201ac24302f");
+INSERT INTO O_BATTR
+	VALUES ("43f89e8d-d809-4067-a812-d1d57bb3a42d",
+	"d8528470-976c-421b-a087-1201ac24302f");
+INSERT INTO O_ATTR
+	VALUES ("43f89e8d-d809-4067-a812-d1d57bb3a42d",
+	"d8528470-976c-421b-a087-1201ac24302f",
+	"af90ebd4-1702-491f-85cd-2d5dbfad46bb",
+	'Start_Date',
+	'',
+	'',
+	'Start_Date',
 	0,
 	"ba5eda7a-def5-0000-0000-00000000000e",
 	'',

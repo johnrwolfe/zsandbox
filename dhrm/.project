@@ -3,6 +3,9 @@
 	<name>dhrm</name>
 	<comment></comment>
 	<projects>
+		<project>Authenticate</project>
+		<project>HRsystem</project>
+		<project>UIHR</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>

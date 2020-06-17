@@ -93,7 +93,7 @@ INSERT INTO GD_GE
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9",
 	94,
 	0,
-	'dhrm::hrm::hr::UI::HRUI');
+	'dhrm::hrm::hr::UI::EP');
 INSERT INTO GD_CON
 	VALUES ("b982d6cf-9550-416f-8b35-312dcfff4b27",
 	"00000000-0000-0000-0000-000000000000");
@@ -202,15 +202,67 @@ INSERT INTO C_PO
 	0);
 INSERT INTO C_IR
 	VALUES ("e211a314-f4cf-4d96-ab5d-86594500f9c9",
-	"00000000-0000-0000-0000-000000000000",
+	"102214df-1d03-428f-9eb8-5c5ce18bfdae",
 	"00000000-0000-0000-0000-000000000000",
 	"498d117c-4422-44a6-af7e-6cb02ada65c5");
 INSERT INTO C_P
 	VALUES ("e211a314-f4cf-4d96-ab5d-86594500f9c9",
-	'HRUI',
+	'EP',
 	'HRUI',
 	'',
-	'hr::UI::HRUI');
+	'hr::UI::EP');
+INSERT INTO SPR_PEP
+	VALUES ("b3751cfe-f7d1-4b87-977b-569a2a41c9e9",
+	"be4e38a9-c84b-44ce-a173-d57405caeeca",
+	"e211a314-f4cf-4d96-ab5d-86594500f9c9");
+INSERT INTO SPR_PS
+	VALUES ("b3751cfe-f7d1-4b87-977b-569a2a41c9e9",
+	'Request',
+	'',
+	'//Check of the new recruite exists, if not create a new instance of the employee. 
+
+select any employee from instances of Employee where ((selected.FName == param.FName) AND (selected.LName == param.LName) AND (selected.National_ID == param.National_ID));
+if ( empty employee )
+	create object instance employee of Employee;
+	// Forward this message, as an event, to the employee.
+	generate Employee1:newEmployeeRcvd(FName:param.FName, LName:param.LName, National_ID:param.National_ID ) to employee;
+end if;
+
+
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("be4e38a9-c84b-44ce-a173-d57405caeeca",
+	"102214df-1d03-428f-9eb8-5c5ce18bfdae",
+	-1,
+	'Request',
+	'',
+	'../../../../../UIHR/models/UIHR/UIHR/Shared/EP/EP.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("607600cb-3165-4d06-a2f0-572636b3b2ef",
+	"f83ecd5c-00bd-42d1-a795-2868eba34aec",
+	"e211a314-f4cf-4d96-ab5d-86594500f9c9");
+INSERT INTO SPR_PS
+	VALUES ("607600cb-3165-4d06-a2f0-572636b3b2ef",
+	'Reply',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("f83ecd5c-00bd-42d1-a795-2868eba34aec",
+	"102214df-1d03-428f-9eb8-5c5ce18bfdae",
+	-1,
+	'Reply',
+	'',
+	'../../../../../UIHR/models/UIHR/UIHR/Shared/EP/EP.xtuml');
+INSERT INTO C_I_PROXY
+	VALUES ("102214df-1d03-428f-9eb8-5c5ce18bfdae",
+	"00000000-0000-0000-0000-000000000000",
+	'EP',
+	'',
+	'../../../../../UIHR/models/UIHR/UIHR/Shared/EP/EP.xtuml');
 INSERT INTO PE_PE
 	VALUES ("8e4782c3-9567-4154-87b3-67069634e7a5",
 	1,

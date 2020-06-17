@@ -12,7 +12,7 @@ INSERT INTO SM_MOORE
 INSERT INTO SM_EVTDI
 	VALUES ("1b4a66b0-5c23-4de8-9ae7-736c9f81c8b5",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
-	'Name',
+	'FName',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
@@ -36,6 +36,24 @@ INSERT INTO SM_EVTDI
 	'',
 	"291931bf-a34c-4717-94e5-c19b2a6bb5d3",
 	"9b9b1fdb-7d5f-4288-b2ee-0d0fbd33bfec");
+INSERT INTO SM_EVTDI
+	VALUES ("ae225fc1-9a11-41aa-8f79-514a33c9ec6a",
+	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
+	'LName',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	"291931bf-a34c-4717-94e5-c19b2a6bb5d3",
+	"6709edaf-3b9c-4b26-a13a-6335f0827992");
+INSERT INTO SM_EVTDI
+	VALUES ("f2e606c4-81bd-4c9c-b2ca-bb207454268c",
+	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
+	'date',
+	'',
+	"ba5eda7a-def5-0000-0000-00000000000e",
+	'',
+	"4399bed0-4e99-4616-aa45-eb724333bc35",
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO SM_LEVT
 	VALUES ("291931bf-a34c-4717-94e5-c19b2a6bb5d3",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
@@ -155,8 +173,13 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("2453e957-c72c-4ed6-a1bc-d234c403269c",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
-	3,
-	'',
+	1,
+	'//Check of the new recruite exists, if not create a new instance of the employee. 
+	employee.FName =rcvd_evt.FName ;
+	employee.LName = rcvd_evt.LName;
+	employee.National_ID = rcvd_evt.National_ID;
+
+',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -260,7 +283,7 @@ INSERT INTO GD_GE
 	"292e5e93-2492-4c50-a140-f80cba136b89",
 	49,
 	0,
-	'Employee1: newEmployeeRcvd(Name, National_ID, Birth_Date)');
+	'Employee1: newEmployeeRcvd(FName, National_ID, Birth_Date, LName)');
 INSERT INTO GD_CON
 	VALUES ("08d89651-9bdd-4e26-b02a-e04f7b6e5cf9",
 	"00000000-0000-0000-0000-000000000000");
