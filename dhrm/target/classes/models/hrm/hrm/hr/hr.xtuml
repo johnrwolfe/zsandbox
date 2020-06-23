@@ -222,7 +222,7 @@ INSERT INTO SPR_PS
 	'//If there is not match for an employee, then create a new employee.
 select any employee from instances of Employee where selected.FName==param.FName and selected.LName==param.LName and selected.National_ID==param.National_ID;
 if ( empty employee )
-	create object instance repeater of Employee;
+	create object instance employee of Employee;
 	generate Employee1:newEmployeeRcvd(FName:param.FName, LName:param.LName, National_ID:param.National_ID) to employee;
 	UI::Reply( msg:"Employee added successfully.", state:True);
 else 
