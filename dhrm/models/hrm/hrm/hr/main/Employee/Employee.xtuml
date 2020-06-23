@@ -7,6 +7,51 @@ INSERT INTO O_OBJ
 	'Employee',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("405baa66-75e7-4b59-bf9b-44fc101b3b87",
+	"d8528470-976c-421b-a087-1201ac24302f",
+	'createEmployee',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'	
+	
+create object instance employee of Employee;
+
+employee.FName = param.FName;
+employee.LName = param.LName;
+employee.National_ID = param.National_ID;',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("a9e77999-b951-4b68-ab86-bf43a9cf5a45",
+	"405baa66-75e7-4b59-bf9b-44fc101b3b87",
+	'FName',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("04bd46df-5a2e-4b22-804b-6f730d9adbfb",
+	"405baa66-75e7-4b59-bf9b-44fc101b3b87",
+	'LName',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"a9e77999-b951-4b68-ab86-bf43a9cf5a45",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("b69dff9e-b8bb-4581-86a2-1c1408c29f5f",
+	"405baa66-75e7-4b59-bf9b-44fc101b3b87",
+	'National_ID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"04bd46df-5a2e-4b22-804b-6f730d9adbfb",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("7e42a956-78c5-4651-8efb-01820a985edd",
 	"d8528470-976c-421b-a087-1201ac24302f");
