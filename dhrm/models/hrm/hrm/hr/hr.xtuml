@@ -231,8 +231,10 @@ if ( empty employee )
 	UI::Reply( msg:"Employee added successfully.", state:True);
 else 
 	
-	LOG::LogInfo(message:"Employee already exists!" );
-	generate Employee1:employeeUpdateRcvd(FName:param.FName, LName:param.LName) to employee;	
+	LOG::LogInfo(message:"Employee already exists." );
+	LOG::LogInfo(message:"Updating details." );
+	employee.FName = param.FName;
+	employee.LName = param.LName;	
 	//UI::Reply( msg:"Employee already exists", state:False);
 end if;
 ',
