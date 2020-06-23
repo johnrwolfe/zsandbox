@@ -44,15 +44,6 @@ INSERT INTO C_PP
 	0,
 	'',
 	"b1170977-7e1a-4e1e-8ec1-9e9ef2712f79");
-INSERT INTO C_PP
-	VALUES ("52485bae-80b3-4ec8-b984-d694289d322f",
-	"be4e38a9-c84b-44ce-a173-d57405caeeca",
-	"ba5eda7a-def5-0000-0000-00000000000e",
-	'Birth_Date',
-	'',
-	0,
-	'',
-	"28761f9b-5da3-4284-aa06-53a1471a18fd");
 INSERT INTO C_EP
 	VALUES ("f83ecd5c-00bd-42d1-a795-2868eba34aec",
 	"102214df-1d03-428f-9eb8-5c5ce18bfdae",

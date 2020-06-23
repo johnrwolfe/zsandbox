@@ -28,15 +28,6 @@ INSERT INTO SM_EVTDI
 	"291931bf-a34c-4717-94e5-c19b2a6bb5d3",
 	"1b4a66b0-5c23-4de8-9ae7-736c9f81c8b5");
 INSERT INTO SM_EVTDI
-	VALUES ("6709edaf-3b9c-4b26-a13a-6335f0827992",
-	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
-	'Birth_Date',
-	'',
-	"ba5eda7a-def5-0000-0000-00000000000e",
-	'',
-	"291931bf-a34c-4717-94e5-c19b2a6bb5d3",
-	"9b9b1fdb-7d5f-4288-b2ee-0d0fbd33bfec");
-INSERT INTO SM_EVTDI
 	VALUES ("ae225fc1-9a11-41aa-8f79-514a33c9ec6a",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
 	'LName',
@@ -44,7 +35,7 @@ INSERT INTO SM_EVTDI
 	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	"291931bf-a34c-4717-94e5-c19b2a6bb5d3",
-	"6709edaf-3b9c-4b26-a13a-6335f0827992");
+	"9b9b1fdb-7d5f-4288-b2ee-0d0fbd33bfec");
 INSERT INTO SM_LEVT
 	VALUES ("291931bf-a34c-4717-94e5-c19b2a6bb5d3",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
@@ -169,7 +160,6 @@ INSERT INTO SM_ACT
 	FName =rcvd_evt.FName ;
 	LName = rcvd_evt.LName;
 	National_ID = rcvd_evt.National_ID;
-	Birth_Date = rcvd_evt.Birth_Date;
 
 LOG::LogInfo( message:"A new employee is added to the system:"+ FName + LName);
 ',
@@ -282,7 +272,7 @@ INSERT INTO GD_GE
 	"292e5e93-2492-4c50-a140-f80cba136b89",
 	49,
 	0,
-	'Employee1: newEmployeeRcvd(FName, National_ID, Birth_Date, LName)');
+	'Employee1: newEmployeeRcvd(FName, National_ID, LName)');
 INSERT INTO GD_CON
 	VALUES ("08d89651-9bdd-4e26-b02a-e04f7b6e5cf9",
 	"00000000-0000-0000-0000-000000000000");
