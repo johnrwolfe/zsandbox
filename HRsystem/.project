@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>dhrm</name>
+	<name>HRsystem</name>
 	<comment></comment>
 	<projects>
-		<project>Authenticate</project>
-		<project>HRsystem</project>
-		<project>runtime</project>
+		<project>dhrm</project>
 		<project>UIHR</project>
 	</projects>
 	<buildSpec>

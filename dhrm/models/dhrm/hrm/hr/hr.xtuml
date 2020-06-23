@@ -223,8 +223,11 @@ INSERT INTO SPR_PS
 select any employee from instances of Employee where selected.FName==param.FName and selected.LName==param.LName and selected.National_ID==param.National_ID;
 if ( empty employee )
 	create object instance repeater of Employee;
-	LOG::LogInfo(message:"New employee is created" );
 	generate Employee1:newEmployeeRcvd(FName:param.FName, LName:param.LName, National_ID:param.National_ID, Birth_Date:param.Birth_Date) to employee;
+	UI::Reply( msg:"Employee added successfully.", state:True);
+else 
+	LOG::LogInfo(message:"Employee already exists!" );	
+	UI::Reply( msg:"Employee already exists.", state:False);
 end if;
 ',
 	1,
@@ -268,6 +271,11 @@ INSERT INTO SPR_PS
 select any employee from instances of Employee where selected.National_ID==param.National_ID;
 if ( not empty employee )
 	generate Employee2:commencedRcvd(date:param.date) to employee;
+	UI::Reply( msg:"Employee has commenced ", state:True);
+
+else 
+	LOG::LogInfo(message:"Employee is not registered!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
 end if;
 ',
 	1,
