@@ -32,7 +32,7 @@ INSERT INTO SM_EVTDI
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
 	'Birth_Date',
 	'',
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-00000000000e",
 	'',
 	"291931bf-a34c-4717-94e5-c19b2a6bb5d3",
 	"9b9b1fdb-7d5f-4288-b2ee-0d0fbd33bfec");
@@ -41,7 +41,7 @@ INSERT INTO SM_EVTDI
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
 	'LName',
 	'',
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	"291931bf-a34c-4717-94e5-c19b2a6bb5d3",
 	"6709edaf-3b9c-4b26-a13a-6335f0827992");
@@ -174,10 +174,11 @@ INSERT INTO SM_ACT
 	VALUES ("2453e957-c72c-4ed6-a1bc-d234c403269c",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
 	1,
-	'//Check of the new recruite exists, if not create a new instance of the employee. 
-	employee.FName =rcvd_evt.FName ;
-	employee.LName = rcvd_evt.LName;
-	employee.National_ID = rcvd_evt.National_ID;
+	'//Assign attributes to the new employee
+	FName =rcvd_evt.FName ;
+	LName = rcvd_evt.LName;
+	National_ID = rcvd_evt.National_ID;
+	Birth_Date = rcvd_evt.Birth_Date;
 
 ',
 	'',
@@ -206,8 +207,12 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("afb84c0b-8b92-481f-b009-4ac610325ad2",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
-	3,
-	'',
+	1,
+	'//add commencing date of a new employee
+Start_Date = rcvd_evt.date;
+LOG::LogInfo( message:"New employee has commenced");
+
+',
 	'',
 	0);
 INSERT INTO SM_TAH
