@@ -25,14 +25,14 @@ INSERT INTO GD_MD
 	0,
 	0,
 	'4.1.17',
-	'dhrm::hr_datatypes');
+	'hrm::hr_datatypes');
 INSERT INTO GD_GE
 	VALUES ("02184012-d96b-4d11-b529-6c6ad43a4969",
 	"192d2bad-eea3-4a0b-8334-4b7934242c6b",
 	"168b328b-2af0-412b-bbf5-7e71f1fea433",
 	51,
 	0,
-	'dhrm::hr_datatypes::Employees');
+	'hrm::hr_datatypes::Employees');
 INSERT INTO GD_SHP
 	VALUES ("02184012-d96b-4d11-b529-6c6ad43a4969");
 INSERT INTO GD_NCS
@@ -56,7 +56,7 @@ INSERT INTO GD_GE
 	"0d542083-4531-45d6-8411-30f81c92d642",
 	101,
 	0,
-	'dhrm::hr_datatypes::structureData');
+	'hrm::hr_datatypes::structureData');
 INSERT INTO GD_SHP
 	VALUES ("75315f47-767f-4cf5-9e10-41a01d18c3b6");
 INSERT INTO GD_NCS
@@ -128,6 +128,6 @@ INSERT INTO PE_PE
 	7);
 INSERT INTO S_SYS_PROXY
 	VALUES ("ccdb2e52-76fc-4422-936f-a0239fd9d106",
-	'dhrm',
+	'hrm',
 	1,
-	'../dhrm.xtuml');
+	'../hrm.xtuml');

@@ -249,14 +249,14 @@ INSERT INTO GD_MD
 	0,
 	0,
 	'4.1.17',
-	'dhrm::hrm::hr::main::Employee::Instance State Machine');
+	'hrm::hrm::hr::main::Employee::Instance State Machine');
 INSERT INTO GD_GE
 	VALUES ("35340b72-a698-43a9-950c-8ff984a45719",
 	"704fdc3f-4d4e-4da3-b3b7-7544b6f5fab6",
 	"d5537fcc-bc55-4cfb-8675-25a46ab91a01",
 	41,
 	0,
-	'dhrm::hrm::hr::main::Employee::Instance State Machine::Recruited');
+	'hrm::hrm::hr::main::Employee::Instance State Machine::Recruited');
 INSERT INTO GD_SHP
 	VALUES ("35340b72-a698-43a9-950c-8ff984a45719");
 INSERT INTO GD_NCS
@@ -390,7 +390,7 @@ INSERT INTO GD_GE
 	"7c656ab4-0ad9-4212-b7de-2ffb50ca75b4",
 	41,
 	0,
-	'dhrm::hrm::hr::main::Employee::Instance State Machine::Working');
+	'hrm::hrm::hr::main::Employee::Instance State Machine::Working');
 INSERT INTO GD_SHP
 	VALUES ("5a08134b-a95f-4abb-aa2d-4518a032e798");
 INSERT INTO GD_NCS
@@ -419,7 +419,7 @@ INSERT INTO GD_GE
 	"e2bf3f31-2233-4fb0-9b43-3748dd5ec034",
 	42,
 	0,
-	'dhrm::hrm::hr::main::Employee::Instance State Machine::Recruited::Employee2: commencedRcvd');
+	'hrm::hrm::hr::main::Employee::Instance State Machine::Recruited::Employee2: commencedRcvd');
 INSERT INTO GD_CON
 	VALUES ("f84eae49-c82d-45b4-8c15-f2d7416b1878",
 	"00000000-0000-0000-0000-000000000000");

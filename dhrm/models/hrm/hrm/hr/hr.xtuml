@@ -28,14 +28,14 @@ INSERT INTO GD_MD
 	150,
 	0,
 	'4.1.17',
-	'dhrm::hrm::hr');
+	'hrm::hrm::hr');
 INSERT INTO GD_GE
 	VALUES ("26ab6a35-97f1-49d5-ae78-5b9e619b0c16",
 	"ee86ddd2-4d3a-47ec-8131-c5225c1bb12b",
 	"8e4782c3-9567-4154-87b3-67069634e7a5",
 	103,
 	0,
-	'dhrm::hrm::hr');
+	'hrm::hrm::hr');
 INSERT INTO GD_SHP
 	VALUES ("26ab6a35-97f1-49d5-ae78-5b9e619b0c16");
 INSERT INTO GD_CTR
@@ -69,7 +69,7 @@ INSERT INTO GD_GE
 	"fdd8efa1-97d4-4adc-a67d-1fb0bd49373b",
 	108,
 	0,
-	'dhrm::hrm::hr::main');
+	'hrm::hrm::hr::main');
 INSERT INTO GD_SHP
 	VALUES ("909ab02b-31c7-429f-b99a-d940860bd6d2");
 INSERT INTO GD_NCS
@@ -93,7 +93,7 @@ INSERT INTO GD_GE
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9",
 	94,
 	0,
-	'dhrm::hrm::hr::UI::EP');
+	'hrm::hrm::hr::UI::EP');
 INSERT INTO GD_CON
 	VALUES ("b982d6cf-9550-416f-8b35-312dcfff4b27",
 	"00000000-0000-0000-0000-000000000000");

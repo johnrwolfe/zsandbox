@@ -25,7 +25,7 @@ INSERT INTO GD_MD
 	0,
 	0,
 	'',
-	'UIHR::UIHR::UI::UI');
+	'HRUI::UI::UI::UI');
 INSERT INTO DIM_DIA
 	VALUES ("46a50ca9-1f9d-4de6-88c7-b09ee7ee7391",
 	'',
@@ -77,6 +77,6 @@ INSERT INTO C_C_PROXY
 	'../UI.xtuml');
 INSERT INTO S_SYS_PROXY
 	VALUES ("46564f98-385d-43d9-876a-ca551a77e802",
-	'UIHR',
+	'HRUI',
 	1,
-	'../../../UIHR.xtuml');
+	'../../../HRUI.xtuml');

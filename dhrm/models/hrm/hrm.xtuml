@@ -2,7 +2,7 @@
 
 INSERT INTO S_SYS
 	VALUES ("ccdb2e52-76fc-4422-936f-a0239fd9d106",
-	'dhrm',
+	'hrm',
 	1);
 INSERT INTO GD_MD
 	VALUES ("d2c8956e-9205-4462-9c1a-506047c0b912",
@@ -22,14 +22,14 @@ INSERT INTO GD_MD
 	150,
 	0,
 	'',
-	'dhrm');
+	'hrm');
 INSERT INTO GD_GE
 	VALUES ("71c66339-3e2d-4499-8f00-c89dfd4dfc8c",
 	"d2c8956e-9205-4462-9c1a-506047c0b912",
 	"c26641d6-6bfe-4fa5-b78d-533f6fb8d396",
 	108,
 	0,
-	'dhrm::hrm');
+	'hrm::hrm');
 INSERT INTO GD_SHP
 	VALUES ("71c66339-3e2d-4499-8f00-c89dfd4dfc8c");
 INSERT INTO GD_NCS
@@ -53,7 +53,7 @@ INSERT INTO GD_GE
 	"27857a34-c690-49d3-a891-ae314dca5262",
 	108,
 	0,
-	'dhrm::hr_datatypes');
+	'hrm::hr_datatypes');
 INSERT INTO GD_SHP
 	VALUES ("440ae350-84b2-46a8-8c8a-2ec5bc3bc426");
 INSERT INTO GD_NCS
