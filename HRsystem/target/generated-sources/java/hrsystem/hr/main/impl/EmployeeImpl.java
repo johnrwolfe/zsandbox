@@ -129,11 +129,6 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
     }
     private String m_LName;
     @Override
-    public String getLName() throws XtumlException {
-        checkLiving();
-                return m_LName;
-    }
-    @Override
     public void setLName( String m_LName ) throws XtumlException {
         checkLiving();
         if ( StringUtil.inequality( m_LName, this.m_LName ) ) {
@@ -141,6 +136,11 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             this.m_LName = m_LName;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_LName", oldValue, this.m_LName));
         }
+    }
+    @Override
+    public String getLName() throws XtumlException {
+        checkLiving();
+                return m_LName;
     }
     private Date m_Start_Date;
     @Override
@@ -253,11 +253,11 @@ class EmptyEmployee extends ModelInstance<Employee,Hr> implements Employee {
     public void setBirth_Date( Date m_Birth_Date ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public String getLName() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setLName( String m_LName ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getLName() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setStart_Date( Date m_Start_Date ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );

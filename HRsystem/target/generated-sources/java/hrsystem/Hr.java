@@ -15,7 +15,9 @@ import io.ciera.runtime.summit.exceptions.BadArgumentException;
 import io.ciera.runtime.summit.exceptions.EmptyInstanceException;
 import io.ciera.runtime.summit.exceptions.XtumlException;
 import io.ciera.runtime.summit.util.LOG;
+import io.ciera.runtime.summit.util.TIM;
 import io.ciera.runtime.summit.util.impl.LOGImpl;
+import io.ciera.runtime.summit.util.impl.TIMImpl;
 
 import java.io.IOException;
 import java.util.Map;
@@ -32,6 +34,7 @@ public class Hr extends Component<Hr> {
         Employee_extent = new EmployeeSetImpl();
 
         LOG = null;
+        TIM = null;
         classDirectory = new TreeMap<>();
         classDirectory.put("Employee", EmployeeImpl.class);
     }
@@ -65,6 +68,11 @@ public class Hr extends Component<Hr> {
     public LOG LOG() {
         if ( null == LOG ) LOG = new LOGImpl<>( this );
         return LOG;
+    }
+    private TIM TIM;
+    public TIM TIM() {
+        if ( null == TIM ) TIM = new TIMImpl<>( this );
+        return TIM;
     }
 
 

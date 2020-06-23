@@ -36,7 +36,7 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
     }
 
     private void Working_entry_action( final Date p_date ) throws XtumlException {
-        Date Start_Date = p_date;
+        context().TIM().current_date();
         context().LOG().LogInfo( "New employee has commenced" );
     }
 

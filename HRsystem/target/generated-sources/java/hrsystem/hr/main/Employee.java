@@ -17,8 +17,8 @@ public interface Employee extends IModelInstance<Employee,Hr> {
     public void setNational_ID( int m_National_ID ) throws XtumlException;
     public Date getBirth_Date() throws XtumlException;
     public void setBirth_Date( Date m_Birth_Date ) throws XtumlException;
-    public String getLName() throws XtumlException;
     public void setLName( String m_LName ) throws XtumlException;
+    public String getLName() throws XtumlException;
     public void setStart_Date( Date m_Start_Date ) throws XtumlException;
     public Date getStart_Date() throws XtumlException;
 

@@ -24,18 +24,6 @@ public class HrUI extends Port<Hr> implements IEP {
     }
 
     // inbound messages
-    public void Start( final Date p_date,  final int p_National_ID ) throws XtumlException {
-        Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
-        if ( !employee.isEmpty() ) {
-            context().generate(new EmployeeImpl.commencedRcvd(getRunContext(), context().getId(),  p_date ).to(employee));
-            context().UI().Reply( "Employee has commenced ", true );
-        }
-        else {
-            context().LOG().LogInfo( "Employee is not registered!" );
-            context().UI().Reply( "Employee is not found.", false );
-        }
-    }
-
     public void New( final String p_FName,  final String p_LName,  final int p_National_ID,  final Date p_Birth_Date ) throws XtumlException {
         Employee employee = context().Employee_instances().anyWhere(selected -> ( StringUtil.equality( ((Employee)selected).getFName(), p_FName ) && StringUtil.equality( ((Employee)selected).getLName(), p_LName ) ) && ((Employee)selected).getNational_ID() == p_National_ID);
         if ( employee.isEmpty() ) {
@@ -46,6 +34,18 @@ public class HrUI extends Port<Hr> implements IEP {
         else {
             context().LOG().LogInfo( "Employee already exists!" );
             context().UI().Reply( "Employee already exists", false );
+        }
+    }
+
+    public void Start( final Date p_date,  final int p_National_ID ) throws XtumlException {
+        Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
+        if ( !employee.isEmpty() ) {
+            context().generate(new EmployeeImpl.commencedRcvd(getRunContext(), context().getId(),  p_date ).to(employee));
+            context().UI().Reply( "Employee has commenced ", true );
+        }
+        else {
+            context().LOG().LogInfo( "Employee is not registered!" );
+            context().UI().Reply( "Employee is not found.", false );
         }
     }
 
@@ -63,11 +63,11 @@ public class HrUI extends Port<Hr> implements IEP {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IEP.SIGNAL_NO_START:
-                Start(Date.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)));
-                break;
             case IEP.SIGNAL_NO_NEW:
                 New(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)), Date.deserialize(message.get(3)));
+                break;
+            case IEP.SIGNAL_NO_START:
+                Start(Date.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

@@ -210,8 +210,9 @@ INSERT INTO SM_ACT
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
 	1,
 	'//add commencing date of a new employee
-Start_Date = rcvd_evt.date;
+Start_Date = TIM::current_date(); //rcvd_evt.date;
 LOG::LogInfo( message:"New employee has commenced" );
+
 //LOG::LogInfo( message:"New employee has commenced");
 
 ',

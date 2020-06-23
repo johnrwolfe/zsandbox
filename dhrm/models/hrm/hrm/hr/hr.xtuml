@@ -270,7 +270,7 @@ INSERT INTO SPR_PS
 	'
 select any employee from instances of Employee where selected.National_ID==param.National_ID;
 if ( not empty employee )
-	generate Employee2:commencedRcvd(date:param.date) to employee;
+	generate Employee2:commencedRcvd() to employee;
 	UI::Reply( msg:"Employee has commenced ", state:True);
 
 else 
