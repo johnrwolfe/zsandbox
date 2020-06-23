@@ -148,8 +148,8 @@ INSERT INTO SM_ACT
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
 	1,
 	'//Assign attributes to the new employee
-	FName =rcvd_evt.FName ;
-	LName = rcvd_evt.LName;
+	//FName =rcvd_evt.FName ;
+	//LName = rcvd_evt.LName;
 	//National_ID = rcvd_evt.National_ID;
 
 LOG::LogInfo( message:"Updated employee Name:"+ self.FName + self.LName);
