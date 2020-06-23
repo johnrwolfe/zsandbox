@@ -224,6 +224,10 @@ select any employee from instances of Employee where selected.FName==param.FName
 if ( empty employee )
 	create object instance employee of Employee;
 	//generate Employee1:newEmployeeRcvd(FName:param.FName, LName:param.LName, National_ID:param.National_ID) to employee;
+	employee.FName = param.FName;
+	employee.LName = param.LName;
+	employee.National_ID = param.National_ID;
+	
 	UI::Reply( msg:"Employee added successfully.", state:True);
 else 
 	LOG::LogInfo(message:"Employee already exists!" );	
