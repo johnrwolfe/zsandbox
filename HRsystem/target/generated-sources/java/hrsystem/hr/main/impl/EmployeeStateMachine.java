@@ -27,7 +27,6 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
     }
 
     private void Recruited_entry_action() throws XtumlException {
-        context().LOG().LogInfo( ( "Updated employee Name:" + self().getFName() ) + self().getLName() );
     }
 
     private void Working_entry_action() throws XtumlException {

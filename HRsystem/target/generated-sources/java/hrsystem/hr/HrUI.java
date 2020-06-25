@@ -26,10 +26,7 @@ public class HrUI extends Port<Hr> implements IEP {
     public void New( final String p_FName,  final String p_LName,  final int p_National_ID ) throws XtumlException {
         Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
         if ( employee.isEmpty() ) {
-            employee = EmployeeImpl.create( context() );
-            employee.setFName( p_FName );
-            employee.setLName( p_LName );
-            employee.setNational_ID( p_National_ID );
+            employee.createEmployee( p_FName, p_LName, p_National_ID );
             context().UI().Reply( "Employee added successfully.", true );
         }
         else {

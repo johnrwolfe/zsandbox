@@ -25,14 +25,14 @@ INSERT INTO GD_MD
 	150,
 	0,
 	'',
-	'HRUI::UI::Shared');
+	'HRUI::HRUI::Shared');
 INSERT INTO GD_GE
 	VALUES ("927331ad-d65e-4e2c-8275-799133855e3a",
 	"d6bffb76-b36d-41e2-9be7-8aff2f37cd03",
 	"102214df-1d03-428f-9eb8-5c5ce18bfdae",
 	96,
 	0,
-	'HRUI::UI::Shared::EP');
+	'HRUI::HRUI::Shared::EP');
 INSERT INTO GD_SHP
 	VALUES ("927331ad-d65e-4e2c-8275-799133855e3a");
 INSERT INTO GD_NCS
@@ -67,10 +67,10 @@ INSERT INTO EP_PKG_PROXY
 	VALUES ("2ac1b93e-087c-4999-856e-c988c703dec6",
 	"46564f98-385d-43d9-876a-ca551a77e802",
 	"46564f98-385d-43d9-876a-ca551a77e802",
-	'UI',
+	'HRUI',
 	'',
 	0,
-	'../UI.xtuml');
+	'../HRUI.xtuml');
 INSERT INTO S_SYS_PROXY
 	VALUES ("46564f98-385d-43d9-876a-ca551a77e802",
 	'HRUI',
