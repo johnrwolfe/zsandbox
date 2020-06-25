@@ -253,9 +253,7 @@ INSERT INTO SPR_PS
 	VALUES ("fd447b6f-5a17-4d1f-8f3d-080eeeb6d3b5",
 	'Reply',
 	'',
-	'//select many employee from instances of Employee;
-//Employees emp = employee
-//UI::Reply(emp);',
+	'',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
