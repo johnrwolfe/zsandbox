@@ -4,7 +4,7 @@ INSERT INTO EP_PKG
 	VALUES ("c26641d6-6bfe-4fa5-b78d-533f6fb8d396",
 	"ccdb2e52-76fc-4422-936f-a0239fd9d106",
 	"ccdb2e52-76fc-4422-936f-a0239fd9d106",
-	'hrm',
+	'HRM',
 	'',
 	0);
 INSERT INTO GD_MD
@@ -25,14 +25,14 @@ INSERT INTO GD_MD
 	150,
 	0,
 	'',
-	'hrm::hrm');
+	'hrm::HRM');
 INSERT INTO GD_GE
 	VALUES ("f5739c23-9126-43ad-9a1b-0f37c7e1dd94",
 	"8458b4a8-d1ae-46e5-8dd3-03126e082c37",
 	"8e4782c3-9567-4154-87b3-67069634e7a5",
 	98,
 	0,
-	'hrm::hrm::hr');
+	'hrm::HRM::hr');
 INSERT INTO GD_SHP
 	VALUES ("f5739c23-9126-43ad-9a1b-0f37c7e1dd94");
 INSERT INTO GD_NCS
@@ -66,7 +66,7 @@ INSERT INTO GD_GE
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9",
 	94,
 	0,
-	'hrm::hrm::hr::UI::EP');
+	'hrm::HRM::hr::UI::EP');
 INSERT INTO GD_CON
 	VALUES ("b7208601-6c1d-4a70-9874-af630427b85c",
 	"00000000-0000-0000-0000-000000000000");

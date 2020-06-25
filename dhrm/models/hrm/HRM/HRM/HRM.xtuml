@@ -4,7 +4,7 @@ INSERT INTO C_C
 	VALUES ("8e4782c3-9567-4154-87b3-67069634e7a5",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000",
-	'hr',
+	'HRM',
 	'',
 	0,
 	"00000000-0000-0000-0000-000000000000",
@@ -28,14 +28,14 @@ INSERT INTO GD_MD
 	150,
 	0,
 	'4.1.17',
-	'hrm::hrm::hr');
+	'hrm::HRM::HRM');
 INSERT INTO GD_GE
 	VALUES ("26ab6a35-97f1-49d5-ae78-5b9e619b0c16",
 	"ee86ddd2-4d3a-47ec-8131-c5225c1bb12b",
 	"8e4782c3-9567-4154-87b3-67069634e7a5",
 	103,
 	0,
-	'hrm::hrm::hr');
+	'hrm::HRM::HRM');
 INSERT INTO GD_SHP
 	VALUES ("26ab6a35-97f1-49d5-ae78-5b9e619b0c16");
 INSERT INTO GD_CTR
@@ -69,7 +69,7 @@ INSERT INTO GD_GE
 	"fdd8efa1-97d4-4adc-a67d-1fb0bd49373b",
 	108,
 	0,
-	'hrm::hrm::hr::main');
+	'hrm::HRM::HRM::classes');
 INSERT INTO GD_SHP
 	VALUES ("909ab02b-31c7-429f-b99a-d940860bd6d2");
 INSERT INTO GD_NCS
@@ -93,7 +93,7 @@ INSERT INTO GD_GE
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9",
 	94,
 	0,
-	'hrm::hrm::hr::UI::EP');
+	'hrm::HRM::HRM::UI::EP');
 INSERT INTO GD_CON
 	VALUES ("b982d6cf-9550-416f-8b35-312dcfff4b27",
 	"00000000-0000-0000-0000-000000000000");
@@ -210,7 +210,7 @@ INSERT INTO C_P
 	'EP',
 	'HRUI',
 	'',
-	'hr::UI::EP');
+	'HRM::UI::EP');
 INSERT INTO SPR_PEP
 	VALUES ("7582ba79-c063-4631-bcbe-dde14b231908",
 	"be4e38a9-c84b-44ce-a173-d57405caeeca",
@@ -244,7 +244,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'New',
 	'',
-	'../../../../../HRUI/models/HRUI/UI/Shared/EP/EP.xtuml');
+	'../../../../../HRUI/models/HRUI/HRUI/Shared/EP/EP.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("fd447b6f-5a17-4d1f-8f3d-080eeeb6d3b5",
 	"f83ecd5c-00bd-42d1-a795-2868eba34aec",
@@ -264,7 +264,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'Reply',
 	'',
-	'../../../../../HRUI/models/HRUI/UI/Shared/EP/EP.xtuml');
+	'../../../../../HRUI/models/HRUI/HRUI/Shared/EP/EP.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("8e12193a-4915-4e0c-8044-11c6b3eaf358",
 	"dd791a09-c8bd-4868-8174-4726cea8e2d3",
@@ -292,13 +292,13 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'Start',
 	'',
-	'../../../../../HRUI/models/HRUI/UI/Shared/EP/EP.xtuml');
+	'../../../../../HRUI/models/HRUI/HRUI/Shared/EP/EP.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("102214df-1d03-428f-9eb8-5c5ce18bfdae",
 	"00000000-0000-0000-0000-000000000000",
 	'EP',
 	'',
-	'../../../../../HRUI/models/HRUI/UI/Shared/EP/EP.xtuml');
+	'../../../../../HRUI/models/HRUI/HRUI/Shared/EP/EP.xtuml');
 INSERT INTO PE_PE
 	VALUES ("8e4782c3-9567-4154-87b3-67069634e7a5",
 	1,
@@ -309,7 +309,7 @@ INSERT INTO EP_PKG_PROXY
 	VALUES ("c26641d6-6bfe-4fa5-b78d-533f6fb8d396",
 	"ccdb2e52-76fc-4422-936f-a0239fd9d106",
 	"ccdb2e52-76fc-4422-936f-a0239fd9d106",
-	'hrm',
+	'HRM',
 	'',
 	0,
-	'../hrm.xtuml');
+	'../HRM.xtuml');
