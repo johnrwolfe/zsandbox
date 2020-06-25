@@ -69,7 +69,7 @@ INSERT INTO GD_GE
 	"fdd8efa1-97d4-4adc-a67d-1fb0bd49373b",
 	108,
 	0,
-	'hrm::hrm::hr::classes');
+	'hrm::hrm::hr::main');
 INSERT INTO GD_SHP
 	VALUES ("909ab02b-31c7-429f-b99a-d940860bd6d2");
 INSERT INTO GD_NCS
@@ -222,8 +222,8 @@ INSERT INTO SPR_PS
 	'//If there is not match for an employee, then create a new employee.
 select any employee from instances of Employee where selected.National_ID==param.National_ID;
 if ( empty employee )
-	//create object instance employee of Employee;
-	employee.createEmployee( FName:param.FName, LName:param.LName, National_ID: param.National_ID);
+	create object instance employee of Employee;
+	//employee.createEmployee( FName:param.FName, LName:param.LName, National_ID: param.National_ID);
 	//generate Employee1:newEmployeeRcvd(FName:param.FName, LName:param.LName, National_ID:param.National_ID) to employee;
 	
 	UI::Reply( msg:"Employee added successfully.", state:True);
@@ -244,7 +244,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'New',
 	'',
-	'../../../../../HRUI/models/HRUI/HRUI/Shared/EP/EP.xtuml');
+	'../../../../../HRUI/models/HRUI/UI/Shared/EP/EP.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("fd447b6f-5a17-4d1f-8f3d-080eeeb6d3b5",
 	"f83ecd5c-00bd-42d1-a795-2868eba34aec",
@@ -264,7 +264,7 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'Reply',
 	'',
-	'../../../../../HRUI/models/HRUI/HRUI/Shared/EP/EP.xtuml');
+	'../../../../../HRUI/models/HRUI/UI/Shared/EP/EP.xtuml');
 INSERT INTO SPR_PEP
 	VALUES ("8e12193a-4915-4e0c-8044-11c6b3eaf358",
 	"dd791a09-c8bd-4868-8174-4726cea8e2d3",
@@ -292,13 +292,13 @@ INSERT INTO C_EP_PROXY
 	-1,
 	'Start',
 	'',
-	'../../../../../HRUI/models/HRUI/HRUI/Shared/EP/EP.xtuml');
+	'../../../../../HRUI/models/HRUI/UI/Shared/EP/EP.xtuml');
 INSERT INTO C_I_PROXY
 	VALUES ("102214df-1d03-428f-9eb8-5c5ce18bfdae",
 	"00000000-0000-0000-0000-000000000000",
 	'EP',
 	'',
-	'../../../../../HRUI/models/HRUI/HRUI/Shared/EP/EP.xtuml');
+	'../../../../../HRUI/models/HRUI/UI/Shared/EP/EP.xtuml');
 INSERT INTO PE_PE
 	VALUES ("8e4782c3-9567-4154-87b3-67069634e7a5",
 	1,
