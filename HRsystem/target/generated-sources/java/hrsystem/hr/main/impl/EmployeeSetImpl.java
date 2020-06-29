@@ -3,6 +3,8 @@ package hrsystem.hr.main.impl;
 
 import hrsystem.hr.main.Employee;
 import hrsystem.hr.main.EmployeeSet;
+import hrsystem.hr.main.Employee_LeaveSet;
+import hrsystem.hr.main.impl.Employee_LeaveSetImpl;
 
 import io.ciera.runtime.summit.classes.InstanceSet;
 import io.ciera.runtime.summit.exceptions.XtumlException;
@@ -24,6 +26,10 @@ public class EmployeeSetImpl extends InstanceSet<EmployeeSet,Employee> implement
 
     // attributes
     @Override
+    public void setNational_ID( int m_National_ID ) throws XtumlException {
+        for ( Employee employee : this ) employee.setNational_ID( m_National_ID );
+    }
+    @Override
     public void setFName( String m_FName ) throws XtumlException {
         for ( Employee employee : this ) employee.setFName( m_FName );
     }
@@ -32,16 +38,18 @@ public class EmployeeSetImpl extends InstanceSet<EmployeeSet,Employee> implement
         for ( Employee employee : this ) employee.setStart_Date( m_Start_Date );
     }
     @Override
-    public void setNational_ID( int m_National_ID ) throws XtumlException {
-        for ( Employee employee : this ) employee.setNational_ID( m_National_ID );
-    }
-    @Override
     public void setLName( String m_LName ) throws XtumlException {
         for ( Employee employee : this ) employee.setLName( m_LName );
     }
 
 
     // selections
+    @Override
+    public Employee_LeaveSet R1_Employee_Leave() throws XtumlException {
+        Employee_LeaveSet employee_leaveset = new Employee_LeaveSetImpl();
+        for ( Employee employee : this ) employee_leaveset.addAll( employee.R1_Employee_Leave() );
+        return employee_leaveset;
+    }
 
 
     @Override

@@ -1,0 +1,41 @@
+package ui.shared;
+
+
+import io.ciera.runtime.summit.exceptions.XtumlException;
+import io.ciera.runtime.summit.interfaces.Message;
+import io.ciera.runtime.summit.types.Date;
+
+
+public interface ILeave {
+
+    // to provider messages
+    public static final int SIGNAL_NO_NEW_LEAVE = 1;
+    public static class New_Leave extends Message {
+        public New_Leave( final String p_Name,  final int p_NumberOfAllowedDays ) {
+            super(new Object[]{p_Name,  p_NumberOfAllowedDays});
+        }
+        @Override
+        public int getId() {
+            return SIGNAL_NO_NEW_LEAVE;
+        }
+ 
+    }
+    public void New_Leave( final String p_Name,  final int p_NumberOfAllowedDays ) throws XtumlException;
+    public static final int SIGNAL_NO_REQUEST = 2;
+    public static class Request extends Message {
+        public Request( final Date p_Starting,  final Date p_Ending,  final int p_National_ID,  final String p_Name ) {
+            super(new Object[]{p_Starting,  p_Ending,  p_National_ID,  p_Name});
+        }
+        @Override
+        public int getId() {
+            return SIGNAL_NO_REQUEST;
+        }
+ 
+    }
+    public void Request( final Date p_Starting,  final Date p_Ending,  final int p_National_ID,  final String p_Name ) throws XtumlException;
+
+
+    // from provider messages
+
+
+}

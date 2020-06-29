@@ -4,7 +4,7 @@ INSERT INTO O_OBJ
 	VALUES ("d8528470-976c-421b-a087-1201ac24302f",
 	'Employee',
 	1,
-	'Employee',
+	'EM',
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_TFR
@@ -16,7 +16,7 @@ INSERT INTO O_TFR
 	1,
 	'	
 	
-create object instance employee of Employee;
+create object instance employee of EM;
 
 employee.FName = param.FName;
 employee.LName = param.LName;
@@ -145,6 +145,11 @@ INSERT INTO O_ATTR
 INSERT INTO O_ID
 	VALUES (0,
 	"d8528470-976c-421b-a087-1201ac24302f");
+INSERT INTO O_OIDA
+	VALUES ("9066db86-0565-4761-9920-bcf2a1cd02d9",
+	"d8528470-976c-421b-a087-1201ac24302f",
+	0,
+	'National_ID');
 INSERT INTO O_ID
 	VALUES (1,
 	"d8528470-976c-421b-a087-1201ac24302f");

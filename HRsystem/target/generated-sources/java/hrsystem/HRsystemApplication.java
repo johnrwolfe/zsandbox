@@ -46,6 +46,8 @@ public class HRsystemApplication implements IApplication {
         components[0] = new UI(this, executors[0], 0);
         ((UI)components[0]).App().satisfy(((Hr)components[1]).UI());
         ((Hr)components[1]).UI().satisfy(((UI)components[0]).App());
+        ((UI)components[0]).App_Leave().satisfy(((Hr)components[1]).UI_Leave());
+        ((Hr)components[1]).UI_Leave().satisfy(((UI)components[0]).App_Leave());
     }
 
     public Hr Hr() {

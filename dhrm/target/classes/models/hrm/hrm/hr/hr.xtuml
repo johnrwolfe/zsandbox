@@ -63,6 +63,11 @@ INSERT INTO DIM_CON
 	5132.000000,
 	3550.000000,
 	"26ab6a35-97f1-49d5-ae78-5b9e619b0c16");
+INSERT INTO DIM_CON
+	VALUES ("47d98558-ece3-4afa-bbc0-db77078ee2cb",
+	4836.000000,
+	3900.000000,
+	"26ab6a35-97f1-49d5-ae78-5b9e619b0c16");
 INSERT INTO GD_GE
 	VALUES ("909ab02b-31c7-429f-b99a-d940860bd6d2",
 	"ee86ddd2-4d3a-47ec-8131-c5225c1bb12b",
@@ -187,6 +192,106 @@ INSERT INTO DIM_ED
 	VALUES ("70cfb4cd-5d43-4e26-96ff-1dc7871d832a",
 	"00000000-0000-0000-0000-000000000000",
 	"b982d6cf-9550-416f-8b35-312dcfff4b27");
+INSERT INTO GD_GE
+	VALUES ("eef2d986-d98e-43f4-8d78-347a6ab9fb65",
+	"ee86ddd2-4d3a-47ec-8131-c5225c1bb12b",
+	"c35b9fa4-4616-416a-9786-5ec0aff91faf",
+	94,
+	0,
+	'hrm::hrm::hr::UI_Leave::Leave');
+INSERT INTO GD_CON
+	VALUES ("eef2d986-d98e-43f4-8d78-347a6ab9fb65",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("49ba329d-48fc-4448-b581-5ed8e556314c",
+	"eef2d986-d98e-43f4-8d78-347a6ab9fb65",
+	0,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"49ba329d-48fc-4448-b581-5ed8e556314c");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"49ba329d-48fc-4448-b581-5ed8e556314c",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("49ba329d-48fc-4448-b581-5ed8e556314c",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("c771f046-6aea-40dd-a72a-44bcadd7c96d",
+	"eef2d986-d98e-43f4-8d78-347a6ab9fb65",
+	2,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"c771f046-6aea-40dd-a72a-44bcadd7c96d");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"c771f046-6aea-40dd-a72a-44bcadd7c96d",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("c771f046-6aea-40dd-a72a-44bcadd7c96d",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_CTXT
+	VALUES ("b301b090-a737-4b41-ac7a-6fde756fe687",
+	"eef2d986-d98e-43f4-8d78-347a6ab9fb65",
+	1,
+	0.000000,
+	0.000000);
+INSERT INTO DIM_ND
+	VALUES (0.000000,
+	0.000000,
+	"b301b090-a737-4b41-ac7a-6fde756fe687");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"b301b090-a737-4b41-ac7a-6fde756fe687",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("b301b090-a737-4b41-ac7a-6fde756fe687",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO GD_LS
+	VALUES ("b76cc992-a3ef-4063-ba56-554b528b4200",
+	"eef2d986-d98e-43f4-8d78-347a6ab9fb65",
+	"00000000-0000-0000-0000-000000000000",
+	"33c07e0a-9a31-420c-977f-c6ef00126cf8",
+	"4c9695a0-17f1-435a-b6e1-9696f86fa8ef");
+INSERT INTO DIM_WAY
+	VALUES ("33c07e0a-9a31-420c-977f-c6ef00126cf8",
+	4836.000000,
+	3900.000000,
+	"eef2d986-d98e-43f4-8d78-347a6ab9fb65",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_WAY
+	VALUES ("4c9695a0-17f1-435a-b6e1-9696f86fa8ef",
+	4837.000000,
+	3972.000000,
+	"eef2d986-d98e-43f4-8d78-347a6ab9fb65",
+	"00000000-0000-0000-0000-000000000000",
+	"33c07e0a-9a31-420c-977f-c6ef00126cf8");
+INSERT INTO DIM_GE
+	VALUES (0.000000,
+	0.000000,
+	"eef2d986-d98e-43f4-8d78-347a6ab9fb65",
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ELE
+	VALUES ("eef2d986-d98e-43f4-8d78-347a6ab9fb65",
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO DIM_ED
+	VALUES ("47d98558-ece3-4afa-bbc0-db77078ee2cb",
+	"00000000-0000-0000-0000-000000000000",
+	"eef2d986-d98e-43f4-8d78-347a6ab9fb65");
 INSERT INTO DIM_DIA
 	VALUES ("ee86ddd2-4d3a-47ec-8131-c5225c1bb12b",
 	'',
@@ -220,7 +325,7 @@ INSERT INTO SPR_PS
 	'New',
 	'',
 	'//If there is not match for an employee, then create a new employee.
-select any employee from instances of Employee where selected.National_ID==param.National_ID;
+select any employee from instances of EM where selected.National_ID==param.National_ID;
 if ( empty employee )
 	//create object instance employee of Employee;
 	employee.createEmployee( FName:param.FName, LName:param.LName, National_ID: param.National_ID);
@@ -272,9 +377,9 @@ INSERT INTO SPR_PS
 	'Start',
 	'',
 	'
-select any employee from instances of Employee where selected.National_ID==param.National_ID;
+select any employee from instances of EM where selected.National_ID==param.National_ID;
 if ( not empty employee )
-	generate Employee2:commencedRcvd() to employee;
+	generate EM2:commencedRcvd() to employee;
 	UI::Reply( msg:"Employee has commenced ", state:True);
 
 else 
@@ -297,6 +402,92 @@ INSERT INTO C_I_PROXY
 	'EP',
 	'',
 	'../../../../../HRUI/models/HRUI/UI/Shared/EP/EP.xtuml');
+INSERT INTO C_PO
+	VALUES ("e0104358-fe73-481d-9a6e-3afda587fafd",
+	"8e4782c3-9567-4154-87b3-67069634e7a5",
+	'UI_Leave',
+	0,
+	0);
+INSERT INTO C_IR
+	VALUES ("c35b9fa4-4616-416a-9786-5ec0aff91faf",
+	"1db612f7-881a-4a30-adad-f3a35c05bb90",
+	"00000000-0000-0000-0000-000000000000",
+	"e0104358-fe73-481d-9a6e-3afda587fafd");
+INSERT INTO C_P
+	VALUES ("c35b9fa4-4616-416a-9786-5ec0aff91faf",
+	'Leave',
+	'Unnamed Interface',
+	'',
+	'hr::UI_Leave::Leave');
+INSERT INTO SPR_PEP
+	VALUES ("e6633f24-e3b2-4fb0-b67e-088b8e09f976",
+	"1d101b95-2445-43c6-be97-23dade4e9158",
+	"c35b9fa4-4616-416a-9786-5ec0aff91faf");
+INSERT INTO SPR_PS
+	VALUES ("e6633f24-e3b2-4fb0-b67e-088b8e09f976",
+	'New_Leave',
+	'',
+	'//If there is no match for Leave, then create a new Leave.
+select any leave from instances of Leave where selected.Name==param.Name;
+if ( empty leave )
+	//create object instance employee of Employee;
+	leave.createLeave( Name:param.Name, NumberOfAllowedDays:param.NumberOfAllowedDays);
+	//generate Employee1:newEmployeeRcvd(FName:param.FName, LName:param.LName, National_ID:param.National_ID) to employee;
+	
+	UI::Reply( msg:"Leave created successfully.", state:True);
+else 
+	
+	LOG::LogInfo(message:"Leave already exists!" );
+	//LOG::LogInfo(message:"Updating details." );
+	//employee.FName = param.FName;
+	//employee.LName = param.LName;	
+	//UI::Reply( msg:"Employee already exists", state:False);
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("1d101b95-2445-43c6-be97-23dade4e9158",
+	"1db612f7-881a-4a30-adad-f3a35c05bb90",
+	-1,
+	'New_Leave',
+	'',
+	'../../../../../HRUI/models/HRUI/UI/Shared/Leave/Leave.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("482c23f9-2fbe-43ba-861d-ac7101b5b6f7",
+	"5b22db55-b22f-4cc4-b387-b8ccbe203451",
+	"c35b9fa4-4616-416a-9786-5ec0aff91faf");
+INSERT INTO SPR_PS
+	VALUES ("482c23f9-2fbe-43ba-861d-ac7101b5b6f7",
+	'Request',
+	'',
+	'//Select an employee using the National ID to deliver the event to the statemachine
+// to serve the request for leave.
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+if ( not empty employee )
+	generate EM3:requestLeave(Starting:param.Starting, Ending:param.Ending, Name:param.Name, National_ID:param.National_ID) to employee;
+	UI::Reply( msg:"Employee has requested leave successfully ", state:True);
+
+else 
+	LOG::LogInfo(message:"Employee is not registered!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5b22db55-b22f-4cc4-b387-b8ccbe203451",
+	"1db612f7-881a-4a30-adad-f3a35c05bb90",
+	-1,
+	'Request',
+	'',
+	'../../../../../HRUI/models/HRUI/UI/Shared/Leave/Leave.xtuml');
+INSERT INTO C_I_PROXY
+	VALUES ("1db612f7-881a-4a30-adad-f3a35c05bb90",
+	"00000000-0000-0000-0000-000000000000",
+	'Leave',
+	'',
+	'../../../../../HRUI/models/HRUI/UI/Shared/Leave/Leave.xtuml');
 INSERT INTO PE_PE
 	VALUES ("8e4782c3-9567-4154-87b3-67069634e7a5",
 	1,
