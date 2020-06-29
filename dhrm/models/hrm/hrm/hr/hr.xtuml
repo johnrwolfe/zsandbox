@@ -325,7 +325,7 @@ INSERT INTO SPR_PS
 	'New',
 	'',
 	'//If there is not match for an employee, then create a new employee.
-select any employee from instances of Employee where selected.National_ID==param.National_ID;
+select any employee from instances of EM where selected.National_ID==param.National_ID;
 if ( empty employee )
 	//create object instance employee of Employee;
 	employee.createEmployee( FName:param.FName, LName:param.LName, National_ID: param.National_ID);
@@ -377,9 +377,9 @@ INSERT INTO SPR_PS
 	'Start',
 	'',
 	'
-select any employee from instances of Employee where selected.National_ID==param.National_ID;
+select any employee from instances of EM where selected.National_ID==param.National_ID;
 if ( not empty employee )
-	generate Employee2:commencedRcvd() to employee;
+	generate EM2:commencedRcvd() to employee;
 	UI::Reply( msg:"Employee has commenced ", state:True);
 
 else 
@@ -420,21 +420,66 @@ INSERT INTO C_P
 	'',
 	'hr::UI_Leave::Leave');
 INSERT INTO SPR_PEP
-	VALUES ("63d788ee-cbbf-4f56-81e3-427386dc14bd",
+	VALUES ("e6633f24-e3b2-4fb0-b67e-088b8e09f976",
 	"1d101b95-2445-43c6-be97-23dade4e9158",
 	"c35b9fa4-4616-416a-9786-5ec0aff91faf");
 INSERT INTO SPR_PS
-	VALUES ("63d788ee-cbbf-4f56-81e3-427386dc14bd",
+	VALUES ("e6633f24-e3b2-4fb0-b67e-088b8e09f976",
 	'New_Leave',
 	'',
-	'',
-	3,
+	'//If there is no match for Leave, then create a new Leave.
+select any leave from instances of Leave where selected.Name==param.Name;
+if ( empty leave )
+	//create object instance employee of Employee;
+	leave.createLeave( Name:param.Name, NumberOfAllowedDays:param.NumberOfAllowedDays);
+	//generate Employee1:newEmployeeRcvd(FName:param.FName, LName:param.LName, National_ID:param.National_ID) to employee;
+	
+	UI::Reply( msg:"Leave created successfully.", state:True);
+else 
+	
+	LOG::LogInfo(message:"Leave already exists!" );
+	//LOG::LogInfo(message:"Updating details." );
+	//employee.FName = param.FName;
+	//employee.LName = param.LName;	
+	//UI::Reply( msg:"Employee already exists", state:False);
+end if;
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("1d101b95-2445-43c6-be97-23dade4e9158",
 	"1db612f7-881a-4a30-adad-f3a35c05bb90",
 	-1,
 	'New_Leave',
+	'',
+	'../../../../../HRUI/models/HRUI/UI/Shared/Leave/Leave.xtuml');
+INSERT INTO SPR_PEP
+	VALUES ("482c23f9-2fbe-43ba-861d-ac7101b5b6f7",
+	"5b22db55-b22f-4cc4-b387-b8ccbe203451",
+	"c35b9fa4-4616-416a-9786-5ec0aff91faf");
+INSERT INTO SPR_PS
+	VALUES ("482c23f9-2fbe-43ba-861d-ac7101b5b6f7",
+	'Request',
+	'',
+	'//Select an employee using the National ID to deliver the event to the statemachine
+// to serve the request for leave.
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+if ( not empty employee )
+	generate EM3:requestLeave(Starting:param.Starting, Ending:param.Ending, Name:param.Name, National_ID:param.National_ID) to employee;
+	UI::Reply( msg:"Employee has requested leave successfully ", state:True);
+
+else 
+	LOG::LogInfo(message:"Employee is not registered!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
+end if;
+',
+	1,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5b22db55-b22f-4cc4-b387-b8ccbe203451",
+	"1db612f7-881a-4a30-adad-f3a35c05bb90",
+	-1,
+	'Request',
 	'',
 	'../../../../../HRUI/models/HRUI/UI/Shared/Leave/Leave.xtuml');
 INSERT INTO C_I_PROXY

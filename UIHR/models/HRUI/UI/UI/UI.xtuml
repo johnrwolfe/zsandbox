@@ -391,11 +391,11 @@ INSERT INTO C_R
 	'Unnamed Interface',
 	'UI::App_Leave::Leave');
 INSERT INTO SPR_REP
-	VALUES ("b85869fd-d8b6-4255-b6a6-08fe6aaafff9",
+	VALUES ("37c95c19-84e8-4982-aeff-c1af43a33a29",
 	"1d101b95-2445-43c6-be97-23dade4e9158",
 	"5cb88558-711f-4c4f-9d8a-f7db7239c228");
 INSERT INTO SPR_RS
-	VALUES ("b85869fd-d8b6-4255-b6a6-08fe6aaafff9",
+	VALUES ("37c95c19-84e8-4982-aeff-c1af43a33a29",
 	'New_Leave',
 	'',
 	'',
@@ -406,6 +406,24 @@ INSERT INTO C_EP_PROXY
 	"1db612f7-881a-4a30-adad-f3a35c05bb90",
 	-1,
 	'New_Leave',
+	'',
+	'../Shared/Leave/Leave.xtuml');
+INSERT INTO SPR_REP
+	VALUES ("9da61904-98b5-42fa-a869-ae5e21dbfc42",
+	"5b22db55-b22f-4cc4-b387-b8ccbe203451",
+	"5cb88558-711f-4c4f-9d8a-f7db7239c228");
+INSERT INTO SPR_RS
+	VALUES ("9da61904-98b5-42fa-a869-ae5e21dbfc42",
+	'Request',
+	'',
+	'',
+	3,
+	0);
+INSERT INTO C_EP_PROXY
+	VALUES ("5b22db55-b22f-4cc4-b387-b8ccbe203451",
+	"1db612f7-881a-4a30-adad-f3a35c05bb90",
+	-1,
+	'Request',
 	'',
 	'../Shared/Leave/Leave.xtuml');
 INSERT INTO C_I_PROXY
