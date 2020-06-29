@@ -32,7 +32,7 @@ INSERT INTO SM_EVTDI
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
 	'Starting',
 	'',
-	"ba5eda7a-def5-0000-0000-00000000000e",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	"72e23791-8d07-4687-ab77-eb4b6b93d382",
 	"00000000-0000-0000-0000-000000000000");
@@ -41,7 +41,7 @@ INSERT INTO SM_EVTDI
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
 	'Ending',
 	'',
-	"ba5eda7a-def5-0000-0000-00000000000e",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	"72e23791-8d07-4687-ab77-eb4b6b93d382",
 	"ee967642-7882-43f3-b780-ad8c47cf9402");
@@ -293,7 +293,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("becd648f-4aa1-43ca-9b3a-d3fc35c0fd00",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -323,8 +323,8 @@ assignTo.Starting = rcvd_evt.Starting;
 assignTo.Ending = rcvd_evt.Ending;
 
 LOG::LogInfo(message:"Requested"+ leave.Name +"leave");
-LOG::LogDate(message:"From", d:assignTo.Starting); 
-LOG::LogDate(message:"To", d:assignTo.Ending); ',
+LOG::LogInfo(message:"From"+ assignTo.Starting); 
+LOG::LogInfo(message:"To"+ assignTo.Ending); ',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -337,7 +337,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("2eea53ae-45bf-4e1b-9a3a-76c983a8c86d",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
-	3,
+	1,
 	'',
 	'',
 	0);

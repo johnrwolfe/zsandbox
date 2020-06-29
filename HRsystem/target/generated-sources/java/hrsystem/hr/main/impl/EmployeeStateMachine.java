@@ -10,7 +10,6 @@ import hrsystem.hr.main.impl.Employee_LeaveImpl;
 import io.ciera.runtime.summit.exceptions.XtumlException;
 import io.ciera.runtime.summit.statemachine.ITransition;
 import io.ciera.runtime.summit.statemachine.StateMachine;
-import io.ciera.runtime.summit.types.Date;
 import io.ciera.runtime.summit.types.StringUtil;
 
 
@@ -32,7 +31,7 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
         this.self = self;
     }
 
-    private void On_Leave_entry_action( final Date p_Starting,  final Date p_Ending,  final int p_National_ID,  final String p_Name ) throws XtumlException {
+    private void On_Leave_entry_action( final String p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) throws XtumlException {
         Employee_Leave assignTo = Employee_LeaveImpl.create( context() );
         Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
         Leave leave = context().Leave_instances().anyWhere(selected -> StringUtil.equality( ((Leave)selected).getName(), p_Name ));
@@ -42,8 +41,8 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
         assignTo.setStarting( p_Starting );
         assignTo.setEnding( p_Ending );
         context().LOG().LogInfo( ( "Requested" + leave.getName() ) + "leave" );
-        context().LOG().LogDate( assignTo.getStarting(), "From" );
-        context().LOG().LogDate( assignTo.getEnding(), "To" );
+        context().LOG().LogInfo( "From" + assignTo.getStarting() );
+        context().LOG().LogInfo( "To" + assignTo.getEnding() );
     }
 
     private void Recruited_entry_action() throws XtumlException {
@@ -60,14 +59,14 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
     public ITransition[][] getStateEventMatrix() {
         return new ITransition[][] {
             { CANT_HAPPEN,
-              CANT_HAPPEN,
-              (event) -> {Working_entry_action(); return Working;}
+              (event) -> {Working_entry_action(); return Working;},
+              CANT_HAPPEN
             },
             { CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN
             },
-            { (event) -> {On_Leave_entry_action((Date)event.get(0),  (Date)event.get(1),  (int)event.get(2),  (String)event.get(3)); return On_Leave;},
+            { (event) -> {On_Leave_entry_action((String)event.get(0),  (String)event.get(1),  (int)event.get(2),  (String)event.get(3)); return On_Leave;},
               CANT_HAPPEN,
               CANT_HAPPEN
             }

@@ -2,6 +2,7 @@ package hrsystem;
 
 
 import hrsystem.ui.UIApp;
+import hrsystem.ui.UIApp_Leave;
 
 import io.ciera.runtime.summit.application.IApplication;
 import io.ciera.runtime.summit.application.IRunContext;
@@ -39,13 +40,17 @@ public class UI extends Component<UI> {
 
 	private static GuiConnection requester = null;
     private static final int SOCKET_ERROR = -1;
+    private UIApp UIApp;
+    private UIApp_Leave UIApp_Leave;
+
 
     public UI(IApplication app, IRunContext runContext, int populationId) {
         super(app, runContext, populationId);
 
 
-	LOG = null;
+		LOG = null;
         UIApp = null;
+        UIApp_Leave =null;
 
     }
 
@@ -76,10 +81,14 @@ public class UI extends Component<UI> {
 
 
     // ports
-    private UIApp UIApp;
     public UIApp App() {
         if ( null == UIApp ) UIApp = new UIApp( this, null );
         return UIApp;
+    }
+
+    public UIApp_Leave App_Leave() {
+        if ( null == UIApp_Leave ) UIApp_Leave = new UIApp_Leave( this, null );
+        return UIApp_Leave;
     }
 
 

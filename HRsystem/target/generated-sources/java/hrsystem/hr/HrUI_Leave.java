@@ -11,7 +11,6 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 import io.ciera.runtime.summit.interfaces.IMessage;
 import io.ciera.runtime.summit.interfaces.IPort;
 import io.ciera.runtime.summit.interfaces.Port;
-import io.ciera.runtime.summit.types.Date;
 import io.ciera.runtime.summit.types.IntegerUtil;
 import io.ciera.runtime.summit.types.StringUtil;
 
@@ -36,7 +35,7 @@ public class HrUI_Leave extends Port<Hr> implements ILeave {
         }
     }
 
-    public void Request( final Date p_Starting,  final Date p_Ending,  final int p_National_ID,  final String p_Name ) throws XtumlException {
+    public void Request( final String p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) throws XtumlException {
         Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
         if ( !employee.isEmpty() ) {
             context().generate(new EmployeeImpl.requestLeave(getRunContext(), context().getId(),  p_Starting, p_Ending, p_National_ID, p_Name ).to(employee));
@@ -61,7 +60,7 @@ public class HrUI_Leave extends Port<Hr> implements ILeave {
                 New_Leave(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)));
                 break;
             case ILeave.SIGNAL_NO_REQUEST:
-                Request(Date.deserialize(message.get(0)), Date.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)));
+                Request(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

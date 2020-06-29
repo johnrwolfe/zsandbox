@@ -17,9 +17,9 @@ import io.ciera.runtime.summit.classes.ModelInstance;
 import io.ciera.runtime.summit.exceptions.EmptyInstanceException;
 import io.ciera.runtime.summit.exceptions.InstancePopulationException;
 import io.ciera.runtime.summit.exceptions.XtumlException;
-import io.ciera.runtime.summit.types.Date;
 import io.ciera.runtime.summit.types.IWhere;
 import io.ciera.runtime.summit.types.IXtumlType;
+import io.ciera.runtime.summit.types.StringUtil;
 import io.ciera.runtime.summit.types.UniqueId;
 
 
@@ -33,8 +33,8 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
     // constructors
     private Employee_LeaveImpl( Hr context ) {
         this.context = context;
-        m_Starting = new Date();
-        m_Ending = new Date();
+        m_Starting = "";
+        m_Ending = "";
         m_Approved = false;
         ref_National_ID = 0;
         ref_Leave_ID = 0;
@@ -42,7 +42,7 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
         R1_Leave_inst = LeaveImpl.EMPTY_LEAVE;
     }
 
-    private Employee_LeaveImpl( Hr context, UniqueId instanceId, Date m_Starting, Date m_Ending, boolean m_Approved, int ref_National_ID, int ref_Leave_ID ) {
+    private Employee_LeaveImpl( Hr context, UniqueId instanceId, String m_Starting, String m_Ending, boolean m_Approved, int ref_National_ID, int ref_Leave_ID ) {
         super(instanceId);
         this.context = context;
         this.m_Starting = m_Starting;
@@ -63,7 +63,7 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
         else throw new InstancePopulationException( "Instance already exists within this population." );
     }
 
-    public static Employee_Leave create( Hr context, UniqueId instanceId, Date m_Starting, Date m_Ending, boolean m_Approved, int ref_National_ID, int ref_Leave_ID ) throws XtumlException {
+    public static Employee_Leave create( Hr context, UniqueId instanceId, String m_Starting, String m_Ending, boolean m_Approved, int ref_National_ID, int ref_Leave_ID ) throws XtumlException {
         Employee_Leave newEmployee_Leave = new Employee_LeaveImpl( context, instanceId, m_Starting, m_Ending, m_Approved, ref_National_ID, ref_Leave_ID );
         if ( context.addInstance( newEmployee_Leave ) ) {
             return newEmployee_Leave;
@@ -74,37 +74,42 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
 
 
     // attributes
-    private Date m_Starting;
+    private String m_Starting;
     @Override
-    public Date getStarting() throws XtumlException {
+    public void setStarting( String m_Starting ) throws XtumlException {
         checkLiving();
-                return m_Starting;
-    }
-    @Override
-    public void setStarting( Date m_Starting ) throws XtumlException {
-        checkLiving();
-        if ( m_Starting.inequality( this.m_Starting ) ) {
-            final Date oldValue = this.m_Starting;
+        if ( StringUtil.inequality( m_Starting, this.m_Starting ) ) {
+            final String oldValue = this.m_Starting;
             this.m_Starting = m_Starting;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Starting", oldValue, this.m_Starting));
         }
     }
-    private Date m_Ending;
     @Override
-    public void setEnding( Date m_Ending ) throws XtumlException {
+    public String getStarting() throws XtumlException {
         checkLiving();
-        if ( m_Ending.inequality( this.m_Ending ) ) {
-            final Date oldValue = this.m_Ending;
+                return m_Starting;
+    }
+    private String m_Ending;
+    @Override
+    public String getEnding() throws XtumlException {
+        checkLiving();
+                return m_Ending;
+    }
+    @Override
+    public void setEnding( String m_Ending ) throws XtumlException {
+        checkLiving();
+        if ( StringUtil.inequality( m_Ending, this.m_Ending ) ) {
+            final String oldValue = this.m_Ending;
             this.m_Ending = m_Ending;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Ending", oldValue, this.m_Ending));
         }
     }
-    @Override
-    public Date getEnding() throws XtumlException {
-        checkLiving();
-                return m_Ending;
-    }
     private boolean m_Approved;
+    @Override
+    public boolean getApproved() throws XtumlException {
+        checkLiving();
+                return m_Approved;
+    }
     @Override
     public void setApproved( boolean m_Approved ) throws XtumlException {
         checkLiving();
@@ -114,17 +119,7 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Approved", oldValue, this.m_Approved));
         }
     }
-    @Override
-    public boolean getApproved() throws XtumlException {
-        checkLiving();
-                return m_Approved;
-    }
     private int ref_National_ID;
-    @Override
-    public int getNational_ID() throws XtumlException {
-        checkLiving();
-                return ref_National_ID;
-    }
     @Override
     public void setNational_ID( int ref_National_ID ) throws XtumlException {
         checkLiving();
@@ -133,6 +128,11 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
             this.ref_National_ID = ref_National_ID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "ref_National_ID", oldValue, this.ref_National_ID));
         }
+    }
+    @Override
+    public int getNational_ID() throws XtumlException {
+        checkLiving();
+                return ref_National_ID;
     }
     private int ref_Leave_ID;
     @Override
@@ -226,29 +226,29 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
 class EmptyEmployee_Leave extends ModelInstance<Employee_Leave,Hr> implements Employee_Leave {
 
     // attributes
-    public Date getStarting() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
-    public void setStarting( Date m_Starting ) throws XtumlException {
+    public void setStarting( String m_Starting ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setEnding( Date m_Ending ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
-    public Date getEnding() throws XtumlException {
+    public String getStarting() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setApproved( boolean m_Approved ) throws XtumlException {
+    public String getEnding() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setEnding( String m_Ending ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public boolean getApproved() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public int getNational_ID() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setApproved( boolean m_Approved ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setNational_ID( int ref_National_ID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getNational_ID() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setLeave_ID( int ref_Leave_ID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
