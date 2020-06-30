@@ -12,10 +12,10 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Employee_Leave extends IModelInstance<Employee_Leave,Hr> {
 
     // attributes
-    public void setStarting( String m_Starting ) throws XtumlException;
     public String getStarting() throws XtumlException;
-    public String getEnding() throws XtumlException;
+    public void setStarting( String m_Starting ) throws XtumlException;
     public void setEnding( String m_Ending ) throws XtumlException;
+    public String getEnding() throws XtumlException;
     public boolean getApproved() throws XtumlException;
     public void setApproved( boolean m_Approved ) throws XtumlException;
     public void setNational_ID( int ref_National_ID ) throws XtumlException;

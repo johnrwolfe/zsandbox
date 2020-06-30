@@ -12,8 +12,8 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Leave extends IModelInstance<Leave,Hr> {
 
     // attributes
-    public void setName( String m_Name ) throws XtumlException;
     public String getName() throws XtumlException;
+    public void setName( String m_Name ) throws XtumlException;
     public int getNumberOfAllowedDays() throws XtumlException;
     public void setNumberOfAllowedDays( int m_NumberOfAllowedDays ) throws XtumlException;
     public void setLeave_ID( int m_Leave_ID ) throws XtumlException;

@@ -23,6 +23,7 @@ public class HrUI extends Port<Hr> implements IEP {
     }
 
     // inbound messages
+    public void New_Leave( final int p_Name,  final int p_NumberOfAllowedDays ) throws XtumlException {}
     public void Start( final int p_National_ID ) throws XtumlException {
         Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
         if ( !employee.isEmpty() ) {
@@ -35,7 +36,6 @@ public class HrUI extends Port<Hr> implements IEP {
         }
     }
 
-    public void New_Leave( final int p_Name,  final int p_NumberOfAllowedDays ) throws XtumlException {}
     public void New( final String p_FName,  final String p_LName,  final int p_National_ID ) throws XtumlException {
         Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
         if ( employee.isEmpty() ) {
@@ -62,11 +62,11 @@ public class HrUI extends Port<Hr> implements IEP {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IEP.SIGNAL_NO_START:
-                Start(IntegerUtil.deserialize(message.get(0)));
-                break;
             case IEP.SIGNAL_NO_NEW_LEAVE:
                 New_Leave(IntegerUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)));
+                break;
+            case IEP.SIGNAL_NO_START:
+                Start(IntegerUtil.deserialize(message.get(0)));
                 break;
             case IEP.SIGNAL_NO_NEW:
                 New(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));

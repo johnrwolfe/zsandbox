@@ -76,6 +76,11 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
     // attributes
     private String m_Starting;
     @Override
+    public String getStarting() throws XtumlException {
+        checkLiving();
+                return m_Starting;
+    }
+    @Override
     public void setStarting( String m_Starting ) throws XtumlException {
         checkLiving();
         if ( StringUtil.inequality( m_Starting, this.m_Starting ) ) {
@@ -84,17 +89,7 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Starting", oldValue, this.m_Starting));
         }
     }
-    @Override
-    public String getStarting() throws XtumlException {
-        checkLiving();
-                return m_Starting;
-    }
     private String m_Ending;
-    @Override
-    public String getEnding() throws XtumlException {
-        checkLiving();
-                return m_Ending;
-    }
     @Override
     public void setEnding( String m_Ending ) throws XtumlException {
         checkLiving();
@@ -103,6 +98,11 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
             this.m_Ending = m_Ending;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Ending", oldValue, this.m_Ending));
         }
+    }
+    @Override
+    public String getEnding() throws XtumlException {
+        checkLiving();
+                return m_Ending;
     }
     private boolean m_Approved;
     @Override
@@ -226,17 +226,17 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
 class EmptyEmployee_Leave extends ModelInstance<Employee_Leave,Hr> implements Employee_Leave {
 
     // attributes
-    public void setStarting( String m_Starting ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getStarting() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public String getEnding() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    public void setStarting( String m_Starting ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setEnding( String m_Ending ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public String getEnding() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public boolean getApproved() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
