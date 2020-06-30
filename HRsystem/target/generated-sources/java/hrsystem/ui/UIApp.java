@@ -28,9 +28,6 @@ public class UIApp extends Port<UI> implements IEP {
 
 
     // outbound messages
-    public void New_Leave( final int p_Name,  final int p_NumberOfAllowedDays ) throws XtumlException {
-        if ( satisfied() ) send(new IEP.New_Leave(p_Name, p_NumberOfAllowedDays));
-        else {}    }
     public void Start( final int p_National_ID ) throws XtumlException {
         if ( satisfied() ) send(new IEP.Start(p_National_ID));
         else {
@@ -41,6 +38,9 @@ public class UIApp extends Port<UI> implements IEP {
         else {
         }
     }
+    public void New_Leave( final int p_Name,  final int p_NumberOfAllowedDays ) throws XtumlException {
+        if ( satisfied() ) send(new IEP.New_Leave(p_Name, p_NumberOfAllowedDays));
+        else {}    }
 
 
     @Override

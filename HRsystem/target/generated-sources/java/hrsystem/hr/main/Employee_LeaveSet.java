@@ -12,10 +12,10 @@ public interface Employee_LeaveSet extends IInstanceSet<Employee_LeaveSet,Employ
 
     // attributes
     public void setLeave_ID( int ref_Leave_ID ) throws XtumlException;
-    public void setNational_ID( int ref_National_ID ) throws XtumlException;
-    public void setEnding( String m_Ending ) throws XtumlException;
-    public void setApproved( boolean m_Approved ) throws XtumlException;
     public void setStarting( String m_Starting ) throws XtumlException;
+    public void setApproved( boolean m_Approved ) throws XtumlException;
+    public void setEnding( String m_Ending ) throws XtumlException;
+    public void setNational_ID( int ref_National_ID ) throws XtumlException;
 
 
     // selections

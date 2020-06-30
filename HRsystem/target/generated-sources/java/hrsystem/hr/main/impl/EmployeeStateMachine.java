@@ -58,16 +58,16 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
     @Override
     public ITransition[][] getStateEventMatrix() {
         return new ITransition[][] {
-            { CANT_HAPPEN,
-              (event) -> {Working_entry_action(); return Working;},
+            { (event) -> {Working_entry_action(); return Working;},
+              CANT_HAPPEN,
               CANT_HAPPEN
             },
             { CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN
             },
-            { (event) -> {On_Leave_entry_action((String)event.get(0),  (String)event.get(1),  (int)event.get(2),  (String)event.get(3)); return On_Leave;},
-              CANT_HAPPEN,
+            { CANT_HAPPEN,
+              (event) -> {On_Leave_entry_action((String)event.get(0),  (String)event.get(1),  (int)event.get(2),  (String)event.get(3)); return On_Leave;},
               CANT_HAPPEN
             }
         };

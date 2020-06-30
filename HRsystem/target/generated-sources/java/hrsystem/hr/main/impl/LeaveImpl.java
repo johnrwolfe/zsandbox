@@ -100,6 +100,11 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
     }
     private int m_Leave_ID;
     @Override
+    public int getLeave_ID() throws XtumlException {
+        checkLiving();
+                return m_Leave_ID;
+    }
+    @Override
     public void setLeave_ID( int m_Leave_ID ) throws XtumlException {
         checkLiving();
         if ( m_Leave_ID != this.m_Leave_ID ) {
@@ -108,11 +113,6 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Leave_ID", oldValue, this.m_Leave_ID));
             if ( !R1_Employee_Leave().isEmpty() ) R1_Employee_Leave().setLeave_ID( m_Leave_ID );
         }
-    }
-    @Override
-    public int getLeave_ID() throws XtumlException {
-        checkLiving();
-                return m_Leave_ID;
     }
 
 
@@ -216,11 +216,11 @@ class EmptyLeave extends ModelInstance<Leave,Hr> implements Leave {
     public void setNumberOfAllowedDays( int m_NumberOfAllowedDays ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setLeave_ID( int m_Leave_ID ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getLeave_ID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setLeave_ID( int m_Leave_ID ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

@@ -325,10 +325,15 @@ INSERT INTO SPR_PS
 	'New',
 	'',
 	'//If there is not match for an employee, then create a new employee.
+LOG::LogInfo(message:"Attempting to add a new Employee." );
 select any employee from instances of EM where selected.National_ID==param.National_ID;
 if ( empty employee )
 	//create object instance employee of Employee;
-	employee.createEmployee( FName:param.FName, LName:param.LName, National_ID: param.National_ID);
+	//employee.createEmployee( FName:param.FName, LName:param.LName, National_ID: param.National_ID);
+	create object instance employee of EM;
+		employee.FName = param.FName;
+		employee.LName = param.LName;
+		employee.National_ID = param.National_ID;
 	//generate Employee1:newEmployeeRcvd(FName:param.FName, LName:param.LName, National_ID:param.National_ID) to employee;
 	
 	UI::Reply( msg:"Employee added successfully.", state:True);
@@ -376,7 +381,8 @@ INSERT INTO SPR_PS
 	VALUES ("8e12193a-4915-4e0c-8044-11c6b3eaf358",
 	'Start',
 	'',
-	'
+	'LOG::LogInfo(message:"An employee attempts to commence." );
+
 select any employee from instances of EM where selected.National_ID==param.National_ID;
 if ( not empty employee )
 	generate EM2:commencedRcvd() to employee;

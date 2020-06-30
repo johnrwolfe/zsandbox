@@ -340,10 +340,10 @@ if ( empty employee )
 else 
 	
 	LOG::LogInfo(message:"Employee already exists." );
-	LOG::LogInfo(message:"Updating details." );
+	//LOG::LogInfo(message:"Updating details." );
 	//employee.FName = param.FName;
 	//employee.LName = param.LName;	
-	//UI::Reply( msg:"Employee already exists", state:False);
+	UI::Reply( msg:"Employee already exists", state:False);
 end if;
 ',
 	1,
