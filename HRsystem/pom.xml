@@ -65,6 +65,7 @@
             <goals>
               <goal>core</goal>
             </goals>
+            
           </execution>
         </executions>
       </plugin>
