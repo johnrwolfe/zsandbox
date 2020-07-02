@@ -35,16 +35,16 @@ public class Employee_LeaveSetImpl extends InstanceSet<Employee_LeaveSet,Employe
         for ( Employee_Leave employee_leave : this ) employee_leave.setStarting( m_Starting );
     }
     @Override
-    public void setApproved( boolean m_Approved ) throws XtumlException {
-        for ( Employee_Leave employee_leave : this ) employee_leave.setApproved( m_Approved );
+    public void setNational_ID( int ref_National_ID ) throws XtumlException {
+        for ( Employee_Leave employee_leave : this ) employee_leave.setNational_ID( ref_National_ID );
     }
     @Override
     public void setEnding( String m_Ending ) throws XtumlException {
         for ( Employee_Leave employee_leave : this ) employee_leave.setEnding( m_Ending );
     }
     @Override
-    public void setNational_ID( int ref_National_ID ) throws XtumlException {
-        for ( Employee_Leave employee_leave : this ) employee_leave.setNational_ID( ref_National_ID );
+    public void setApproved( boolean m_Approved ) throws XtumlException {
+        for ( Employee_Leave employee_leave : this ) employee_leave.setApproved( m_Approved );
     }
 
 

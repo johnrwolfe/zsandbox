@@ -32,6 +32,18 @@ public interface ILeave {
  
     }
     public void Request( final String p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) throws XtumlException;
+    public static final int SIGNAL_NO_RETURN = 3;
+    public static class Return extends Message {
+        public Return( final int p_National_ID ) {
+            super(new Object[]{p_National_ID});
+        }
+        @Override
+        public int getId() {
+            return SIGNAL_NO_RETURN;
+        }
+ 
+    }
+    public void Return( final int p_National_ID ) throws XtumlException;
 
 
     // from provider messages

@@ -17,7 +17,8 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
 
     public static final int On_Leave = 1;
     public static final int Recruited = 0;
-    public static final int Working = 2;
+    public static final int Training = 2;
+    public static final int Working = 3;
 
 
     private Employee self;
@@ -47,12 +48,12 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
 
     private void Recruited_entry_action() throws XtumlException {
         context().LOG().LogInfo( "Waiting for employee to commence." );
-        context().UI().Reply( "Employee created successfully", true );
+    }
+
+    private void Training_entry_action() throws XtumlException {
     }
 
     private void Working_entry_action() throws XtumlException {
-        context().TIM().current_date();
-        context().LOG().LogInfo( "New employee has commenced" );
     }
 
 
@@ -62,13 +63,21 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
         return new ITransition[][] {
             { CANT_HAPPEN,
               (event) -> {Working_entry_action(); return Working;},
-              CANT_HAPPEN
-            },
-            { CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN
             },
             { (event) -> {On_Leave_entry_action((String)event.get(0),  (String)event.get(1),  (int)event.get(2),  (String)event.get(3)); return On_Leave;},
+              CANT_HAPPEN,
+              CANT_HAPPEN,
+              (event) -> {Working_entry_action(); return Working;}
+            },
+            { CANT_HAPPEN,
+              CANT_HAPPEN,
+              CANT_HAPPEN,
+              CANT_HAPPEN
+            },
+            { (event) -> {On_Leave_entry_action((String)event.get(0),  (String)event.get(1),  (int)event.get(2),  (String)event.get(3)); return On_Leave;},
+              CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN
             }
