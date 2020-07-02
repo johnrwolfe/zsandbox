@@ -46,6 +46,8 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
     }
 
     private void Recruited_entry_action() throws XtumlException {
+        context().LOG().LogInfo( "Waiting for employee to commence." );
+        context().UI().Reply( "Employee created successfully", true );
     }
 
     private void Working_entry_action() throws XtumlException {
@@ -58,16 +60,16 @@ public class EmployeeStateMachine extends StateMachine<Employee,Hr> {
     @Override
     public ITransition[][] getStateEventMatrix() {
         return new ITransition[][] {
-            { (event) -> {Working_entry_action(); return Working;},
-              CANT_HAPPEN,
+            { CANT_HAPPEN,
+              (event) -> {Working_entry_action(); return Working;},
               CANT_HAPPEN
             },
             { CANT_HAPPEN,
               CANT_HAPPEN,
               CANT_HAPPEN
             },
-            { CANT_HAPPEN,
-              (event) -> {On_Leave_entry_action((String)event.get(0),  (String)event.get(1),  (int)event.get(2),  (String)event.get(3)); return On_Leave;},
+            { (event) -> {On_Leave_entry_action((String)event.get(0),  (String)event.get(1),  (int)event.get(2),  (String)event.get(3)); return On_Leave;},
+              CANT_HAPPEN,
               CANT_HAPPEN
             }
         };

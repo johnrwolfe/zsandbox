@@ -14,8 +14,8 @@ public interface Employee_Leave extends IModelInstance<Employee_Leave,Hr> {
     // attributes
     public void setStarting( String m_Starting ) throws XtumlException;
     public String getStarting() throws XtumlException;
-    public String getEnding() throws XtumlException;
     public void setEnding( String m_Ending ) throws XtumlException;
+    public String getEnding() throws XtumlException;
     public void setApproved( boolean m_Approved ) throws XtumlException;
     public boolean getApproved() throws XtumlException;
     public int getNational_ID() throws XtumlException;
