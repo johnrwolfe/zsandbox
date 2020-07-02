@@ -444,10 +444,10 @@ end if;
 	'//If there is no match for Leave, then create a new Leave.
 select any leave from instances of Leave where selected.Name==param.Name;
 if ( empty leave )
-	//leave.createLeave( Name:param.Name, NumberOfAllowedDays:param.NumberOfAllowedDays);
-	create object instance leave of Leave;
-	leave.Name = param.Name;
-	leave.NumberOfAllowedDays = param.NumberOfAllowedDays;
+	 leave.createLeave( Name:param.Name, NumberOfAllowedDays:param.NumberOfAllowedDays);
+	//create object instance leave of Leave;
+	//leave.Name = param.Name;
+	//leave.NumberOfAllowedDays = param.NumberOfAllowedDays;
 
 	
 	UI::Reply( msg:"Leave created successfully.", state:True);
