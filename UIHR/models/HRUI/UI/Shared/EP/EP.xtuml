@@ -96,35 +96,65 @@ INSERT INTO C_PP
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO C_EP
-	VALUES ("ffb89040-41ac-417a-84fa-833149b05326",
+	VALUES ("0a2f434b-1ff6-40e5-b1f2-f748d8ee4dbf",
 	"102214df-1d03-428f-9eb8-5c5ce18bfdae",
 	-1,
-	'New_Leave',
+	'Job_Grade',
 	'');
 INSERT INTO C_AS
-	VALUES ("ffb89040-41ac-417a-84fa-833149b05326",
-	'New_Leave',
+	VALUES ("0a2f434b-1ff6-40e5-b1f2-f748d8ee4dbf",
+	'Job_Grade',
 	'',
 	0,
 	"dd791a09-c8bd-4868-8174-4726cea8e2d3");
-INSERT INTO C_PP
-	VALUES ("c6764cf7-e536-4f30-87fa-060fb8c281c6",
-	"ffb89040-41ac-417a-84fa-833149b05326",
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'Name',
+INSERT INTO C_EP
+	VALUES ("57e3ab65-325f-4ae0-b91d-0884724d444e",
+	"102214df-1d03-428f-9eb8-5c5ce18bfdae",
+	-1,
+	'Overtime_New',
+	'');
+INSERT INTO C_AS
+	VALUES ("57e3ab65-325f-4ae0-b91d-0884724d444e",
+	'Overtime_New',
 	'',
 	0,
-	'',
-	"00000000-0000-0000-0000-000000000000");
-INSERT INTO C_PP
-	VALUES ("a749925f-845e-4612-80f3-26d2b2aade06",
-	"ffb89040-41ac-417a-84fa-833149b05326",
-	"ba5eda7a-def5-0000-0000-000000000002",
-	'NumberOfAllowedDays',
+	"0a2f434b-1ff6-40e5-b1f2-f748d8ee4dbf");
+INSERT INTO C_EP
+	VALUES ("506e704a-5e32-4a94-af58-b0cafc11cc8d",
+	"102214df-1d03-428f-9eb8-5c5ce18bfdae",
+	-1,
+	'Bonus_New',
+	'');
+INSERT INTO C_AS
+	VALUES ("506e704a-5e32-4a94-af58-b0cafc11cc8d",
+	'Bonus_New',
 	'',
 	0,
+	"57e3ab65-325f-4ae0-b91d-0884724d444e");
+INSERT INTO C_EP
+	VALUES ("db3fb93e-7315-4350-89e4-151927a90b2e",
+	"102214df-1d03-428f-9eb8-5c5ce18bfdae",
+	-1,
+	'Overtime_Stop',
+	'');
+INSERT INTO C_AS
+	VALUES ("db3fb93e-7315-4350-89e4-151927a90b2e",
+	'Overtime_Stop',
 	'',
-	"c6764cf7-e536-4f30-87fa-060fb8c281c6");
+	0,
+	"506e704a-5e32-4a94-af58-b0cafc11cc8d");
+INSERT INTO C_EP
+	VALUES ("c815a6ba-0fb8-4fcd-83e1-434932f2a4a9",
+	"102214df-1d03-428f-9eb8-5c5ce18bfdae",
+	-1,
+	'Bonus_Stop',
+	'');
+INSERT INTO C_AS
+	VALUES ("c815a6ba-0fb8-4fcd-83e1-434932f2a4a9",
+	'Bonus_Stop',
+	'',
+	0,
+	"db3fb93e-7315-4350-89e4-151927a90b2e");
 INSERT INTO PE_PE
 	VALUES ("102214df-1d03-428f-9eb8-5c5ce18bfdae",
 	1,

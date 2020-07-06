@@ -22,16 +22,16 @@ public class UIApp_Leave extends Port<UI> implements ILeave {
 
 
     // outbound messages
+    public void Request( final String p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) throws XtumlException {
+        if ( satisfied() ) send(new ILeave.Request(p_Starting, p_Ending, p_National_ID, p_Name));
+        else {
+        }
+    }
     public void Return( final int p_National_ID ) throws XtumlException {
         if ( satisfied() ) send(new ILeave.Return(p_National_ID));
         else {}    }
     public void New_Leave( final String p_Name,  final int p_NumberOfAllowedDays ) throws XtumlException {
         if ( satisfied() ) send(new ILeave.New_Leave(p_Name, p_NumberOfAllowedDays));
-        else {
-        }
-    }
-    public void Request( final String p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) throws XtumlException {
-        if ( satisfied() ) send(new ILeave.Request(p_Starting, p_Ending, p_National_ID, p_Name));
         else {
         }
     }

@@ -91,6 +91,11 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
     }
     private String m_Ending;
     @Override
+    public String getEnding() throws XtumlException {
+        checkLiving();
+                return m_Ending;
+    }
+    @Override
     public void setEnding( String m_Ending ) throws XtumlException {
         checkLiving();
         if ( StringUtil.inequality( m_Ending, this.m_Ending ) ) {
@@ -98,11 +103,6 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
             this.m_Ending = m_Ending;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Ending", oldValue, this.m_Ending));
         }
-    }
-    @Override
-    public String getEnding() throws XtumlException {
-        checkLiving();
-                return m_Ending;
     }
     private boolean m_Approved;
     @Override
@@ -121,11 +121,6 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
     }
     private int ref_National_ID;
     @Override
-    public int getNational_ID() throws XtumlException {
-        checkLiving();
-                return ref_National_ID;
-    }
-    @Override
     public void setNational_ID( int ref_National_ID ) throws XtumlException {
         checkLiving();
         if ( ref_National_ID != this.ref_National_ID ) {
@@ -134,7 +129,17 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "ref_National_ID", oldValue, this.ref_National_ID));
         }
     }
+    @Override
+    public int getNational_ID() throws XtumlException {
+        checkLiving();
+                return ref_National_ID;
+    }
     private int ref_Leave_ID;
+    @Override
+    public int getLeave_ID() throws XtumlException {
+        checkLiving();
+                return ref_Leave_ID;
+    }
     @Override
     public void setLeave_ID( int ref_Leave_ID ) throws XtumlException {
         checkLiving();
@@ -143,11 +148,6 @@ public class Employee_LeaveImpl extends ModelInstance<Employee_Leave,Hr> impleme
             this.ref_Leave_ID = ref_Leave_ID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "ref_Leave_ID", oldValue, this.ref_Leave_ID));
         }
-    }
-    @Override
-    public int getLeave_ID() throws XtumlException {
-        checkLiving();
-                return ref_Leave_ID;
     }
 
 
@@ -232,11 +232,11 @@ class EmptyEmployee_Leave extends ModelInstance<Employee_Leave,Hr> implements Em
     public String getStarting() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setEnding( String m_Ending ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getEnding() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setEnding( String m_Ending ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public boolean getApproved() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -244,17 +244,17 @@ class EmptyEmployee_Leave extends ModelInstance<Employee_Leave,Hr> implements Em
     public void setApproved( boolean m_Approved ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public int getNational_ID() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setNational_ID( int ref_National_ID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setLeave_ID( int ref_Leave_ID ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public int getNational_ID() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getLeave_ID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setLeave_ID( int ref_Leave_ID ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

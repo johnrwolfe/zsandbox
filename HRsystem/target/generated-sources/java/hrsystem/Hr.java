@@ -85,8 +85,8 @@ public class Hr extends Component<Hr> {
         R4_Bonus_is_a_Pay_extent = new RelationshipSet();
         R4_Grade_is_a_Pay_extent = new RelationshipSet();
         R4_Overtime_is_a_Pay_extent = new RelationshipSet();
-        LOG = null;
         TIM = null;
+        LOG = null;
         classDirectory = new TreeMap<>();
         classDirectory.put("Bonus", BonusImpl.class);
         classDirectory.put("EM", EmployeeImpl.class);
@@ -355,15 +355,15 @@ public class Hr extends Component<Hr> {
 
 
     // utilities
-    private LOG LOG;
-    public LOG LOG() {
-        if ( null == LOG ) LOG = new LOGImpl<>( this );
-        return LOG;
-    }
     private TIM TIM;
     public TIM TIM() {
         if ( null == TIM ) TIM = new TIMImpl<>( this );
         return TIM;
+    }
+    private LOG LOG;
+    public LOG LOG() {
+        if ( null == LOG ) LOG = new LOGImpl<>( this );
+        return LOG;
     }
 
 

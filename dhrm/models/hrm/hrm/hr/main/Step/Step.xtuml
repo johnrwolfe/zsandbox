@@ -1,25 +1,25 @@
 -- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
 
 INSERT INTO O_OBJ
-	VALUES ("2fd32380-b2c9-4d8f-9b69-b93caf1481f1",
-	'Grade',
-	11,
-	'Grade',
+	VALUES ("76132002-1bc7-4140-b7a9-bb8294aff2b2",
+	'Step',
+	12,
+	'Step',
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
-	VALUES ("2938a9ae-06b3-486b-bda8-e61f16f79126",
-	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1");
+	VALUES ("f88a612f-df76-4a9e-aa13-15cf867ff62c",
+	"76132002-1bc7-4140-b7a9-bb8294aff2b2");
 INSERT INTO O_BATTR
-	VALUES ("2938a9ae-06b3-486b-bda8-e61f16f79126",
-	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1");
+	VALUES ("f88a612f-df76-4a9e-aa13-15cf867ff62c",
+	"76132002-1bc7-4140-b7a9-bb8294aff2b2");
 INSERT INTO O_ATTR
-	VALUES ("2938a9ae-06b3-486b-bda8-e61f16f79126",
-	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1",
+	VALUES ("f88a612f-df76-4a9e-aa13-15cf867ff62c",
+	"76132002-1bc7-4140-b7a9-bb8294aff2b2",
 	"00000000-0000-0000-0000-000000000000",
-	'GName',
+	'SName',
 	'',
-	'G',
+	'S',
 	'Name',
 	1,
 	"ba5eda7a-def5-0000-0000-000000000004",
@@ -27,20 +27,20 @@ INSERT INTO O_ATTR
 	'');
 INSERT INTO O_ID
 	VALUES (0,
-	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1");
+	"76132002-1bc7-4140-b7a9-bb8294aff2b2");
 INSERT INTO O_OIDA
-	VALUES ("2938a9ae-06b3-486b-bda8-e61f16f79126",
-	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1",
+	VALUES ("f88a612f-df76-4a9e-aa13-15cf867ff62c",
+	"76132002-1bc7-4140-b7a9-bb8294aff2b2",
 	0,
-	'GName');
+	'SName');
 INSERT INTO O_ID
 	VALUES (1,
-	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1");
+	"76132002-1bc7-4140-b7a9-bb8294aff2b2");
 INSERT INTO O_ID
 	VALUES (2,
-	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1");
+	"76132002-1bc7-4140-b7a9-bb8294aff2b2");
 INSERT INTO PE_PE
-	VALUES ("2fd32380-b2c9-4d8f-9b69-b93caf1481f1",
+	VALUES ("76132002-1bc7-4140-b7a9-bb8294aff2b2",
 	1,
 	"fdd8efa1-97d4-4adc-a67d-1fb0bd49373b",
 	"00000000-0000-0000-0000-000000000000",

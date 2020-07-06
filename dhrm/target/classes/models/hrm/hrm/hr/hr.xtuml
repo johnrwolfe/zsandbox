@@ -329,7 +329,7 @@ LOG::LogInfo(message:"Attempting to add a new Employee." );
 select any employee from instances of EM where selected.National_ID==param.National_ID;
 if ( empty employee )
 	//create object instance employee of Employee;
-	employee.createEmployee( FName:param.FName, LName:param.LName, National_ID: param.National_ID);	
+	EM::createEmployee( FName:param.FName, LName:param.LName, National_ID: param.National_ID);	
 	UI::Reply( msg:"Employee added successfully.", state:True);
 else 
 	
@@ -444,10 +444,11 @@ end if;
 	'//If there is no match for Leave, then create a new Leave.
 select any leave from instances of Leave where selected.Name==param.Name;
 if ( empty leave )
-	//leave.createLeave( Name:param.Name, NumberOfAllowedDays:param.NumberOfAllowedDays);
-	create object instance leave of Leave;
-	leave.Name = param.Name;
-	leave.NumberOfAllowedDays = param.NumberOfAllowedDays;
+	 Leave::createLeave(Name:param.Name, NumberOfAllowedDays:param.NumberOfAllowedDays);
+	 //leave.createLeave( Name:param.Name, NumberOfAllowedDays:param.NumberOfAllowedDays);
+	//create object instance leave of Leave;
+	//leave.Name = param.Name;
+	//leave.NumberOfAllowedDays = param.NumberOfAllowedDays;
 
 	
 	UI::Reply( msg:"Leave created successfully.", state:True);

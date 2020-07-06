@@ -10,6 +10,7 @@ import hrsystem.hr.main.impl.LeaveImpl;
 
 import io.ciera.runtime.instanceloading.AttributeChangedDelta;
 import io.ciera.runtime.instanceloading.InstanceCreatedDelta;
+import io.ciera.runtime.summit.application.ActionHome;
 import io.ciera.runtime.summit.application.IRunContext;
 import io.ciera.runtime.summit.classes.IInstanceIdentifier;
 import io.ciera.runtime.summit.classes.InstanceIdentifier;
@@ -70,11 +71,6 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
     // attributes
     private String m_Name;
     @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-                return m_Name;
-    }
-    @Override
     public void setName( String m_Name ) throws XtumlException {
         checkLiving();
         if ( StringUtil.inequality( m_Name, this.m_Name ) ) {
@@ -83,7 +79,17 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
     }
+    @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+                return m_Name;
+    }
     private int m_NumberOfAllowedDays;
+    @Override
+    public int getNumberOfAllowedDays() throws XtumlException {
+        checkLiving();
+                return m_NumberOfAllowedDays;
+    }
     @Override
     public void setNumberOfAllowedDays( int m_NumberOfAllowedDays ) throws XtumlException {
         checkLiving();
@@ -92,11 +98,6 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
             this.m_NumberOfAllowedDays = m_NumberOfAllowedDays;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_NumberOfAllowedDays", oldValue, this.m_NumberOfAllowedDays));
         }
-    }
-    @Override
-    public int getNumberOfAllowedDays() throws XtumlException {
-        checkLiving();
-                return m_NumberOfAllowedDays;
     }
     private int m_Leave_ID;
     @Override
@@ -141,16 +142,24 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
     }
 
     // operations
-    @Override
-    public void createLeave( final String p_Name,  final int p_NumberOfAllowedDays ) throws XtumlException {
-        Leave leave = LeaveImpl.create( context() );
-        leave.setName( p_Name );
-        leave.setNumberOfAllowedDays( p_NumberOfAllowedDays );
-    }
-
 
 
     // static operations
+    public static class CLASS extends ActionHome<Hr> {
+
+        public CLASS( Hr context ) {
+            super( context );
+        }
+
+        public void createLeave( final String p_Name,  final int p_NumberOfAllowedDays ) throws XtumlException {
+            Leave leave = LeaveImpl.create( context() );
+            leave.setName( p_Name );
+            leave.setNumberOfAllowedDays( p_NumberOfAllowedDays );
+        }
+
+
+
+    }
 
 
     // events
@@ -204,17 +213,17 @@ public class LeaveImpl extends ModelInstance<Leave,Hr> implements Leave {
 class EmptyLeave extends ModelInstance<Leave,Hr> implements Leave {
 
     // attributes
-    public String getName() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setNumberOfAllowedDays( int m_NumberOfAllowedDays ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    public String getName() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getNumberOfAllowedDays() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setNumberOfAllowedDays( int m_NumberOfAllowedDays ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setLeave_ID( int m_Leave_ID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
@@ -225,9 +234,6 @@ class EmptyLeave extends ModelInstance<Leave,Hr> implements Leave {
 
 
     // operations
-    public void createLeave( final String p_Name,  final int p_NumberOfAllowedDays ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot invoke operation on empty instance." );
-    }
 
 
     // selections

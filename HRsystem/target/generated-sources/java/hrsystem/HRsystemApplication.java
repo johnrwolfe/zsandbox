@@ -42,19 +42,19 @@ public class HRsystemApplication implements IApplication {
                 executors[i] = new ApplicationExecutor( "HRsystemApplicationExecutor" + i, args );
             }
         }
-        components[0] = new UI(this, executors[0], 0);
         components[1] = new Hr(this, executors[0], 1);
+        components[0] = new UI(this, executors[0], 0);
         ((UI)components[0]).App().satisfy(((Hr)components[1]).UI());
         ((Hr)components[1]).UI().satisfy(((UI)components[0]).App());
         ((UI)components[0]).App_Leave().satisfy(((Hr)components[1]).UI_Leave());
         ((Hr)components[1]).UI_Leave().satisfy(((UI)components[0]).App_Leave());
     }
 
-    public UI UI() {
-        return (UI)components[0];
-    }
     public Hr Hr() {
         return (Hr)components[1];
+    }
+    public UI UI() {
+        return (UI)components[0];
     }
 
     @Override

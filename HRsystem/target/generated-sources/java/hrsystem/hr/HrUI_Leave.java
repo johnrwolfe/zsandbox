@@ -25,6 +25,17 @@ public class HrUI_Leave extends Port<Hr> implements ILeave {
     }
 
     // inbound messages
+    public void New_Leave( final String p_Name,  final int p_NumberOfAllowedDays ) throws XtumlException {
+        Leave leave = context().Leave_instances().anyWhere(selected -> StringUtil.equality( ((Leave)selected).getName(), p_Name ));
+        if ( leave.isEmpty() ) {
+            new LeaveImpl.CLASS(context()).createLeave( p_Name, p_NumberOfAllowedDays );
+            context().UI().Reply( "Leave created successfully.", true );
+        }
+        else {
+            context().LOG().LogInfo( "Leave already exists!" );
+        }
+    }
+
     public void Return( final int p_National_ID ) throws XtumlException {
         Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
         if ( !employee.isEmpty() ) {
@@ -49,19 +60,6 @@ public class HrUI_Leave extends Port<Hr> implements ILeave {
         }
     }
 
-    public void New_Leave( final String p_Name,  final int p_NumberOfAllowedDays ) throws XtumlException {
-        Leave leave = context().Leave_instances().anyWhere(selected -> StringUtil.equality( ((Leave)selected).getName(), p_Name ));
-        if ( leave.isEmpty() ) {
-            leave = LeaveImpl.create( context() );
-            leave.setName( p_Name );
-            leave.setNumberOfAllowedDays( p_NumberOfAllowedDays );
-            context().UI().Reply( "Leave created successfully.", true );
-        }
-        else {
-            context().LOG().LogInfo( "Leave already exists!" );
-        }
-    }
-
 
 
     // outbound messages
@@ -71,14 +69,14 @@ public class HrUI_Leave extends Port<Hr> implements ILeave {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
+            case ILeave.SIGNAL_NO_NEW_LEAVE:
+                New_Leave(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)));
+                break;
             case ILeave.SIGNAL_NO_RETURN:
                 Return(IntegerUtil.deserialize(message.get(0)));
                 break;
             case ILeave.SIGNAL_NO_REQUEST:
                 Request(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)));
-                break;
-            case ILeave.SIGNAL_NO_NEW_LEAVE:
-                New_Leave(StringUtil.deserialize(message.get(0)), IntegerUtil.deserialize(message.get(1)));
                 break;
         default:
             throw new BadArgumentException( "Message not implemented by this port." );

@@ -469,7 +469,10 @@ assignTo.Ending = rcvd_evt.Ending;
 
 LOG::LogInfo(message:"Requested"+ leave.Name +"leave");
 LOG::LogInfo(message:"From"+ assignTo.Starting); 
-LOG::LogInfo(message:"To"+ assignTo.Ending); ',
+LOG::LogInfo(message:"To"+ assignTo.Ending); 
+
+
+',
 	'',
 	0);
 INSERT INTO SM_TAH
@@ -510,7 +513,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("fe966243-d5c4-4678-af5d-fa32124c3d98",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -524,7 +527,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("a36db46c-8e76-4b00-922f-41a58d38b4f6",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -538,7 +541,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("ff332fd4-c6ca-4c03-bda1-cdb9c0e5c497",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -552,7 +555,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("b7ed9c70-c12c-40b6-9feb-3e3948176b29",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -566,7 +569,7 @@ INSERT INTO SM_AH
 INSERT INTO SM_ACT
 	VALUES ("bc2ac0ca-eec2-4d57-883a-2b40dc35c844",
 	"7b5f90bd-656f-4bc9-83bf-771ed45973b0",
-	3,
+	1,
 	'',
 	'',
 	0);
@@ -1471,8 +1474,8 @@ INSERT INTO DIM_ND
 	0.000000,
 	"6c1e5192-9c31-40af-8cd9-ea55361781ea");
 INSERT INTO DIM_GE
-	VALUES (0.000000,
-	0.000000,
+	VALUES (4343.000000,
+	3394.000000,
 	"6c1e5192-9c31-40af-8cd9-ea55361781ea",
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO DIM_ELE
