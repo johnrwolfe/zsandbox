@@ -29,12 +29,12 @@ INSERT INTO O_ATTR
 	VALUES ("122ebfb9-a06b-43c5-bcf0-e9110b5faafa",
 	"bcefdb77-7c37-4a75-ac84-87eef93082be",
 	"00000000-0000-0000-0000-000000000000",
-	'Name',
+	'ID',
 	'',
 	'',
-	'Name',
+	'ID',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000004",
+	"ba5eda7a-def5-0000-0000-000000000005",
 	'',
 	'');
 INSERT INTO O_NBATTR
@@ -80,7 +80,7 @@ INSERT INTO O_OIDA
 	VALUES ("122ebfb9-a06b-43c5-bcf0-e9110b5faafa",
 	"bcefdb77-7c37-4a75-ac84-87eef93082be",
 	0,
-	'Name');
+	'ID');
 INSERT INTO O_ID
 	VALUES (1,
 	"bcefdb77-7c37-4a75-ac84-87eef93082be");

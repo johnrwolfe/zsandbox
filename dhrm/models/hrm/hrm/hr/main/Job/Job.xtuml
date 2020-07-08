@@ -2,9 +2,9 @@
 
 INSERT INTO O_OBJ
 	VALUES ("6ebd6869-c24e-4efa-81a8-0cdf8005ec5e",
-	'Pay',
+	'Job',
 	8,
-	'Pay',
+	'Job',
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
@@ -22,7 +22,7 @@ INSERT INTO O_ATTR
 	'',
 	'Amount',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
 INSERT INTO O_REF
@@ -39,7 +39,7 @@ INSERT INTO O_REF
 	0,
 	'',
 	'Grade',
-	'GName',
+	'GValue',
 	'R3');
 INSERT INTO R_RGO_PROXY
 	VALUES ("6ebd6869-c24e-4efa-81a8-0cdf8005ec5e",
@@ -59,7 +59,7 @@ INSERT INTO O_RATTR
 	"2938a9ae-06b3-486b-bda8-e61f16f79126",
 	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1",
 	1,
-	'GName');
+	'GValue');
 INSERT INTO O_BATTR_PROXY
 	VALUES ("2938a9ae-06b3-486b-bda8-e61f16f79126",
 	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1",
@@ -68,7 +68,7 @@ INSERT INTO O_ATTR
 	VALUES ("ffd8f9f4-d046-425e-aa42-db6fd56cbfbb",
 	"6ebd6869-c24e-4efa-81a8-0cdf8005ec5e",
 	"2ff501da-5fde-4236-8ed2-41fb2812be7f",
-	'Name',
+	'GValue',
 	'',
 	'',
 	'Name',
@@ -90,7 +90,7 @@ INSERT INTO O_REF
 	0,
 	'',
 	'Step',
-	'SName',
+	'SValue',
 	'R3');
 INSERT INTO O_RTIDA_PROXY
 	VALUES ("f88a612f-df76-4a9e-aa13-15cf867ff62c",
@@ -105,7 +105,7 @@ INSERT INTO O_RATTR
 	"f88a612f-df76-4a9e-aa13-15cf867ff62c",
 	"76132002-1bc7-4140-b7a9-bb8294aff2b2",
 	1,
-	'SName');
+	'SValue');
 INSERT INTO O_BATTR_PROXY
 	VALUES ("f88a612f-df76-4a9e-aa13-15cf867ff62c",
 	"76132002-1bc7-4140-b7a9-bb8294aff2b2",
@@ -114,12 +114,30 @@ INSERT INTO O_ATTR
 	VALUES ("4969d6a7-e89f-4b08-88c5-3a08754fe55a",
 	"6ebd6869-c24e-4efa-81a8-0cdf8005ec5e",
 	"ffd8f9f4-d046-425e-aa42-db6fd56cbfbb",
-	'Name',
+	'SValue',
 	'',
 	'',
 	'Name',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("c0229798-29f2-4ae1-9796-4a4f9c635b99",
+	"6ebd6869-c24e-4efa-81a8-0cdf8005ec5e");
+INSERT INTO O_BATTR
+	VALUES ("c0229798-29f2-4ae1-9796-4a4f9c635b99",
+	"6ebd6869-c24e-4efa-81a8-0cdf8005ec5e");
+INSERT INTO O_ATTR
+	VALUES ("c0229798-29f2-4ae1-9796-4a4f9c635b99",
+	"6ebd6869-c24e-4efa-81a8-0cdf8005ec5e",
+	"4969d6a7-e89f-4b08-88c5-3a08754fe55a",
+	'Name',
+	'',
+	'',
+	'Name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'',
 	'');
 INSERT INTO O_ID
@@ -129,12 +147,12 @@ INSERT INTO O_OIDA
 	VALUES ("ffd8f9f4-d046-425e-aa42-db6fd56cbfbb",
 	"6ebd6869-c24e-4efa-81a8-0cdf8005ec5e",
 	0,
-	'Name');
+	'GValue');
 INSERT INTO O_OIDA
 	VALUES ("4969d6a7-e89f-4b08-88c5-3a08754fe55a",
 	"6ebd6869-c24e-4efa-81a8-0cdf8005ec5e",
 	0,
-	'Name');
+	'SValue');
 INSERT INTO O_ID
 	VALUES (1,
 	"6ebd6869-c24e-4efa-81a8-0cdf8005ec5e");

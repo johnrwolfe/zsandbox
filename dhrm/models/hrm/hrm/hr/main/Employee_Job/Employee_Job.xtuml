@@ -2,9 +2,9 @@
 
 INSERT INTO O_OBJ
 	VALUES ("9645ad70-7bf4-4778-bcce-884e398aa367",
-	'Job Grade',
+	'Employee_Job',
 	17,
-	'JobGrade',
+	'Employee_Job',
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR

@@ -1,0 +1,69 @@
+-- BP 7.1.6 content: Interface syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO C_I
+	VALUES ("8a8ff605-6530-4383-8b9c-18ae804345a8",
+	"00000000-0000-0000-0000-000000000000",
+	'Ops',
+	'');
+INSERT INTO C_EP
+	VALUES ("7a80da7b-4e70-4431-b5ae-ef63a7102400",
+	"8a8ff605-6530-4383-8b9c-18ae804345a8",
+	-1,
+	'Leave_Request',
+	'');
+INSERT INTO C_AS
+	VALUES ("7a80da7b-4e70-4431-b5ae-ef63a7102400",
+	'Leave_Request',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_EP
+	VALUES ("26f67bbf-17b3-497e-ba1a-b502515f1099",
+	"8a8ff605-6530-4383-8b9c-18ae804345a8",
+	-1,
+	'Leave_Return',
+	'');
+INSERT INTO C_AS
+	VALUES ("26f67bbf-17b3-497e-ba1a-b502515f1099",
+	'Leave_Return',
+	'',
+	0,
+	"7a80da7b-4e70-4431-b5ae-ef63a7102400");
+INSERT INTO C_EP
+	VALUES ("40f05a9b-0bca-4c34-94ee-f94a4cb0a66d",
+	"8a8ff605-6530-4383-8b9c-18ae804345a8",
+	-1,
+	'Employee_Payments',
+	'');
+INSERT INTO C_AS
+	VALUES ("40f05a9b-0bca-4c34-94ee-f94a4cb0a66d",
+	'Employee_Payments',
+	'',
+	0,
+	"26f67bbf-17b3-497e-ba1a-b502515f1099");
+INSERT INTO C_EP
+	VALUES ("4bf98d8b-56f1-4379-a4ff-ca46610d043a",
+	"8a8ff605-6530-4383-8b9c-18ae804345a8",
+	-1,
+	'Employee_Job',
+	'');
+INSERT INTO C_AS
+	VALUES ("4bf98d8b-56f1-4379-a4ff-ca46610d043a",
+	'Employee_Job',
+	'',
+	0,
+	"40f05a9b-0bca-4c34-94ee-f94a4cb0a66d");
+INSERT INTO PE_PE
+	VALUES ("8a8ff605-6530-4383-8b9c-18ae804345a8",
+	1,
+	"941213f0-4346-48d9-89fe-196761630487",
+	"00000000-0000-0000-0000-000000000000",
+	6);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("941213f0-4346-48d9-89fe-196761630487",
+	"00000000-0000-0000-0000-000000000000",
+	"46564f98-385d-43d9-876a-ca551a77e802",
+	'Shared',
+	'',
+	0,
+	'../Shared.xtuml');
