@@ -7,6 +7,49 @@ INSERT INTO O_OBJ
 	'Bonus',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("31dcc9a5-986a-490c-b8e0-aac9db80261b",
+	"8d573586-4a25-4fe7-bafb-7ed461272459",
+	'createBonus',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'	
+LOG::LogInfo(message:"Bonus: Attempting to add a new Bonus." );
+select any bonus from instances of Bonus where selected.Name==param.Name;
+if ( empty bonus)
+	//create object instance of Bonus;
+	create object instance b of Bonus;
+	b.Name = param.Name;
+	b.Amount = param.Amount;
+	UI::Reply( msg:"Bonus: added successfully.", state:True);
+else 
+	LOG::LogInfo(message:"Bonus: already exists." );	
+	UI::Reply( msg:"Bonus already exists", state:False);
+end if;
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("9fa6cb10-6696-473d-b28e-c31aa22ff8f2",
+	"31dcc9a5-986a-490c-b8e0-aac9db80261b",
+	'Name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("eb31c0d2-55e8-4bdb-b55f-45a7c142d1b8",
+	"31dcc9a5-986a-490c-b8e0-aac9db80261b",
+	'Amount',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"9fa6cb10-6696-473d-b28e-c31aa22ff8f2",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("3e5c70a5-c494-4fa5-a943-956e8004a992",
 	"8d573586-4a25-4fe7-bafb-7ed461272459");

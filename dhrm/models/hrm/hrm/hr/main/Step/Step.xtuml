@@ -7,6 +7,39 @@ INSERT INTO O_OBJ
 	'Step',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("354ef2d3-bf66-4bbb-9d1e-502e3c6cf943",
+	"76132002-1bc7-4140-b7a9-bb8294aff2b2",
+	'createStep',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'LOG::LogInfo(message:"Attempting to add a new Step." );
+select any step from instances of Step where selected.SValue==param.Value;
+if ( empty step )
+	create object instance s of Step;
+	s.SValue = param.Value;
+	UI::Reply( msg:"Step added successfully.", state:True);
+else 
+	
+	LOG::LogInfo(message:"Step already exists." );	
+	UI::Reply( msg:"Step already exists", state:False);
+end if;
+
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("76f375e8-9c71-43de-a654-609432029ca5",
+	"354ef2d3-bf66-4bbb-9d1e-502e3c6cf943",
+	'Value',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
 INSERT INTO O_NBATTR
 	VALUES ("f88a612f-df76-4a9e-aa13-15cf867ff62c",
 	"76132002-1bc7-4140-b7a9-bb8294aff2b2");
@@ -17,12 +50,12 @@ INSERT INTO O_ATTR
 	VALUES ("f88a612f-df76-4a9e-aa13-15cf867ff62c",
 	"76132002-1bc7-4140-b7a9-bb8294aff2b2",
 	"00000000-0000-0000-0000-000000000000",
-	'SName',
+	'SValue',
 	'',
-	'S',
-	'Name',
+	'',
+	'SValue',
 	1,
-	"ba5eda7a-def5-0000-0000-000000000004",
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'');
 INSERT INTO O_ID
@@ -32,7 +65,7 @@ INSERT INTO O_OIDA
 	VALUES ("f88a612f-df76-4a9e-aa13-15cf867ff62c",
 	"76132002-1bc7-4140-b7a9-bb8294aff2b2",
 	0,
-	'SName');
+	'SValue');
 INSERT INTO O_ID
 	VALUES (1,
 	"76132002-1bc7-4140-b7a9-bb8294aff2b2");

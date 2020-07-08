@@ -15,12 +15,20 @@ INSERT INTO O_TFR
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
 	'	
-	
-create object instance employee of EM;
-
-employee.FName = param.FName;
-employee.LName = param.LName;
-employee.National_ID = param.National_ID;',
+LOG::LogInfo(message:"Attempting to add a new Employee." );
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+if ( empty employee )
+	//create object instance employee of Employee;
+	create object instance employee of EM;
+	employee.FName = param.FName;
+	employee.LName = param.LName;
+	employee.National_ID = param.National_ID;
+	UI::Reply( msg:"Employee added successfully.", state:True);
+else 
+	LOG::LogInfo(message:"Employee already exists." );	
+	UI::Reply( msg:"Employee already exists", state:False);
+end if;
+',
 	1,
 	'',
 	"00000000-0000-0000-0000-000000000000",
@@ -51,6 +59,39 @@ INSERT INTO O_TPARM
 	0,
 	'',
 	"04bd46df-5a2e-4b22-804b-6f730d9adbfb",
+	'');
+INSERT INTO O_TFR
+	VALUES ("9c320a43-1f53-49f2-8b1b-05880692a946",
+	"d8528470-976c-421b-a087-1201ac24302f",
+	'commenceEmployee',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'LOG::LogInfo(message:"An employee attempts to commence." );
+
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+if ( not empty employee )
+	generate EM2:commencedRcvd() to employee;
+	employee.Start_Date = TIM::current_date();
+	UI::Reply( msg:"Employee has commenced ", state:True);
+
+else 
+	LOG::LogInfo(message:"Employee is not registered!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
+end if;
+',
+	1,
+	'',
+	"405baa66-75e7-4b59-bf9b-44fc101b3b87",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("cf0d5b79-2175-48cb-afa1-1196d2ee244c",
+	"9c320a43-1f53-49f2-8b1b-05880692a946",
+	'National_ID',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
 	'');
 INSERT INTO O_NBATTR
 	VALUES ("7e42a956-78c5-4651-8efb-01820a985edd",
