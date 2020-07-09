@@ -1,0 +1,68 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("9645ad70-7bf4-4778-bcce-884e398aa367",
+	'Employee_Job',
+	17,
+	'Employee_Job',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("8f050966-a488-4898-a8b0-e64a83c67b97",
+	"9645ad70-7bf4-4778-bcce-884e398aa367");
+INSERT INTO O_BATTR
+	VALUES ("8f050966-a488-4898-a8b0-e64a83c67b97",
+	"9645ad70-7bf4-4778-bcce-884e398aa367");
+INSERT INTO O_ATTR
+	VALUES ("8f050966-a488-4898-a8b0-e64a83c67b97",
+	"9645ad70-7bf4-4778-bcce-884e398aa367",
+	"00000000-0000-0000-0000-000000000000",
+	'Date_of_Appointment',
+	'',
+	'',
+	'Date_of_Appointment',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("7e1c2e43-eeaf-4ad2-baa7-0af15169e92e",
+	"9645ad70-7bf4-4778-bcce-884e398aa367");
+INSERT INTO O_BATTR
+	VALUES ("7e1c2e43-eeaf-4ad2-baa7-0af15169e92e",
+	"9645ad70-7bf4-4778-bcce-884e398aa367");
+INSERT INTO O_ATTR
+	VALUES ("7e1c2e43-eeaf-4ad2-baa7-0af15169e92e",
+	"9645ad70-7bf4-4778-bcce-884e398aa367",
+	"8f050966-a488-4898-a8b0-e64a83c67b97",
+	'Active',
+	'',
+	'',
+	'Active',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"9645ad70-7bf4-4778-bcce-884e398aa367");
+INSERT INTO O_ID
+	VALUES (1,
+	"9645ad70-7bf4-4778-bcce-884e398aa367");
+INSERT INTO O_ID
+	VALUES (2,
+	"9645ad70-7bf4-4778-bcce-884e398aa367");
+INSERT INTO PE_PE
+	VALUES ("9645ad70-7bf4-4778-bcce-884e398aa367",
+	1,
+	"fdd8efa1-97d4-4adc-a67d-1fb0bd49373b",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("fdd8efa1-97d4-4adc-a67d-1fb0bd49373b",
+	"00000000-0000-0000-0000-000000000000",
+	"ccdb2e52-76fc-4422-936f-a0239fd9d106",
+	'main',
+	'',
+	0,
+	'../main.xtuml');

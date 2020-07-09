@@ -1,23 +1,110 @@
 -- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
 
 INSERT INTO O_OBJ
-	VALUES ("519ecf55-8cb0-4528-8eba-2916d04baeec",
+	VALUES ("2fd32380-b2c9-4d8f-9b69-b93caf1481f1",
 	'Grade',
-	7,
+	11,
 	'Grade',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("a96ea920-e5ae-40d0-bfb4-6e4fea1275a1",
+	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1",
+	'cudGrade',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'LOG::LogInfo(message:"Attempting to add a new Grade." );
+select any grade from instances of Grade where selected.GValue==param.Value;
+if ( empty grade )
+	create object instance g of Grade;
+	g.GValue = param.Value;
+	UI::Reply( msg:"Grade added successfully.", state:True);
+else 
+	
+	LOG::LogInfo(message:"Grade already exists." );	
+	UI::Reply( msg:"Grade already exists", state:False);
+end if;
+
+
+
+LOG::LogInfo(message:"Attempting to add a new Grade." );
+select any grade from instances of Grade where selected.GValue==param.Value;
+if ( empty grade ) and (param.Action=="NEW")
+	create object instance g of Grade;
+	g.GValue = param.Value;
+	UI::Reply( msg:"Grade added successfully.", state:True);
+
+elif ( not empty employee ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Employee already exists." );	
+	UI::Reply( msg:"Employee already exists", state:False);
+
+elif ( not empty employee ) and (param.Action=="UPDATE")
+	employee.FName = param.FName;
+	employee.LName = param.LName;
+	employee.National_ID = param.National_ID;
+	
+	LOG::LogInfo(message:"Employee updated successfully." );	
+	UI::Reply( msg:"Employee updated successfully", state:True);
+
+elif ( not empty employee ) and (param.Action=="DELETE")
+
+	LOG::LogInfo(message:"Employee delete is unsuccessful, employee does not exist." );	
+	UI::Reply( msg:"Employee delete unsuccessful", state:False);
+	
+else ( empty employee )
+	LOG::LogInfo(message:"Employee does not exist." );	
+	UI::Reply( msg:"Employee does not exist.", state:False);
+
+end if;
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	0);
+INSERT INTO O_TPARM
+	VALUES ("b5f4058c-4d98-4790-a570-57bfae90e950",
+	"a96ea920-e5ae-40d0-bfb4-6e4fea1275a1",
+	'Value',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("2938a9ae-06b3-486b-bda8-e61f16f79126",
+	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1");
+INSERT INTO O_BATTR
+	VALUES ("2938a9ae-06b3-486b-bda8-e61f16f79126",
+	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1");
+INSERT INTO O_ATTR
+	VALUES ("2938a9ae-06b3-486b-bda8-e61f16f79126",
+	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1",
+	"00000000-0000-0000-0000-000000000000",
+	'GValue',
+	'',
+	'',
+	'GValue',
+	1,
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
-	"519ecf55-8cb0-4528-8eba-2916d04baeec");
+	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1");
+INSERT INTO O_OIDA
+	VALUES ("2938a9ae-06b3-486b-bda8-e61f16f79126",
+	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1",
+	0,
+	'GValue');
 INSERT INTO O_ID
 	VALUES (1,
-	"519ecf55-8cb0-4528-8eba-2916d04baeec");
+	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1");
 INSERT INTO O_ID
 	VALUES (2,
-	"519ecf55-8cb0-4528-8eba-2916d04baeec");
+	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1");
 INSERT INTO PE_PE
-	VALUES ("519ecf55-8cb0-4528-8eba-2916d04baeec",
+	VALUES ("2fd32380-b2c9-4d8f-9b69-b93caf1481f1",
 	1,
 	"fdd8efa1-97d4-4adc-a67d-1fb0bd49373b",
 	"00000000-0000-0000-0000-000000000000",
