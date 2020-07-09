@@ -10,25 +10,114 @@ INSERT INTO C_EP
 	"8a8ff605-6530-4383-8b9c-18ae804345a8",
 	-1,
 	'Leave_Request',
-	'');
+	'//Select an employee using the National ID to deliver the event to the statemachine
+// to serve the request for leave.
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+if ( not empty employee )
+	generate EM3:requestLeave(Starting:param.Starting, Ending:param.Ending, Name:param.Name, National_ID:param.National_ID) to employee;
+	UI::Reply( msg:"Employee has requested leave successfully ", state:True);
+
+else 
+	LOG::LogInfo(message:"Employee is not registered!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
+end if;
+');
 INSERT INTO C_AS
 	VALUES ("7a80da7b-4e70-4431-b5ae-ef63a7102400",
 	'Leave_Request',
-	'',
+	'//Select an employee using the National ID to deliver the event to the statemachine
+// to serve the request for leave.
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+if ( not empty employee )
+	generate EM3:requestLeave(Starting:param.Starting, Ending:param.Ending, Name:param.Name, National_ID:param.National_ID) to employee;
+	UI::Reply( msg:"Employee has requested leave successfully ", state:True);
+
+else 
+	LOG::LogInfo(message:"Employee is not registered!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
+end if;
+',
 	0,
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("06d03746-de11-4c9e-b90c-3b9a740b296c",
+	"7a80da7b-4e70-4431-b5ae-ef63a7102400",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Starting',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("a2e7d82d-2ac1-472c-a177-26e1fe3f7645",
+	"7a80da7b-4e70-4431-b5ae-ef63a7102400",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Ending',
+	'',
+	0,
+	'',
+	"06d03746-de11-4c9e-b90c-3b9a740b296c");
+INSERT INTO C_PP
+	VALUES ("fec3e61a-ab1a-4cc8-a613-f1954f0d98a9",
+	"7a80da7b-4e70-4431-b5ae-ef63a7102400",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'National_ID',
+	'',
+	0,
+	'',
+	"a2e7d82d-2ac1-472c-a177-26e1fe3f7645");
+INSERT INTO C_PP
+	VALUES ("c0f04fd1-0764-4f52-8937-826edf60607b",
+	"7a80da7b-4e70-4431-b5ae-ef63a7102400",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"fec3e61a-ab1a-4cc8-a613-f1954f0d98a9");
 INSERT INTO C_EP
 	VALUES ("26f67bbf-17b3-497e-ba1a-b502515f1099",
 	"8a8ff605-6530-4383-8b9c-18ae804345a8",
 	-1,
 	'Leave_Return',
-	'');
+	'//Select an employee using the National ID to deliver the event to the statemachine
+// to serve the request for leave.
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+if ( not empty employee )
+	generate EM4:returnFromLeave() to employee;
+	UI::Reply( msg:"Employee request is successfull ", state:True);
+
+else 
+	LOG::LogInfo(message:"Employee is not registered!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
+end if;
+');
 INSERT INTO C_AS
 	VALUES ("26f67bbf-17b3-497e-ba1a-b502515f1099",
 	'Leave_Return',
-	'',
+	'//Select an employee using the National ID to deliver the event to the statemachine
+// to serve the request for leave.
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+if ( not empty employee )
+	generate EM4:returnFromLeave() to employee;
+	UI::Reply( msg:"Employee request is successfull ", state:True);
+
+else 
+	LOG::LogInfo(message:"Employee is not registered!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
+end if;
+',
 	0,
 	"7a80da7b-4e70-4431-b5ae-ef63a7102400");
+INSERT INTO C_PP
+	VALUES ("4e690686-e8d1-473d-b90a-fdb16eebfc68",
+	"26f67bbf-17b3-497e-ba1a-b502515f1099",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'National_ID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO C_EP
 	VALUES ("40f05a9b-0bca-4c34-94ee-f94a4cb0a66d",
 	"8a8ff605-6530-4383-8b9c-18ae804345a8",
@@ -53,6 +142,63 @@ INSERT INTO C_AS
 	'',
 	0,
 	"40f05a9b-0bca-4c34-94ee-f94a4cb0a66d");
+INSERT INTO C_PP
+	VALUES ("5cb433da-c3ac-400e-a4ab-dbc8f18faea4",
+	"4bf98d8b-56f1-4379-a4ff-ca46610d043a",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'National_ID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("1285d3bd-472b-43dd-9db2-af002cf6324c",
+	"4bf98d8b-56f1-4379-a4ff-ca46610d043a",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"5cb433da-c3ac-400e-a4ab-dbc8f18faea4");
+INSERT INTO C_PP
+	VALUES ("ffbbb23f-a03c-4c0d-9476-d34a08990c5e",
+	"4bf98d8b-56f1-4379-a4ff-ca46610d043a",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'Job_ID',
+	'',
+	0,
+	'',
+	"1285d3bd-472b-43dd-9db2-af002cf6324c");
+INSERT INTO C_EP
+	VALUES ("4e42f802-8ad4-4d21-8dfe-5fc8500e58a3",
+	"8a8ff605-6530-4383-8b9c-18ae804345a8",
+	-1,
+	'Employee_Bonus',
+	'');
+INSERT INTO C_AS
+	VALUES ("4e42f802-8ad4-4d21-8dfe-5fc8500e58a3",
+	'Employee_Bonus',
+	'',
+	0,
+	"4bf98d8b-56f1-4379-a4ff-ca46610d043a");
+INSERT INTO C_PP
+	VALUES ("3922c155-f650-4d94-b564-ca1e178fb109",
+	"4e42f802-8ad4-4d21-8dfe-5fc8500e58a3",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'National_ID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("8960bd10-5df4-46cf-a0b7-5f1250f541cc",
+	"4e42f802-8ad4-4d21-8dfe-5fc8500e58a3",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'Name',
+	'',
+	0,
+	'',
+	"3922c155-f650-4d94-b564-ca1e178fb109");
 INSERT INTO PE_PE
 	VALUES ("8a8ff605-6530-4383-8b9c-18ae804345a8",
 	1,

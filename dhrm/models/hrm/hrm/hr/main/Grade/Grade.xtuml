@@ -10,7 +10,7 @@ INSERT INTO O_OBJ
 INSERT INTO O_TFR
 	VALUES ("a96ea920-e5ae-40d0-bfb4-6e4fea1275a1",
 	"2fd32380-b2c9-4d8f-9b69-b93caf1481f1",
-	'createGrade',
+	'cudGrade',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
@@ -26,6 +26,37 @@ else
 	UI::Reply( msg:"Grade already exists", state:False);
 end if;
 
+
+
+LOG::LogInfo(message:"Attempting to add a new Grade." );
+select any grade from instances of Grade where selected.GValue==param.Value;
+if ( empty grade ) and (param.Action=="NEW")
+	create object instance g of Grade;
+	g.GValue = param.Value;
+	UI::Reply( msg:"Grade added successfully.", state:True);
+
+elif ( not empty employee ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Employee already exists." );	
+	UI::Reply( msg:"Employee already exists", state:False);
+
+elif ( not empty employee ) and (param.Action=="UPDATE")
+	employee.FName = param.FName;
+	employee.LName = param.LName;
+	employee.National_ID = param.National_ID;
+	
+	LOG::LogInfo(message:"Employee updated successfully." );	
+	UI::Reply( msg:"Employee updated successfully", state:True);
+
+elif ( not empty employee ) and (param.Action=="DELETE")
+
+	LOG::LogInfo(message:"Employee delete is unsuccessful, employee does not exist." );	
+	UI::Reply( msg:"Employee delete unsuccessful", state:False);
+	
+else ( empty employee )
+	LOG::LogInfo(message:"Employee does not exist." );	
+	UI::Reply( msg:"Employee does not exist.", state:False);
+
+end if;
 ',
 	1,
 	'',
