@@ -454,8 +454,11 @@ INSERT INTO SPR_PS
 	VALUES ("7bc6e39a-d62f-4374-8cb6-3aa1b718818c",
 	'Leave',
 	'',
-	'',
-	3,
+	' //Delegate create, read, update, and delete to Leave class method crudLeave 
+ 
+ Leave::crudLeave(Name:param.Name, MaximumDays:param.MaximumDays, Action:param.Action);
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("56c23873-1b37-4519-a922-ec1508660058",

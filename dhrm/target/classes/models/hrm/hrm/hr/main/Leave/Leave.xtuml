@@ -10,7 +10,7 @@ INSERT INTO O_OBJ
 INSERT INTO O_TFR
 	VALUES ("95ff5b03-8893-4449-815a-a6d1369bf7bc",
 	"20eeccf9-a28c-4875-94f5-245affd4f878",
-	'createLeave',
+	'crudLeave',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
@@ -34,11 +34,20 @@ INSERT INTO O_TPARM
 INSERT INTO O_TPARM
 	VALUES ("d1580ed6-e52b-42a7-a8ef-93942757c3be",
 	"95ff5b03-8893-4449-815a-a6d1369bf7bc",
-	'NumberOfAllowedDays',
+	'MaximumDays',
 	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
 	'',
 	"64fc2d2e-d3ec-4803-87ce-4a2e237dd9b6",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("f7089dc7-a8ca-438c-b2b1-b80af7cbdd37",
+	"95ff5b03-8893-4449-815a-a6d1369bf7bc",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"d1580ed6-e52b-42a7-a8ef-93942757c3be",
 	'');
 INSERT INTO O_NBATTR
 	VALUES ("341aac1f-99da-4a6e-88bf-1f0c4d4c5241",
