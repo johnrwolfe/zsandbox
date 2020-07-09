@@ -47,7 +47,7 @@ INSERT INTO C_PP
 INSERT INTO C_PP
 	VALUES ("6a3f3a76-cee2-4b66-8968-452c2c6528c9",
 	"cd0e9545-1bf3-49dd-a675-38adeb2a85dc",
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'LName',
 	'',
 	0,
@@ -331,6 +331,75 @@ INSERT INTO C_AS
 	'',
 	0,
 	"2939637f-2fdc-492b-8b9d-ab2e7a6ba54d");
+INSERT INTO C_EP
+	VALUES ("7f4c18b1-3bc8-4213-936d-02ec4ccf8118",
+	"102214df-1d03-428f-9eb8-5c5ce18bfdae",
+	-1,
+	'Employee_Read',
+	'');
+INSERT INTO C_AS
+	VALUES ("7f4c18b1-3bc8-4213-936d-02ec4ccf8118",
+	'Employee_Read',
+	'',
+	1,
+	"18f560c3-1abf-4000-98e6-60040c2bfc5a");
+INSERT INTO C_PP
+	VALUES ("7f783bbc-3f4e-4009-85f9-3a3fba72816d",
+	"7f4c18b1-3bc8-4213-936d-02ec4ccf8118",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'FName',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("55f3b52c-811a-44d3-bf67-ee3f5d6ce6f2",
+	"7f4c18b1-3bc8-4213-936d-02ec4ccf8118",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'LName',
+	'',
+	0,
+	'',
+	"7f783bbc-3f4e-4009-85f9-3a3fba72816d");
+INSERT INTO C_PP
+	VALUES ("4077d122-e80e-44f8-878a-c26c20686e06",
+	"7f4c18b1-3bc8-4213-936d-02ec4ccf8118",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'National_ID',
+	'',
+	0,
+	'',
+	"55f3b52c-811a-44d3-bf67-ee3f5d6ce6f2");
+INSERT INTO C_EP
+	VALUES ("f9a937a7-d069-4e99-a65b-e388e1432836",
+	"102214df-1d03-428f-9eb8-5c5ce18bfdae",
+	-1,
+	'Reply',
+	'');
+INSERT INTO C_AS
+	VALUES ("f9a937a7-d069-4e99-a65b-e388e1432836",
+	'Reply',
+	'',
+	1,
+	"7f4c18b1-3bc8-4213-936d-02ec4ccf8118");
+INSERT INTO C_PP
+	VALUES ("5bdd194f-c280-460c-b371-765e4cbc8d06",
+	"f9a937a7-d069-4e99-a65b-e388e1432836",
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'msg',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO C_PP
+	VALUES ("e85807f6-ae25-46ed-8b9c-964fa13749df",
+	"f9a937a7-d069-4e99-a65b-e388e1432836",
+	"ba5eda7a-def5-0000-0000-000000000001",
+	'state',
+	'',
+	0,
+	'',
+	"5bdd194f-c280-460c-b371-765e4cbc8d06");
 INSERT INTO PE_PE
 	VALUES ("102214df-1d03-428f-9eb8-5c5ce18bfdae",
 	1,

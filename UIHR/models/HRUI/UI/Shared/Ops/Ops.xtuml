@@ -42,7 +42,7 @@ end if;
 INSERT INTO C_PP
 	VALUES ("06d03746-de11-4c9e-b90c-3b9a740b296c",
 	"7a80da7b-4e70-4431-b5ae-ef63a7102400",
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'Starting',
 	'',
 	0,
@@ -51,7 +51,7 @@ INSERT INTO C_PP
 INSERT INTO C_PP
 	VALUES ("a2e7d82d-2ac1-472c-a177-26e1fe3f7645",
 	"7a80da7b-4e70-4431-b5ae-ef63a7102400",
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000004",
 	'Ending',
 	'',
 	0,
@@ -199,6 +199,27 @@ INSERT INTO C_PP
 	0,
 	'',
 	"3922c155-f650-4d94-b564-ca1e178fb109");
+INSERT INTO C_EP
+	VALUES ("1782b7de-7d69-4afb-9f64-1f6ea67ce68f",
+	"8a8ff605-6530-4383-8b9c-18ae804345a8",
+	-1,
+	'Employee_Commence',
+	'');
+INSERT INTO C_AS
+	VALUES ("1782b7de-7d69-4afb-9f64-1f6ea67ce68f",
+	'Employee_Commence',
+	'',
+	0,
+	"4e42f802-8ad4-4d21-8dfe-5fc8500e58a3");
+INSERT INTO C_PP
+	VALUES ("050535af-8f2f-4184-905a-5123c1486258",
+	"1782b7de-7d69-4afb-9f64-1f6ea67ce68f",
+	"ba5eda7a-def5-0000-0000-000000000002",
+	'National_ID',
+	'',
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000");
 INSERT INTO PE_PE
 	VALUES ("8a8ff605-6530-4383-8b9c-18ae804345a8",
 	1,
