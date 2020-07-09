@@ -513,8 +513,8 @@ INSERT INTO SPR_RS
 	VALUES ("21f91ac0-6fc4-48b3-9b30-0c56779fa3ca",
 	'Reply',
 	'',
-	'',
-	3,
+	'::Reply( msg:param.msg, state:param.state );',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("f9a937a7-d069-4e99-a65b-e388e1432836",
