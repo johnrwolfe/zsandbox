@@ -33,7 +33,9 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
-import ui.shared.IEP;
+//import ui.shared.IEP;
+import ui.shared.ICRUD;
+import ui.shared.IOps;
 
 
 public class UI extends Component<UI> {
@@ -59,7 +61,7 @@ public class UI extends Component<UI> {
     
        if (requester != null) {
             try {
-                requester.sendMessage(new IEP.Reply(p_msg, p_state));
+                requester.sendMessage(new ICRUD.Reply(p_msg, p_state));
             } catch ( IOException e ) {
                 LOG().LogInfo("Connection lost.");
                 requester.tearDown();
@@ -159,7 +161,7 @@ public class UI extends Component<UI> {
  public void listen() throws XtumlException {
         int signal_no = poll();
         switch (signal_no) {
-        case IEP.SIGNAL_NO_REPLY:
+        case ICRUD.SIGNAL_NO_REPLY:
         	App().Reply( (String) requester.message.get(0), (Boolean) requester.message.get(1) );
             break;
         case SOCKET_ERROR:

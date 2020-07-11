@@ -19,11 +19,11 @@ select any step from instances of Step where selected.SValue==param.Value;
 if ( empty step )
 	create object instance s of Step;
 	s.SValue = param.Value;
-	UI::Reply( msg:"Step added successfully.", state:True);
+	//UI::Reply( msg:"Step added successfully.", state:True);
 else 
 	
 	LOG::LogInfo(message:"Step already exists." );	
-	UI::Reply( msg:"Step already exists", state:False);
+	//UI::Reply( msg:"Step already exists", state:False);
 end if;
 
 ',

@@ -193,7 +193,7 @@ INSERT INTO GD_GE
 	"5cb88558-711f-4c4f-9d8a-f7db7239c228",
 	93,
 	0,
-	'HRUI::UI::UI::App_Leave::Ops');
+	'HRUI::UI::UI::App_Ops::Ops');
 INSERT INTO GD_CON
 	VALUES ("3fab173b-6d4b-4d40-8720-79b9fcf2f56a",
 	"00000000-0000-0000-0000-000000000000");
@@ -532,7 +532,7 @@ INSERT INTO C_I_PROXY
 INSERT INTO C_PO
 	VALUES ("4956a811-904a-4f5c-b789-62aa2382d543",
 	"d81dc79e-6692-4a39-b6d9-f5fc0b765726",
-	'App_Leave',
+	'App_Ops',
 	0,
 	0);
 INSERT INTO C_IR
@@ -545,7 +545,7 @@ INSERT INTO C_R
 	'Ops',
 	'',
 	'Unnamed Interface',
-	'UI::App_Leave::Ops');
+	'UI::App_Ops::Ops');
 INSERT INTO SPR_REP
 	VALUES ("a1b7e424-e138-44b3-91d0-6162229bdcdb",
 	"7a80da7b-4e70-4431-b5ae-ef63a7102400",
