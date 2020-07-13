@@ -65,19 +65,8 @@
             <goals>
               <goal>core</goal>
             </goals>
-            <configuration>
-     		 <output>${project.build.directory}/b.xtuml</output>
-    		</configuration>
+            
           </execution>
-          <execution>
-    		<id>ciera-sql</id>
-   			 <goals>
-      			<goal>sql</goal>
-    		</goals>
-    		<configuration>
-     		 <input>${project.build.directory}/b.xtuml</input>
-    		</configuration>
-  		   </execution>
         </executions>
       </plugin>
     </plugins>

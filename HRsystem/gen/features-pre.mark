@@ -1,7 +1,6 @@
 *,ApplicationName
 *,ApplicationPackage
 *,AsyncApplication
-*,NonPersistentInstanceIds
 *,RootPackage
 *,SortComparator
 *,TemplateDir

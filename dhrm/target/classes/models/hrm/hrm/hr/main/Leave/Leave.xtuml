@@ -14,9 +14,39 @@ INSERT INTO O_TFR
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
-	'create object instance leave of Leave;
-	leave.Name = param.Name;
-	leave.MaximumDays = param.MaximumDays;
+	'LOG::LogInfo(message:"Attempting to add a new Leave." );
+select any inst from instances of Leave where selected.Name==param.Name;
+if ( empty inst ) and (param.Action=="NEW")
+	//create object instance of Leave;
+	create object instance l of Leave;
+	l.Name = param.Name;
+	l.MaximumDays = param.MaximumDays;
+	UI::Reply( msg:"Leave: added successfully.", state:True);
+
+elif ( not empty inst ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Leave already exists." );	
+	UI::Reply( msg:"Leave already exists", state:False);
+
+elif ( not empty inst ) and (param.Action=="UPDATE")
+	
+	LOG::LogInfo(message:"Leave updated successfully." );	
+	UI::Reply( msg:"Leave updated successfully", state:True);
+elif ( not empty inst ) and (param.Action=="DELETE")
+
+	LOG::LogInfo(message:"Leave deleted successfully." );	
+	UI::Reply( msg:"Leave delete unsuccessful", state:False);
+
+ elif (empty inst )
+	LOG::LogInfo(message:"Leave does not exist." );	
+	UI::Reply( msg:"Leave does not exist.", state:False);
+ end if;
+
+	
+		
+				
+
+
+
  ',
 	1,
 	'',
