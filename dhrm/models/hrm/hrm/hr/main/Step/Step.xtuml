@@ -10,22 +10,39 @@ INSERT INTO O_OBJ
 INSERT INTO O_TFR
 	VALUES ("354ef2d3-bf66-4bbb-9d1e-502e3c6cf943",
 	"76132002-1bc7-4140-b7a9-bb8294aff2b2",
-	'createStep',
+	'crudStep',
 	'',
 	"ba5eda7a-def5-0000-0000-000000000000",
 	0,
 	'LOG::LogInfo(message:"Attempting to add a new Step." );
-select any step from instances of Step where selected.SValue==param.Value;
-if ( empty step )
+select any inst from instances of Step where selected.SValue==param.Value;
+if ( empty inst ) and (param.Action=="NEW")
+	//create object instance of Step;
 	create object instance s of Step;
 	s.SValue = param.Value;
-	//UI::Reply( msg:"Step added successfully.", state:True);
-else 
-	
-	LOG::LogInfo(message:"Step already exists." );	
-	//UI::Reply( msg:"Step already exists", state:False);
-end if;
+	UI::Reply( msg:"Step: added successfully.", state:True);
 
+elif ( not empty inst ) and (param.Action=="NEW")
+	LOG::LogInfo(message:"Step already exists." );	
+	UI::Reply( msg:"Step already exists", state:False);
+
+elif ( not empty inst ) and (param.Action=="UPDATE")
+	
+	LOG::LogInfo(message:"Step updated successfully." );	
+	UI::Reply( msg:"Step updated successfully", state:True);
+elif ( not empty inst ) and (param.Action=="DELETE")
+
+	LOG::LogInfo(message:"Step deleted successfully." );	
+	UI::Reply( msg:"Step delete unsuccessful", state:False);
+
+ elif (empty inst )
+	LOG::LogInfo(message:"Step does not exist." );	
+	UI::Reply( msg:"Step does not exist.", state:False);
+ end if;
+
+	
+		
+				
 ',
 	1,
 	'',
@@ -39,6 +56,15 @@ INSERT INTO O_TPARM
 	0,
 	'',
 	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("bbc1e31f-c366-4347-92f8-09e2897bcea9",
+	"354ef2d3-bf66-4bbb-9d1e-502e3c6cf943",
+	'Action',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"76f375e8-9c71-43de-a654-609432029ca5",
 	'');
 INSERT INTO O_NBATTR
 	VALUES ("f88a612f-df76-4a9e-aa13-15cf867ff62c",

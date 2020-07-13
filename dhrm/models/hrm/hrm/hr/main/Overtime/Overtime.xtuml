@@ -7,18 +7,6 @@ INSERT INTO O_OBJ
 	'Overtime',
 	'',
 	"00000000-0000-0000-0000-000000000000");
-INSERT INTO O_TFR
-	VALUES ("8235e3db-287a-4bbc-8684-d8861a33a1a1",
-	"bcefdb77-7c37-4a75-ac84-87eef93082be",
-	'createOvertime',
-	'',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	1,
-	'',
-	3,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	0);
 INSERT INTO O_NBATTR
 	VALUES ("122ebfb9-a06b-43c5-bcf0-e9110b5faafa",
 	"bcefdb77-7c37-4a75-ac84-87eef93082be");

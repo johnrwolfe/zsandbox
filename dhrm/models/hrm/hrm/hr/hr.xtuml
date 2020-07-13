@@ -375,8 +375,11 @@ elif (param.Action == "DELETE")
  EM::deleteBonus(Name:param.Name);
 end if;
 ',
-	'',
-	3,
+	' //Delegate create, read, update, and delete to Bonus class method crudBonus  
+ 
+ Bonus::crudBonus(Name:param.Name, Amount:param.Amount, Action:param.Action);
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("bf9503bc-cd03-4d64-baa9-72fe60d4a50d",
@@ -418,8 +421,11 @@ INSERT INTO SPR_PS
 	VALUES ("29be4f14-13ea-401c-b8a9-7690be53cf53",
 	'Step',
 	'',
-	'',
-	3,
+	' //Delegate create, read, update, and delete to Step class method crudStep  
+ 
+ Step::crudStep(Value:param.Value, Action:param.Action);
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("35d0479c-5a63-450d-95d3-594a9a9d85ba",
@@ -436,8 +442,11 @@ INSERT INTO SPR_PS
 	VALUES ("6bd7de39-8b45-443d-bb14-e62c06ee435b",
 	'Grade',
 	'',
-	'',
-	3,
+	' //Delegate create, read, update, and delete to Grade class method crudGrade  
+ 
+ Grade::crudGrade(Value:param.Value, Action:param.Action);
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("ed41d076-0781-4cfd-82c0-5d6d99366a79",
