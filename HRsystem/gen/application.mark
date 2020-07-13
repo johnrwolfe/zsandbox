@@ -1,1 +1,1 @@
-*,RootPackage,*,HRsystem::HRsystem
+*,RootPackage,*,HRsystem::HRsystem,InstanceLoading,Component,Sql

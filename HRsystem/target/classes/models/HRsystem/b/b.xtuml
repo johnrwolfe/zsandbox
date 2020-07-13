@@ -1,0 +1,46 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("817dedb5-d749-427f-98c4-128ec50981a8",
+	"a31b98b3-80c6-4eea-80cb-d84755441c10",
+	"a31b98b3-80c6-4eea-80cb-d84755441c10",
+	'b',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("8f28b32a-a727-4852-a618-a4dd1f997e0c",
+	112,
+	"817dedb5-d749-427f-98c4-128ec50981a8",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'HRsystem::b');
+INSERT INTO DIM_DIA
+	VALUES ("8f28b32a-a727-4852-a618-a4dd1f997e0c",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO PE_PE
+	VALUES ("817dedb5-d749-427f-98c4-128ec50981a8",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	7);
+INSERT INTO S_SYS_PROXY
+	VALUES ("a31b98b3-80c6-4eea-80cb-d84755441c10",
+	'HRsystem',
+	1,
+	'../HRsystem.xtuml');
