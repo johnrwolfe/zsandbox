@@ -23,10 +23,6 @@ public class HrUI_Leave extends Port<Hr> implements IOps {
     }
 
     // inbound messages
-    public void Employee_Commence( final int p_National_ID ) throws XtumlException {
-        new EmployeeImpl.CLASS(context()).commenceEmployee( p_National_ID );
-    }
-
     public void Leave_Request( final String p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) throws XtumlException {
         Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
         if ( !employee.isEmpty() ) {
@@ -46,6 +42,10 @@ public class HrUI_Leave extends Port<Hr> implements IOps {
     }
 
     public void Employee_Job( final int p_National_ID,  final String p_Name,  final int p_Job_ID ) throws XtumlException {
+    }
+
+    public void Employee_Commence( final int p_National_ID ) throws XtumlException {
+        new EmployeeImpl.CLASS(context()).commenceEmployee( p_National_ID );
     }
 
     public void Leave_Return( final int p_National_ID ) throws XtumlException {
@@ -69,9 +69,6 @@ public class HrUI_Leave extends Port<Hr> implements IOps {
     public void deliver( IMessage message ) throws XtumlException {
         if ( null == message ) throw new BadArgumentException( "Cannot deliver null message." );
         switch ( message.getId() ) {
-            case IOps.SIGNAL_NO_EMPLOYEE_COMMENCE:
-                Employee_Commence(IntegerUtil.deserialize(message.get(0)));
-                break;
             case IOps.SIGNAL_NO_LEAVE_REQUEST:
                 Leave_Request(StringUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)), StringUtil.deserialize(message.get(3)));
                 break;
@@ -83,6 +80,9 @@ public class HrUI_Leave extends Port<Hr> implements IOps {
                 break;
             case IOps.SIGNAL_NO_EMPLOYEE_JOB:
                 Employee_Job(IntegerUtil.deserialize(message.get(0)), StringUtil.deserialize(message.get(1)), IntegerUtil.deserialize(message.get(2)));
+                break;
+            case IOps.SIGNAL_NO_EMPLOYEE_COMMENCE:
+                Employee_Commence(IntegerUtil.deserialize(message.get(0)));
                 break;
             case IOps.SIGNAL_NO_LEAVE_RETURN:
                 Leave_Return(IntegerUtil.deserialize(message.get(0)));

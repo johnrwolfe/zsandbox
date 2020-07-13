@@ -16,8 +16,8 @@ public interface Leave extends IModelInstance<Leave,Hr> {
     public String getName() throws XtumlException;
     public void setMaximumDays( int m_MaximumDays ) throws XtumlException;
     public int getMaximumDays() throws XtumlException;
-    public int getLeave_ID() throws XtumlException;
     public void setLeave_ID( int m_Leave_ID ) throws XtumlException;
+    public int getLeave_ID() throws XtumlException;
 
 
     // operations

@@ -15,7 +15,6 @@ hrsystem/hr/main/Employee_LeaveSet.class
 hrsystem/hr/main/impl/Employee_JobSetImpl.class
 hrsystem/hr/main/impl/EmployeeImpl$commencedRcvd.class
 hrsystem/hr/main/Employee_Job.class
-hrsystem/ui/UIApp_Leave.class
 hrsystem/hr/main/OvertimeSet.class
 hrsystem/hr/main/impl/EmployeeImpl$CLASS.class
 ui/shared/IOps$Leave_Request.class
@@ -64,6 +63,7 @@ hrsystem/hr/main/impl/Employee_LeaveImpl.class
 hrsystem/hr/main/impl/EmptyEmployee.class
 hrsystem/hr/main/BonusSet.class
 ui/shared/ICRUD$Overtime.class
+hrsystem/ui/UIApp_Ops.class
 hrsystem/hr/main/impl/EmptyBonus_Payment.class
 hrsystem/hr/main/impl/LeaveSetImpl.class
 hrsystem/hr/main/PaymentSet.class

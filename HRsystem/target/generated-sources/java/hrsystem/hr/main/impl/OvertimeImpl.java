@@ -67,11 +67,6 @@ public class OvertimeImpl extends ModelInstance<Overtime,Hr> implements Overtime
     // attributes
     private UniqueId m_ID;
     @Override
-    public UniqueId getID() throws XtumlException {
-        checkLiving();
-                return m_ID;
-    }
-    @Override
     public void setID( UniqueId m_ID ) throws XtumlException {
         checkLiving();
         if ( m_ID.inequality( this.m_ID ) ) {
@@ -79,6 +74,11 @@ public class OvertimeImpl extends ModelInstance<Overtime,Hr> implements Overtime
             this.m_ID = m_ID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_ID", oldValue, this.m_ID));
         }
+    }
+    @Override
+    public UniqueId getID() throws XtumlException {
+        checkLiving();
+                return m_ID;
     }
     private int m_Start;
     @Override
@@ -182,11 +182,11 @@ public class OvertimeImpl extends ModelInstance<Overtime,Hr> implements Overtime
 class EmptyOvertime extends ModelInstance<Overtime,Hr> implements Overtime {
 
     // attributes
-    public UniqueId getID() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setID( UniqueId m_ID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public UniqueId getID() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public int getStart() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );

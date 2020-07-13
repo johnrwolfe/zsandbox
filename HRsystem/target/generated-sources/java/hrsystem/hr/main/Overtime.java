@@ -12,8 +12,8 @@ import io.ciera.runtime.summit.types.UniqueId;
 public interface Overtime extends IModelInstance<Overtime,Hr> {
 
     // attributes
-    public UniqueId getID() throws XtumlException;
     public void setID( UniqueId m_ID ) throws XtumlException;
+    public UniqueId getID() throws XtumlException;
     public int getStart() throws XtumlException;
     public void setStart( int m_Start ) throws XtumlException;
     public int getEnd() throws XtumlException;
