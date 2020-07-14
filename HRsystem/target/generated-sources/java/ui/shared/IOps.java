@@ -3,6 +3,7 @@ package ui.shared;
 
 import io.ciera.runtime.summit.exceptions.XtumlException;
 import io.ciera.runtime.summit.interfaces.Message;
+import io.ciera.runtime.summit.types.TimeStamp;
 
 
 public interface IOps {
@@ -55,7 +56,7 @@ public interface IOps {
     public void Employee_Payments() throws XtumlException;
     public static final int SIGNAL_NO_LEAVE_REQUEST = 5;
     public static class Leave_Request extends Message {
-        public Leave_Request( final String p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) {
+        public Leave_Request( final TimeStamp p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) {
             super(new Object[]{p_Starting,  p_Ending,  p_National_ID,  p_Name});
         }
         @Override
@@ -64,7 +65,7 @@ public interface IOps {
         }
  
     }
-    public void Leave_Request( final String p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) throws XtumlException;
+    public void Leave_Request( final TimeStamp p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) throws XtumlException;
     public static final int SIGNAL_NO_LEAVE_RETURN = 6;
     public static class Leave_Return extends Message {
         public Leave_Return( final int p_National_ID ) {

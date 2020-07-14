@@ -12,10 +12,10 @@ import io.ciera.runtime.summit.exceptions.XtumlException;
 public interface Employee_Job extends IModelInstance<Employee_Job,Hr> {
 
     // attributes
-    public void setDate_of_Appointment( int m_Date_of_Appointment ) throws XtumlException;
     public int getDate_of_Appointment() throws XtumlException;
-    public boolean getActive() throws XtumlException;
+    public void setDate_of_Appointment( int m_Date_of_Appointment ) throws XtumlException;
     public void setActive( boolean m_Active ) throws XtumlException;
+    public boolean getActive() throws XtumlException;
 
 
     // operations

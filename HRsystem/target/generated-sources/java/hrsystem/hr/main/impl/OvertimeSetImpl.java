@@ -26,16 +26,16 @@ public class OvertimeSetImpl extends InstanceSet<OvertimeSet,Overtime> implement
 
     // attributes
     @Override
-    public void setEnd( int m_End ) throws XtumlException {
-        for ( Overtime overtime : this ) overtime.setEnd( m_End );
+    public void setID( UniqueId m_ID ) throws XtumlException {
+        for ( Overtime overtime : this ) overtime.setID( m_ID );
     }
     @Override
     public void setStart( int m_Start ) throws XtumlException {
         for ( Overtime overtime : this ) overtime.setStart( m_Start );
     }
     @Override
-    public void setID( UniqueId m_ID ) throws XtumlException {
-        for ( Overtime overtime : this ) overtime.setID( m_ID );
+    public void setEnd( int m_End ) throws XtumlException {
+        for ( Overtime overtime : this ) overtime.setEnd( m_End );
     }
 
 

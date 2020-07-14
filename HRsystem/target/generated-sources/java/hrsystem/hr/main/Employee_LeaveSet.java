@@ -6,14 +6,15 @@ import hrsystem.hr.main.LeaveSet;
 
 import io.ciera.runtime.summit.classes.IInstanceSet;
 import io.ciera.runtime.summit.exceptions.XtumlException;
+import io.ciera.runtime.summit.types.TimeStamp;
 
 
 public interface Employee_LeaveSet extends IInstanceSet<Employee_LeaveSet,Employee_Leave> {
 
     // attributes
-    public void setApproved( boolean m_Approved ) throws XtumlException;
+    public void setStarting( TimeStamp m_Starting ) throws XtumlException;
     public void setEnding( String m_Ending ) throws XtumlException;
-    public void setStarting( String m_Starting ) throws XtumlException;
+    public void setApproved( boolean m_Approved ) throws XtumlException;
 
 
     // selections

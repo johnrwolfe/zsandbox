@@ -36,6 +36,7 @@ import io.ciera.runtime.summit.types.Date;
 import io.ciera.runtime.summit.types.IWhere;
 import io.ciera.runtime.summit.types.IXtumlType;
 import io.ciera.runtime.summit.types.StringUtil;
+import io.ciera.runtime.summit.types.TimeStamp;
 import io.ciera.runtime.summit.types.UniqueId;
 
 
@@ -124,6 +125,11 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
     }
     private int m_National_ID;
     @Override
+    public int getNational_ID() throws XtumlException {
+        checkLiving();
+                return m_National_ID;
+    }
+    @Override
     public void setNational_ID( int m_National_ID ) throws XtumlException {
         checkLiving();
         if ( m_National_ID != this.m_National_ID ) {
@@ -131,11 +137,6 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             this.m_National_ID = m_National_ID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_National_ID", oldValue, this.m_National_ID));
         }
-    }
-    @Override
-    public int getNational_ID() throws XtumlException {
-        checkLiving();
-                return m_National_ID;
     }
     private String m_LName;
     @Override
@@ -248,7 +249,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 0;
+            return 3;
         }
         @Override
         public String getClassName() {
@@ -261,7 +262,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 3;
+            return 2;
         }
         @Override
         public String getClassName() {
@@ -269,7 +270,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
     }
     public static class requestLeave extends Event {
-        public requestLeave(IRunContext runContext, int populationId,  final String p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) {
+        public requestLeave(IRunContext runContext, int populationId,  final TimeStamp p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) {
             super(runContext, populationId, new Object[]{p_Starting,  p_Ending,  p_National_ID,  p_Name});
         }
         @Override
@@ -287,7 +288,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 2;
+            return 0;
         }
         @Override
         public String getClassName() {
@@ -402,11 +403,11 @@ class EmptyEmployee extends ModelInstance<Employee,Hr> implements Employee {
     public String getFName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public void setNational_ID( int m_National_ID ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public int getNational_ID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setNational_ID( int m_National_ID ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public void setLName( String m_LName ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
