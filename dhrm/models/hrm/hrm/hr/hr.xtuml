@@ -724,14 +724,22 @@ select any employee from instances of EM where selected.National_ID==param.Natio
 
 select any bonus from instances of Bonus where selected.Name==param.Name;
 
-if ( not empty employee )
-	//generate EM3:requestLeave(Starting:param.Starting, Ending:param.Ending, Name:param.Name, National_ID:param.National_ID) to employee;
-	UI::Reply( msg:"Employee has requested leave successfully ", state:True);
+if ( empty employee ) or (empty bonus)
+	
+	LOG::LogFailure(message:"Employee is not found or bonus does not exist!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
 
 else 
-	LOG::LogInfo(message:"Employee is not registered!" );
-	UI::Reply( msg:"Employee is not found.", state:False);
+	create object instance assignTo of Bonus_Payment;
+	relate employee to bonus across R5 using assignTo;  
+	
+	assignTo.starting = param.Starting;
+	assignTo.ending = param.Ending;
+	
+	LOG::LogInfo(message:"Employee: "+ employee.LName+","+employee.FName+" has been assigned "+ bonus.Name+" bonus");
+	UI::Reply( msg:"Employee has been assigned bonus successfully ", state:True);
 end if;
+
 ',
 	1,
 	0);
