@@ -7,6 +7,42 @@ INSERT INTO O_OBJ
 	'Bonus_Payment',
 	'',
 	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("c6d0ce6f-0c28-4087-8415-f46b1ea09e3b",
+	"d170ace2-3eb8-4c38-b2fc-9979dac88c28");
+INSERT INTO O_BATTR
+	VALUES ("c6d0ce6f-0c28-4087-8415-f46b1ea09e3b",
+	"d170ace2-3eb8-4c38-b2fc-9979dac88c28");
+INSERT INTO O_ATTR
+	VALUES ("c6d0ce6f-0c28-4087-8415-f46b1ea09e3b",
+	"d170ace2-3eb8-4c38-b2fc-9979dac88c28",
+	"00000000-0000-0000-0000-000000000000",
+	'ending',
+	'',
+	'',
+	'ending',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000010",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("f7f2fc88-7ca6-40a6-9526-97cca77bf9b2",
+	"d170ace2-3eb8-4c38-b2fc-9979dac88c28");
+INSERT INTO O_BATTR
+	VALUES ("f7f2fc88-7ca6-40a6-9526-97cca77bf9b2",
+	"d170ace2-3eb8-4c38-b2fc-9979dac88c28");
+INSERT INTO O_ATTR
+	VALUES ("f7f2fc88-7ca6-40a6-9526-97cca77bf9b2",
+	"d170ace2-3eb8-4c38-b2fc-9979dac88c28",
+	"c6d0ce6f-0c28-4087-8415-f46b1ea09e3b",
+	'starting',
+	'',
+	'',
+	'starting',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000010",
+	'',
+	'');
 INSERT INTO O_ID
 	VALUES (0,
 	"d170ace2-3eb8-4c38-b2fc-9979dac88c28");
