@@ -4,7 +4,7 @@ INSERT INTO O_OBJ
 	VALUES ("d170ace2-3eb8-4c38-b2fc-9979dac88c28",
 	'Bonus_Payment',
 	14,
-	'Bonus_Payment',
+	'BP',
 	'',
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO O_NBATTR
@@ -17,10 +17,10 @@ INSERT INTO O_ATTR
 	VALUES ("c6d0ce6f-0c28-4087-8415-f46b1ea09e3b",
 	"d170ace2-3eb8-4c38-b2fc-9979dac88c28",
 	"00000000-0000-0000-0000-000000000000",
-	'ending',
+	'Ending',
 	'',
 	'',
-	'ending',
+	'Ending',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000010",
 	'',
@@ -35,10 +35,10 @@ INSERT INTO O_ATTR
 	VALUES ("f7f2fc88-7ca6-40a6-9526-97cca77bf9b2",
 	"d170ace2-3eb8-4c38-b2fc-9979dac88c28",
 	"c6d0ce6f-0c28-4087-8415-f46b1ea09e3b",
-	'starting',
+	'Starting',
 	'',
 	'',
-	'starting',
+	'Starting',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000010",
 	'',
@@ -59,6 +59,24 @@ INSERT INTO O_ATTR
 	'current_state',
 	0,
 	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("d7ab314f-9312-4a7f-88c0-72ea35888957",
+	"d170ace2-3eb8-4c38-b2fc-9979dac88c28");
+INSERT INTO O_BATTR
+	VALUES ("d7ab314f-9312-4a7f-88c0-72ea35888957",
+	"d170ace2-3eb8-4c38-b2fc-9979dac88c28");
+INSERT INTO O_ATTR
+	VALUES ("d7ab314f-9312-4a7f-88c0-72ea35888957",
+	"d170ace2-3eb8-4c38-b2fc-9979dac88c28",
+	"34c9342b-6502-4909-9558-cd5b520dd7a9",
+	'Amount',
+	'',
+	'',
+	'Amount',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
 INSERT INTO O_ID

@@ -403,7 +403,26 @@ INSERT INTO SPR_PS
 	VALUES ("f955850d-2260-4a90-9cd5-019206d596d9",
 	'Overtime',
 	'',
-	'',
+	'//Select an employee using the National ID and create an 
+//instance of overtime. Note that creating an instance is done without approval under
+// the assumption that approval process is outised the system scope.
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+
+if ( empty employee )
+	LOG::LogFailure(message:"Employee is not found or bonus does not exist!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
+else 
+	create object instance assignTo of Overtime;
+	relate employee to assignTo across R6;  
+	
+	assignTo.Starting = param.Starting;
+	assignTo.Ending = param.Ending;
+	
+	LOG::LogInfo(message:"Employee: "+ employee.LName+","+employee.FName+" has been assigned overtime");
+	UI::Reply( msg:"Employee has been assigned bonus successfully ", state:True);
+end if;
+
+',
 	1,
 	0);
 INSERT INTO C_EP_PROXY
