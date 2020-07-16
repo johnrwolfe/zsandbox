@@ -302,7 +302,7 @@ INSERT INTO SM_ACT
 //  3. The bonus ended less than 30 days ago. The amonunt is stored by the following formula:
 // 		amount = ((salary*bonus.amount)/30)*( 30 - number of days since ended date)
 //  4. The bonus ended more than 30 days ago. The amount should be zero and the bonus deactivated. 
-//  5. If the bonus starting date has not arrived, do nothing. 
+//  5. If the bonus starting date has not arrived, do nothing. Adding
 
 	select one employee related by self->EM[R5] ;
 	salary = employee.getSalary();
