@@ -322,11 +322,11 @@ INSERT INTO C_P
 	'',
 	'hr::UI::CRUD');
 INSERT INTO SPR_PEP
-	VALUES ("bddc72e5-2918-4087-9c62-b6948678a8a3",
+	VALUES ("ae9b715d-6233-4c56-8242-c082aa873488",
 	"cd0e9545-1bf3-49dd-a675-38adeb2a85dc",
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9");
 INSERT INTO SPR_PS
-	VALUES ("bddc72e5-2918-4087-9c62-b6948678a8a3",
+	VALUES ("ae9b715d-6233-4c56-8242-c082aa873488",
 	'Employee',
 	'if (param.Action == "NEW")
  EM::createEmployee(FName:param.FName, LName:param.LName, National_ID:param.National_ID);
@@ -338,11 +338,8 @@ end if;
 
 
  ',
-	' //Delegate create, read, update, and delete to Employee class method crudEmployee  
- 
- EM::crudEmployee(FName:param.FName, LName:param.LName, National_ID:param.National_ID, Action:param.Action);
-',
-	1,
+	'',
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("cd0e9545-1bf3-49dd-a675-38adeb2a85dc",
@@ -361,11 +358,11 @@ end if;
  ',
 	'../../../../../HRUI/models/HRUI/UI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("8a9d0f21-0f70-43f0-a226-d98b2deac921",
+	VALUES ("7e5ff795-eeaa-4272-8ea6-1f86421ede74",
 	"bf9503bc-cd03-4d64-baa9-72fe60d4a50d",
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9");
 INSERT INTO SPR_PS
-	VALUES ("8a9d0f21-0f70-43f0-a226-d98b2deac921",
+	VALUES ("7e5ff795-eeaa-4272-8ea6-1f86421ede74",
 	'Bonus',
 	'if (param.Action == "NEW")
  EM::createBonus(Name:param.Name, Amount:param.Amount);
@@ -375,11 +372,8 @@ elif (param.Action == "DELETE")
  EM::deleteBonus(Name:param.Name);
 end if;
 ',
-	' //Delegate create, read, update, and delete to Bonus class method crudBonus  
- 
- Bonus::crudBonus(Name:param.Name, Amount:param.Amount, Action:param.Action);
-',
-	1,
+	'',
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("bf9503bc-cd03-4d64-baa9-72fe60d4a50d",
@@ -396,34 +390,15 @@ end if;
 ',
 	'../../../../../HRUI/models/HRUI/UI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("f955850d-2260-4a90-9cd5-019206d596d9",
+	VALUES ("9d9beb53-214c-4823-8b0b-fb205cf1d35b",
 	"013d2f56-f975-451b-9038-3abf29c3a4b3",
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9");
 INSERT INTO SPR_PS
-	VALUES ("f955850d-2260-4a90-9cd5-019206d596d9",
+	VALUES ("9d9beb53-214c-4823-8b0b-fb205cf1d35b",
 	'Overtime',
 	'',
-	'//Select an employee using the National ID and create an 
-//instance of overtime. Note that creating an instance is done without approval under
-// the assumption that approval process is outised the system scope.
-select any employee from instances of EM where selected.National_ID==param.National_ID;
-
-if ( empty employee )
-	LOG::LogFailure(message:"Employee is not found or bonus does not exist!" );
-	UI::Reply( msg:"Employee is not found.", state:False);
-else 
-	create object instance assignTo of Overtime;
-	relate employee to assignTo across R6;  
-	
-	assignTo.Starting = param.Starting;
-	assignTo.Ending = param.Ending;
-	
-	LOG::LogInfo(message:"Employee: "+ employee.LName+","+employee.FName+" has been assigned overtime");
-	UI::Reply( msg:"Employee has been assigned bonus successfully ", state:True);
-end if;
-
-',
-	1,
+	'',
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("013d2f56-f975-451b-9038-3abf29c3a4b3",
@@ -433,18 +408,15 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../HRUI/models/HRUI/UI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("29be4f14-13ea-401c-b8a9-7690be53cf53",
+	VALUES ("f0e9cc28-3532-4356-8fc9-2ca20686a660",
 	"35d0479c-5a63-450d-95d3-594a9a9d85ba",
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9");
 INSERT INTO SPR_PS
-	VALUES ("29be4f14-13ea-401c-b8a9-7690be53cf53",
+	VALUES ("f0e9cc28-3532-4356-8fc9-2ca20686a660",
 	'Step',
 	'',
-	' //Delegate create, read, update, and delete to Step class method crudStep  
- 
- Step::crudStep(Value:param.Value, Action:param.Action);
-',
-	1,
+	'',
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("35d0479c-5a63-450d-95d3-594a9a9d85ba",
@@ -454,18 +426,15 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../HRUI/models/HRUI/UI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("6bd7de39-8b45-443d-bb14-e62c06ee435b",
+	VALUES ("255eaf51-03f3-49f2-9ddc-0b6cdbcb3d13",
 	"ed41d076-0781-4cfd-82c0-5d6d99366a79",
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9");
 INSERT INTO SPR_PS
-	VALUES ("6bd7de39-8b45-443d-bb14-e62c06ee435b",
+	VALUES ("255eaf51-03f3-49f2-9ddc-0b6cdbcb3d13",
 	'Grade',
 	'',
-	' //Delegate create, read, update, and delete to Grade class method crudGrade  
- 
- Grade::crudGrade(Value:param.Value, Action:param.Action);
-',
-	1,
+	'',
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("ed41d076-0781-4cfd-82c0-5d6d99366a79",
@@ -475,18 +444,15 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../HRUI/models/HRUI/UI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("7bc6e39a-d62f-4374-8cb6-3aa1b718818c",
+	VALUES ("38a834fb-c04a-4395-9698-6cb4fda9d686",
 	"56c23873-1b37-4519-a922-ec1508660058",
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9");
 INSERT INTO SPR_PS
-	VALUES ("7bc6e39a-d62f-4374-8cb6-3aa1b718818c",
+	VALUES ("38a834fb-c04a-4395-9698-6cb4fda9d686",
 	'Leave',
 	'',
-	' //Delegate create, read, update, and delete to Leave class method crudLeave 
- 
- Leave::crudLeave(Name:param.Name, MaximumDays:param.MaximumDays, Action:param.Action);
-',
-	1,
+	'',
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("56c23873-1b37-4519-a922-ec1508660058",
@@ -496,15 +462,15 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../HRUI/models/HRUI/UI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("dd37d796-527c-4e76-bfcf-c8c8ad16edac",
+	VALUES ("57f5e0d2-f3db-40ab-97d0-83432654a3cc",
 	"2939637f-2fdc-492b-8b9d-ab2e7a6ba54d",
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9");
 INSERT INTO SPR_PS
-	VALUES ("dd37d796-527c-4e76-bfcf-c8c8ad16edac",
+	VALUES ("57f5e0d2-f3db-40ab-97d0-83432654a3cc",
 	'Job',
 	'',
 	'',
-	1,
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2939637f-2fdc-492b-8b9d-ab2e7a6ba54d",
@@ -514,15 +480,15 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../HRUI/models/HRUI/UI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("2d0493ad-412d-4fce-95c1-fb00c971734d",
+	VALUES ("24cbf98e-ac7c-4581-9c88-b9c5d346a3e7",
 	"18f560c3-1abf-4000-98e6-60040c2bfc5a",
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9");
 INSERT INTO SPR_PS
-	VALUES ("2d0493ad-412d-4fce-95c1-fb00c971734d",
+	VALUES ("24cbf98e-ac7c-4581-9c88-b9c5d346a3e7",
 	'Payment',
 	'',
 	'',
-	1,
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("18f560c3-1abf-4000-98e6-60040c2bfc5a",
@@ -532,15 +498,15 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../HRUI/models/HRUI/UI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("b70ab84f-98d6-4eaa-b390-b42abedf6bf3",
+	VALUES ("052c4b61-be29-4503-86bc-e90c7330dc6b",
 	"7f4c18b1-3bc8-4213-936d-02ec4ccf8118",
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9");
 INSERT INTO SPR_PS
-	VALUES ("b70ab84f-98d6-4eaa-b390-b42abedf6bf3",
+	VALUES ("052c4b61-be29-4503-86bc-e90c7330dc6b",
 	'Employee_Read',
 	'',
 	'',
-	1,
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("7f4c18b1-3bc8-4213-936d-02ec4ccf8118",
@@ -550,15 +516,15 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../HRUI/models/HRUI/UI/Shared/CRUD/CRUD.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("6928d96d-772d-4272-b7f7-78fc9b9f8042",
+	VALUES ("0da0805b-0f11-4dfe-91de-0a090b94844a",
 	"f9a937a7-d069-4e99-a65b-e388e1432836",
 	"e211a314-f4cf-4d96-ab5d-86594500f9c9");
 INSERT INTO SPR_PS
-	VALUES ("6928d96d-772d-4272-b7f7-78fc9b9f8042",
+	VALUES ("0da0805b-0f11-4dfe-91de-0a090b94844a",
 	'Reply',
 	'',
 	'',
-	1,
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("f9a937a7-d069-4e99-a65b-e388e1432836",
@@ -591,11 +557,11 @@ INSERT INTO C_P
 	'',
 	'hr::UI_Leave::Ops');
 INSERT INTO SPR_PEP
-	VALUES ("3bb38eac-7385-4eba-88a3-ebc1155d243d",
+	VALUES ("c4c5d8ae-30fb-4f87-afbc-1378691bc66f",
 	"7a80da7b-4e70-4431-b5ae-ef63a7102400",
 	"c35b9fa4-4616-416a-9786-5ec0aff91faf");
 INSERT INTO SPR_PS
-	VALUES ("3bb38eac-7385-4eba-88a3-ebc1155d243d",
+	VALUES ("c4c5d8ae-30fb-4f87-afbc-1378691bc66f",
 	'Leave_Request',
 	'//Select an employee using the National ID to deliver the event to the statemachine
 // to serve the request for leave.
@@ -609,19 +575,8 @@ else
 	UI::Reply( msg:"Employee is not found.", state:False);
 end if;
 ',
-	'//Select an employee using the National ID to deliver the event to the statemachine
-// to serve the request for leave.
-select any employee from instances of EM where selected.National_ID==param.National_ID;
-if ( not empty employee )
-	generate EM3:requestLeave(Starting:param.Starting, Ending:param.Ending, Name:param.Name, National_ID:param.National_ID) to employee;
-	UI::Reply( msg:"Employee has requested leave successfully ", state:True);
-
-else 
-	LOG::LogInfo(message:"Employee is not registered!" );
-	UI::Reply( msg:"Employee is not found.", state:False);
-end if;
-',
-	1,
+	'',
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("7a80da7b-4e70-4431-b5ae-ef63a7102400",
@@ -642,11 +597,11 @@ end if;
 ',
 	'../../../../../HRUI/models/HRUI/UI/Shared/Ops/Ops.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("dd962c7c-9243-457e-818e-4ad051872e0c",
+	VALUES ("8a540b7e-fbba-4af0-a6ed-27b2ac802707",
 	"26f67bbf-17b3-497e-ba1a-b502515f1099",
 	"c35b9fa4-4616-416a-9786-5ec0aff91faf");
 INSERT INTO SPR_PS
-	VALUES ("dd962c7c-9243-457e-818e-4ad051872e0c",
+	VALUES ("8a540b7e-fbba-4af0-a6ed-27b2ac802707",
 	'Leave_Return',
 	'//Select an employee using the National ID to deliver the event to the statemachine
 // to serve the request for leave.
@@ -660,19 +615,8 @@ else
 	UI::Reply( msg:"Employee is not found.", state:False);
 end if;
 ',
-	'//Select an employee using the National ID to deliver the event to the statemachine
-// to serve the request for leave.
-select any employee from instances of EM where selected.National_ID==param.National_ID;
-if ( not empty employee )
-	generate EM4:returnFromLeave() to employee;
-	UI::Reply( msg:"Employee request is successfull ", state:True);
-
-else 
-	LOG::LogInfo(message:"Employee is not registered!" );
-	UI::Reply( msg:"Employee is not found.", state:False);
-end if;
-',
-	1,
+	'',
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("26f67bbf-17b3-497e-ba1a-b502515f1099",
@@ -693,15 +637,15 @@ end if;
 ',
 	'../../../../../HRUI/models/HRUI/UI/Shared/Ops/Ops.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("f8863a8e-3d6d-4c42-b56e-3042c0b1f99d",
+	VALUES ("7cd812ea-43f7-4a53-ab34-567de1eec553",
 	"40f05a9b-0bca-4c34-94ee-f94a4cb0a66d",
 	"c35b9fa4-4616-416a-9786-5ec0aff91faf");
 INSERT INTO SPR_PS
-	VALUES ("f8863a8e-3d6d-4c42-b56e-3042c0b1f99d",
+	VALUES ("7cd812ea-43f7-4a53-ab34-567de1eec553",
 	'Employee_Payments',
 	'',
 	'',
-	1,
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("40f05a9b-0bca-4c34-94ee-f94a4cb0a66d",
@@ -711,15 +655,15 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../HRUI/models/HRUI/UI/Shared/Ops/Ops.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("40b40511-0bbf-4127-9e40-5563114b55b5",
+	VALUES ("877d6602-210c-49c6-a51d-ab7f54907ff2",
 	"4bf98d8b-56f1-4379-a4ff-ca46610d043a",
 	"c35b9fa4-4616-416a-9786-5ec0aff91faf");
 INSERT INTO SPR_PS
-	VALUES ("40b40511-0bbf-4127-9e40-5563114b55b5",
+	VALUES ("877d6602-210c-49c6-a51d-ab7f54907ff2",
 	'Employee_Job',
 	'',
 	'',
-	1,
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4bf98d8b-56f1-4379-a4ff-ca46610d043a",
@@ -729,38 +673,15 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../HRUI/models/HRUI/UI/Shared/Ops/Ops.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("b928eb5e-6458-44e8-82e4-b44694eeb3e8",
+	VALUES ("1691c72c-a0e8-403e-a614-fbf1b7d090f1",
 	"4e42f802-8ad4-4d21-8dfe-5fc8500e58a3",
 	"c35b9fa4-4616-416a-9786-5ec0aff91faf");
 INSERT INTO SPR_PS
-	VALUES ("b928eb5e-6458-44e8-82e4-b44694eeb3e8",
+	VALUES ("1691c72c-a0e8-403e-a614-fbf1b7d090f1",
 	'Employee_Bonus',
 	'',
-	'//Select an employee using the National ID to and choose a bonus using Name to create an 
-//instance of bonus_payment. Note that creating an instance is done without approval under
-// the assumption that approval process is outised the system scope.
-select any employee from instances of EM where selected.National_ID==param.National_ID;
-
-select any bonus from instances of Bonus where selected.Name==param.Name;
-
-if ( empty employee ) or (empty bonus)
-	
-	LOG::LogFailure(message:"Employee is not found or bonus does not exist!" );
-	UI::Reply( msg:"Employee is not found.", state:False);
-
-else 
-	create object instance assignTo of Bonus_Payment;
-	relate employee to bonus across R5 using assignTo;  
-	
-	assignTo.starting = param.Starting;
-	assignTo.ending = param.Ending;
-	
-	LOG::LogInfo(message:"Employee: "+ employee.LName+","+employee.FName+" has been assigned "+ bonus.Name+" bonus");
-	UI::Reply( msg:"Employee has been assigned bonus successfully ", state:True);
-end if;
-
-',
-	1,
+	'',
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4e42f802-8ad4-4d21-8dfe-5fc8500e58a3",
@@ -770,19 +691,15 @@ INSERT INTO C_EP_PROXY
 	'',
 	'../../../../../HRUI/models/HRUI/UI/Shared/Ops/Ops.xtuml');
 INSERT INTO SPR_PEP
-	VALUES ("7acb3362-81b1-4031-b356-e27221c6bd0e",
+	VALUES ("549cc312-1746-4b98-b322-3cbfcad34447",
 	"1782b7de-7d69-4afb-9f64-1f6ea67ce68f",
 	"c35b9fa4-4616-416a-9786-5ec0aff91faf");
 INSERT INTO SPR_PS
-	VALUES ("7acb3362-81b1-4031-b356-e27221c6bd0e",
+	VALUES ("549cc312-1746-4b98-b322-3cbfcad34447",
 	'Employee_Commence',
 	'',
-	' 	
- //Send National_ID to Employee class method to commenceEmployee  
- 
- EM::commenceEmployee(National_ID:param.National_ID);
-',
-	1,
+	'',
+	3,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("1782b7de-7d69-4afb-9f64-1f6ea67ce68f",
