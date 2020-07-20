@@ -1,0 +1,109 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("68793a29-d7ed-41ef-ba0d-17ad78f2c0bb",
+	"00000000-0000-0000-0000-000000000000",
+	"ccdb2e52-76fc-4422-936f-a0239fd9d106",
+	'Utl',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("535dece0-ad06-4552-8eab-40baa4dcea3b",
+	112,
+	"68793a29-d7ed-41ef-ba0d-17ad78f2c0bb",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'hrm::hrm::hr::Utl');
+INSERT INTO DIM_DIA
+	VALUES ("535dece0-ad06-4552-8eab-40baa4dcea3b",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_SYNC
+	VALUES ("0914f23b-5838-4f75-aaeb-e144750b76ae",
+	"00000000-0000-0000-0000-000000000000",
+	'getPartialPayment',
+	'',
+	'
+//The funtion returns the payment amount based on the payment time and the ending time
+// for a given payment (salary, bonus, etc.). The ending time has to occur, otherwise
+// the funtion will return zero.  
+if  (param.Payment_Time >= param.Ending_Time)
+	days = 30 - ((param.Payment_Time - param.Ending_Time) /24*60*60);
+	return days * (param.Payment/30);
+else 
+	return 0; 
+end if;',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	1,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("e9895a7f-2f86-4c31-9180-6f3fa7c36ad1",
+	"0914f23b-5838-4f75-aaeb-e144750b76ae",
+	'Payment_Time',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("e45f2af5-24b2-4cca-b388-0c6f398c4110",
+	"0914f23b-5838-4f75-aaeb-e144750b76ae",
+	'Ending_Time',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"e9895a7f-2f86-4c31-9180-6f3fa7c36ad1",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("d1309c7a-3ad1-41f2-9cd2-61ff87c0b6a4",
+	"0914f23b-5838-4f75-aaeb-e144750b76ae",
+	'Payment',
+	"ba5eda7a-def5-0000-0000-000000000003",
+	0,
+	'',
+	"e45f2af5-24b2-4cca-b388-0c6f398c4110",
+	'');
+INSERT INTO PE_PE
+	VALUES ("0914f23b-5838-4f75-aaeb-e144750b76ae",
+	1,
+	"68793a29-d7ed-41ef-ba0d-17ad78f2c0bb",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO PE_PE
+	VALUES ("68793a29-d7ed-41ef-ba0d-17ad78f2c0bb",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"8e4782c3-9567-4154-87b3-67069634e7a5",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("8e4782c3-9567-4154-87b3-67069634e7a5",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'hr',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../hr.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("ccdb2e52-76fc-4422-936f-a0239fd9d106",
+	'hrm',
+	1,
+	'../../../hrm.xtuml');

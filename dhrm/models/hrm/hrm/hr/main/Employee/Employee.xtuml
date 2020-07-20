@@ -19,7 +19,7 @@ INSERT INTO O_TFR
 select any employee from instances of EM where selected.National_ID==param.National_ID;
 if ( not empty employee )
 	generate EM2:commencedRcvd() to employee;
-	employee.Start_Date = TIM::current_date();
+	employee.Start_Date = TIM::current_seconds();
 	//UI::Reply( msg:"Employee has commenced ", state:True);
 
 else 
@@ -153,7 +153,7 @@ INSERT INTO O_TPARM
 	VALUES ("bbbc7190-26e5-40bf-a9ef-9ccaa3b4d1ef",
 	"330022b2-4401-4dae-a42d-107e49e0521f",
 	'Date',
-	"ba5eda7a-def5-0000-0000-000000000010",
+	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
 	'',
 	"5c70da6f-3c81-46ea-92c0-2abe820ae83c",
@@ -266,7 +266,7 @@ INSERT INTO O_ATTR
 	'',
 	'Start_Date',
 	0,
-	"ba5eda7a-def5-0000-0000-00000000000e",
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	'null');
 INSERT INTO O_ID

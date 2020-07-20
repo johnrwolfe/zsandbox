@@ -307,22 +307,23 @@ INSERT INTO SM_ACT
 	select one employee related by self->EM[R5] ;
 	salary = employee.getSalary();
 	select one bonus related by self->Bonus[R5];
+	payment_time = TIM::current_seconds();
 	
-if (TIM::current_date() >= self.Ending) 
+if (TIM::current_seconds() >= self.Ending) 
 	// if the bonus ended and the day of the month is less than today by at least one
-	days = TIM::current_date() - self.Ending;
-	self.Amount = (salary * bonus.Percentage)/30;
+	
+	self.Amount = Utl::getPartialPayment(Payment_Time:payment_time, Ending_Time:self.Ending, Payment:salary);
 	//EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_date());	
 
-	//generate BP2:deactivateBonusRcvd() to self;
-	LOG::LogInfo(message:"Bonus stopped because ending is passed");
-	
+		
 //	self.Amount = salary * bonus.Percentage;
-//	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_date());	
+	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_seconds());
+	generate BP2:deactivateBonusRcvd() to self;
+	LOG::LogInfo(message:"Bonus stopped because ending is passed");	
 else
 	//create bonus payment for starting >= 30 and ending >= 30
 	self.Amount = salary * bonus.Percentage;
-	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_date());	
+	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_seconds());	
 end if;
 ',
 	'',
