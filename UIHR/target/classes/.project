@@ -6,6 +6,7 @@
 		<project>Authenticate</project>
 		<project>dhrm</project>
 		<project>HRsystem</project>
+		<project>runtime</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>

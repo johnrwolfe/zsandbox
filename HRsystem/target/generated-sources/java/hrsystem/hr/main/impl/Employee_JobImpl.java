@@ -71,12 +71,12 @@ public class Employee_JobImpl extends ModelInstance<Employee_Job,Hr> implements 
     @Override
     public int getDate_of_Appointment() throws XtumlException {
         checkLiving();
-                return m_Date_of_Appointment;
+        return m_Date_of_Appointment;
     }
     @Override
-    public void setDate_of_Appointment( int m_Date_of_Appointment ) throws XtumlException {
+    public void setDate_of_Appointment(int m_Date_of_Appointment) throws XtumlException {
         checkLiving();
-        if ( m_Date_of_Appointment != this.m_Date_of_Appointment ) {
+        if (m_Date_of_Appointment != this.m_Date_of_Appointment) {
             final int oldValue = this.m_Date_of_Appointment;
             this.m_Date_of_Appointment = m_Date_of_Appointment;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Date_of_Appointment", oldValue, this.m_Date_of_Appointment));
@@ -84,9 +84,9 @@ public class Employee_JobImpl extends ModelInstance<Employee_Job,Hr> implements 
     }
     private boolean m_Active;
     @Override
-    public void setActive( boolean m_Active ) throws XtumlException {
+    public void setActive(boolean m_Active) throws XtumlException {
         checkLiving();
-        if ( m_Active != this.m_Active ) {
+        if (m_Active != this.m_Active) {
             final boolean oldValue = this.m_Active;
             this.m_Active = m_Active;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Active", oldValue, this.m_Active));
@@ -95,7 +95,7 @@ public class Employee_JobImpl extends ModelInstance<Employee_Job,Hr> implements 
     @Override
     public boolean getActive() throws XtumlException {
         checkLiving();
-                return m_Active;
+        return m_Active;
     }
 
 

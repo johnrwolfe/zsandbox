@@ -14,8 +14,8 @@ public interface Overtime extends IModelInstance<Overtime,Hr> {
     // attributes
     public void setID( UniqueId m_ID ) throws XtumlException;
     public UniqueId getID() throws XtumlException;
-    public void setStart( int m_Start ) throws XtumlException;
     public int getStart() throws XtumlException;
+    public void setStart( int m_Start ) throws XtumlException;
     public void setEnd( int m_End ) throws XtumlException;
     public int getEnd() throws XtumlException;
 

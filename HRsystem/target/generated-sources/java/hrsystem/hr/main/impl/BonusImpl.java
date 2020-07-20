@@ -69,33 +69,33 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
     // attributes
     private String m_Name;
     @Override
-    public String getName() throws XtumlException {
+    public void setName(String m_Name) throws XtumlException {
         checkLiving();
-                return m_Name;
-    }
-    @Override
-    public void setName( String m_Name ) throws XtumlException {
-        checkLiving();
-        if ( StringUtil.inequality( m_Name, this.m_Name ) ) {
+        if (StringUtil.inequality(m_Name, this.m_Name)) {
             final String oldValue = this.m_Name;
             this.m_Name = m_Name;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
     }
+    @Override
+    public String getName() throws XtumlException {
+        checkLiving();
+        return m_Name;
+    }
     private int m_Amount;
     @Override
-    public int getAmount() throws XtumlException {
+    public void setAmount(int m_Amount) throws XtumlException {
         checkLiving();
-                return m_Amount;
-    }
-    @Override
-    public void setAmount( int m_Amount ) throws XtumlException {
-        checkLiving();
-        if ( m_Amount != this.m_Amount ) {
+        if (m_Amount != this.m_Amount) {
             final int oldValue = this.m_Amount;
             this.m_Amount = m_Amount;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Amount", oldValue, this.m_Amount));
         }
+    }
+    @Override
+    public int getAmount() throws XtumlException {
+        checkLiving();
+        return m_Amount;
     }
 
 
@@ -124,22 +124,22 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
 
         public void crudBonus( final String p_Name,  final int p_Amount,  final String p_Action ) throws XtumlException {
             context().LOG().LogInfo( "Attempting to add a new Bonus." );
-            Bonus bonus = context().Bonus_instances().anyWhere(selected -> StringUtil.equality( ((Bonus)selected).getName(), p_Name ));
-            if ( bonus.isEmpty() && StringUtil.equality( p_Action, "NEW" ) ) {
+            Bonus bonus = context().Bonus_instances().anyWhere(selected -> StringUtil.equality(((Bonus)selected).getName(), p_Name));
+            if ( bonus.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
                 Bonus b = BonusImpl.create( context() );
-                b.setName( p_Name );
-                b.setAmount( p_Amount );
+                b.setName(p_Name);
+                b.setAmount(p_Amount);
                 context().UI().Reply( "Bonus: added successfully.", true );
             }
-            else if ( !bonus.isEmpty() && StringUtil.equality( p_Action, "NEW" ) ) {
+            else if ( !bonus.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
                 context().LOG().LogInfo( "Bonus already exists." );
                 context().UI().Reply( "Bonus already exists", false );
             }
-            else if ( !bonus.isEmpty() && StringUtil.equality( p_Action, "UPDATE" ) ) {
+            else if ( !bonus.isEmpty() && StringUtil.equality(p_Action, "UPDATE") ) {
                 context().LOG().LogInfo( "Bonus updated successfully." );
                 context().UI().Reply( "Bonus updated successfully", true );
             }
-            else if ( !bonus.isEmpty() && StringUtil.equality( p_Action, "DELETE" ) ) {
+            else if ( !bonus.isEmpty() && StringUtil.equality(p_Action, "DELETE") ) {
                 context().LOG().LogInfo( "Bonus deleted successfully." );
                 context().UI().Reply( "Bonus delete unsuccessful", false );
             }
@@ -205,17 +205,17 @@ public class BonusImpl extends ModelInstance<Bonus,Hr> implements Bonus {
 class EmptyBonus extends ModelInstance<Bonus,Hr> implements Bonus {
 
     // attributes
-    public String getName() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setName( String m_Name ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public int getAmount() throws XtumlException {
+    public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public void setAmount( int m_Amount ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public int getAmount() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

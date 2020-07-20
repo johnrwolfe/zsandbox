@@ -32,16 +32,6 @@ public class UIApp extends Port<UI> implements ICRUD {
 
 
     // outbound messages
-    public void Overtime( final int p_Start,  final int p_End,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Overtime(p_Start, p_End, p_Action));
-        else {
-        }
-    }
-    public void Payment() throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Payment());
-        else {
-        }
-    }
     public void Grade( final int p_Value,  final String p_Action ) throws XtumlException {
         if ( satisfied() ) send(new ICRUD.Grade(p_Value, p_Action));
         else {
@@ -52,8 +42,18 @@ public class UIApp extends Port<UI> implements ICRUD {
         else {
         }
     }
-    public void Employee( final String p_FName,  final String p_LName,  final int p_National_ID,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Employee(p_FName, p_LName, p_National_ID, p_Action));
+    public void Step( final int p_Value,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Step(p_Value, p_Action));
+        else {
+        }
+    }
+    public void Overtime( final int p_Start,  final int p_End,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Overtime(p_Start, p_End, p_Action));
+        else {
+        }
+    }
+    public void Payment() throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Payment());
         else {
         }
     }
@@ -62,13 +62,13 @@ public class UIApp extends Port<UI> implements ICRUD {
         else {
         }
     }
-    public void Bonus( final String p_Name,  final int p_Amount,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Bonus(p_Name, p_Amount, p_Action));
+    public void Employee( final String p_FName,  final String p_LName,  final int p_National_ID,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Employee(p_FName, p_LName, p_National_ID, p_Action));
         else {
         }
     }
-    public void Step( final int p_Value,  final String p_Action ) throws XtumlException {
-        if ( satisfied() ) send(new ICRUD.Step(p_Value, p_Action));
+    public void Bonus( final String p_Name,  final int p_Amount,  final String p_Action ) throws XtumlException {
+        if ( satisfied() ) send(new ICRUD.Bonus(p_Name, p_Amount, p_Action));
         else {
         }
     }

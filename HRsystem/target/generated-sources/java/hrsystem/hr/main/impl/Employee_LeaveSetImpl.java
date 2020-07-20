@@ -10,7 +10,6 @@ import hrsystem.hr.main.impl.LeaveSetImpl;
 
 import io.ciera.runtime.summit.classes.InstanceSet;
 import io.ciera.runtime.summit.exceptions.XtumlException;
-import io.ciera.runtime.summit.types.TimeStamp;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -28,12 +27,12 @@ public class Employee_LeaveSetImpl extends InstanceSet<Employee_LeaveSet,Employe
 
     // attributes
     @Override
-    public void setStarting( TimeStamp m_Starting ) throws XtumlException {
-        for ( Employee_Leave employee_leave : this ) employee_leave.setStarting( m_Starting );
-    }
-    @Override
     public void setEnding( String m_Ending ) throws XtumlException {
         for ( Employee_Leave employee_leave : this ) employee_leave.setEnding( m_Ending );
+    }
+    @Override
+    public void setStarting( long m_Starting ) throws XtumlException {
+        for ( Employee_Leave employee_leave : this ) employee_leave.setStarting( m_Starting );
     }
     @Override
     public void setApproved( boolean m_Approved ) throws XtumlException {

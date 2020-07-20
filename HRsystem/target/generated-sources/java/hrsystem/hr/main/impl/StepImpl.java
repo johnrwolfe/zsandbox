@@ -67,9 +67,9 @@ public class StepImpl extends ModelInstance<Step,Hr> implements Step {
     // attributes
     private int m_SValue;
     @Override
-    public void setSValue( int m_SValue ) throws XtumlException {
+    public void setSValue(int m_SValue) throws XtumlException {
         checkLiving();
-        if ( m_SValue != this.m_SValue ) {
+        if (m_SValue != this.m_SValue) {
             final int oldValue = this.m_SValue;
             this.m_SValue = m_SValue;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_SValue", oldValue, this.m_SValue));
@@ -78,7 +78,7 @@ public class StepImpl extends ModelInstance<Step,Hr> implements Step {
     @Override
     public int getSValue() throws XtumlException {
         checkLiving();
-                return m_SValue;
+        return m_SValue;
     }
 
 
@@ -108,20 +108,20 @@ public class StepImpl extends ModelInstance<Step,Hr> implements Step {
         public void crudStep( final int p_Value,  final String p_Action ) throws XtumlException {
             context().LOG().LogInfo( "Attempting to add a new Step." );
             Step inst = context().Step_instances().anyWhere(selected -> ((Step)selected).getSValue() == p_Value);
-            if ( inst.isEmpty() && StringUtil.equality( p_Action, "NEW" ) ) {
+            if ( inst.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
                 Step s = StepImpl.create( context() );
-                s.setSValue( p_Value );
+                s.setSValue(p_Value);
                 context().UI().Reply( "Step: added successfully.", true );
             }
-            else if ( !inst.isEmpty() && StringUtil.equality( p_Action, "NEW" ) ) {
+            else if ( !inst.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
                 context().LOG().LogInfo( "Step already exists." );
                 context().UI().Reply( "Step already exists", false );
             }
-            else if ( !inst.isEmpty() && StringUtil.equality( p_Action, "UPDATE" ) ) {
+            else if ( !inst.isEmpty() && StringUtil.equality(p_Action, "UPDATE") ) {
                 context().LOG().LogInfo( "Step updated successfully." );
                 context().UI().Reply( "Step updated successfully", true );
             }
-            else if ( !inst.isEmpty() && StringUtil.equality( p_Action, "DELETE" ) ) {
+            else if ( !inst.isEmpty() && StringUtil.equality(p_Action, "DELETE") ) {
                 context().LOG().LogInfo( "Step deleted successfully." );
                 context().UI().Reply( "Step delete unsuccessful", false );
             }

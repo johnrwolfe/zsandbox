@@ -69,12 +69,12 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
     @Override
     public int getGValue() throws XtumlException {
         checkLiving();
-                return m_GValue;
+        return m_GValue;
     }
     @Override
-    public void setGValue( int m_GValue ) throws XtumlException {
+    public void setGValue(int m_GValue) throws XtumlException {
         checkLiving();
-        if ( m_GValue != this.m_GValue ) {
+        if (m_GValue != this.m_GValue) {
             final int oldValue = this.m_GValue;
             this.m_GValue = m_GValue;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_GValue", oldValue, this.m_GValue));
@@ -108,20 +108,20 @@ public class GradeImpl extends ModelInstance<Grade,Hr> implements Grade {
         public void crudGrade( final int p_Value,  final String p_Action ) throws XtumlException {
             context().LOG().LogInfo( "Attempting to add a new Grade." );
             Grade inst = context().Grade_instances().anyWhere(selected -> ((Grade)selected).getGValue() == p_Value);
-            if ( inst.isEmpty() && StringUtil.equality( p_Action, "NEW" ) ) {
+            if ( inst.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
                 Grade g = GradeImpl.create( context() );
-                g.setGValue( p_Value );
+                g.setGValue(p_Value);
                 context().UI().Reply( "Grade: added successfully.", true );
             }
-            else if ( !inst.isEmpty() && StringUtil.equality( p_Action, "NEW" ) ) {
+            else if ( !inst.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
                 context().LOG().LogInfo( "Grade already exists." );
                 context().UI().Reply( "Grade already exists", false );
             }
-            else if ( !inst.isEmpty() && StringUtil.equality( p_Action, "UPDATE" ) ) {
+            else if ( !inst.isEmpty() && StringUtil.equality(p_Action, "UPDATE") ) {
                 context().LOG().LogInfo( "Grade updated successfully." );
                 context().UI().Reply( "Grade updated successfully", true );
             }
-            else if ( !inst.isEmpty() && StringUtil.equality( p_Action, "DELETE" ) ) {
+            else if ( !inst.isEmpty() && StringUtil.equality(p_Action, "DELETE") ) {
                 context().LOG().LogInfo( "Grade deleted successfully." );
                 context().UI().Reply( "Grade delete unsuccessful", false );
             }

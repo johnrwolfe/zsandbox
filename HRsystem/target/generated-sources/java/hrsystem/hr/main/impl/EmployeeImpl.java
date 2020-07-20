@@ -36,7 +36,6 @@ import io.ciera.runtime.summit.types.Date;
 import io.ciera.runtime.summit.types.IWhere;
 import io.ciera.runtime.summit.types.IXtumlType;
 import io.ciera.runtime.summit.types.StringUtil;
-import io.ciera.runtime.summit.types.TimeStamp;
 import io.ciera.runtime.summit.types.UniqueId;
 
 
@@ -110,29 +109,29 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
     // attributes
     private String m_FName;
     @Override
-    public void setFName( String m_FName ) throws XtumlException {
+    public String getFName() throws XtumlException {
         checkLiving();
-        if ( StringUtil.inequality( m_FName, this.m_FName ) ) {
+        return m_FName;
+    }
+    @Override
+    public void setFName(String m_FName) throws XtumlException {
+        checkLiving();
+        if (StringUtil.inequality(m_FName, this.m_FName)) {
             final String oldValue = this.m_FName;
             this.m_FName = m_FName;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_FName", oldValue, this.m_FName));
         }
     }
-    @Override
-    public String getFName() throws XtumlException {
-        checkLiving();
-                return m_FName;
-    }
     private int m_National_ID;
     @Override
     public int getNational_ID() throws XtumlException {
         checkLiving();
-                return m_National_ID;
+        return m_National_ID;
     }
     @Override
-    public void setNational_ID( int m_National_ID ) throws XtumlException {
+    public void setNational_ID(int m_National_ID) throws XtumlException {
         checkLiving();
-        if ( m_National_ID != this.m_National_ID ) {
+        if (m_National_ID != this.m_National_ID) {
             final int oldValue = this.m_National_ID;
             this.m_National_ID = m_National_ID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_National_ID", oldValue, this.m_National_ID));
@@ -140,9 +139,9 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
     }
     private String m_LName;
     @Override
-    public void setLName( String m_LName ) throws XtumlException {
+    public void setLName(String m_LName) throws XtumlException {
         checkLiving();
-        if ( StringUtil.inequality( m_LName, this.m_LName ) ) {
+        if (StringUtil.inequality(m_LName, this.m_LName)) {
             final String oldValue = this.m_LName;
             this.m_LName = m_LName;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_LName", oldValue, this.m_LName));
@@ -151,22 +150,22 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
     @Override
     public String getLName() throws XtumlException {
         checkLiving();
-                return m_LName;
+        return m_LName;
     }
     private Date m_Start_Date;
     @Override
-    public Date getStart_Date() throws XtumlException {
+    public void setStart_Date(Date m_Start_Date) throws XtumlException {
         checkLiving();
-                return m_Start_Date;
-    }
-    @Override
-    public void setStart_Date( Date m_Start_Date ) throws XtumlException {
-        checkLiving();
-        if ( m_Start_Date.inequality( this.m_Start_Date ) ) {
+        if (m_Start_Date.inequality( this.m_Start_Date)) {
             final Date oldValue = this.m_Start_Date;
             this.m_Start_Date = m_Start_Date;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Start_Date", oldValue, this.m_Start_Date));
         }
+    }
+    @Override
+    public Date getStart_Date() throws XtumlException {
+        checkLiving();
+        return m_Start_Date;
     }
 
 
@@ -198,7 +197,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
             Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
             if ( !employee.isEmpty() ) {
                 context().generate(new EmployeeImpl.commencedRcvd(getRunContext(), context().getId()).to(employee));
-                employee.setStart_Date( context().TIM().current_date() );
+                employee.setStart_Date(context().TIM().current_date());
             }
             else {
                 context().LOG().LogInfo( "Employee is not registered!" );
@@ -208,26 +207,26 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         public void crudEmployee( final String p_FName,  final String p_LName,  final int p_National_ID,  final String p_Action ) throws XtumlException {
             context().LOG().LogInfo( "Attempting to add a new Employee." );
             Employee employee = context().Employee_instances().anyWhere(selected -> ((Employee)selected).getNational_ID() == p_National_ID);
-            if ( employee.isEmpty() && StringUtil.equality( p_Action, "NEW" ) ) {
+            if ( employee.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
                 employee = EmployeeImpl.create( context() );
-                employee.setFName( p_FName );
-                employee.setLName( p_LName );
-                employee.setNational_ID( p_National_ID );
+                employee.setFName(p_FName);
+                employee.setLName(p_LName);
+                employee.setNational_ID(p_National_ID);
                 context().SQL().serialize();
                 context().UI().Reply( "Employee added successfully.", true );
             }
-            else if ( !employee.isEmpty() && StringUtil.equality( p_Action, "NEW" ) ) {
+            else if ( !employee.isEmpty() && StringUtil.equality(p_Action, "NEW") ) {
                 context().LOG().LogInfo( "Employee already exists." );
                 context().UI().Reply( "Employee already exists", false );
             }
-            else if ( !employee.isEmpty() && StringUtil.equality( p_Action, "UPDATE" ) ) {
-                employee.setFName( p_FName );
-                employee.setLName( p_LName );
-                employee.setNational_ID( p_National_ID );
+            else if ( !employee.isEmpty() && StringUtil.equality(p_Action, "UPDATE") ) {
+                employee.setFName(p_FName);
+                employee.setLName(p_LName);
+                employee.setNational_ID(p_National_ID);
                 context().LOG().LogInfo( "Employee updated successfully." );
                 context().UI().Reply( "Employee updated successfully", true );
             }
-            else if ( !employee.isEmpty() && StringUtil.equality( p_Action, "DELETE" ) ) {
+            else if ( !employee.isEmpty() && StringUtil.equality(p_Action, "DELETE") ) {
                 context().LOG().LogInfo( "Employee deleted successfully." );
                 context().UI().Reply( "Employee delete unsuccessful", false );
             }
@@ -249,7 +248,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 3;
+            return 2;
         }
         @Override
         public String getClassName() {
@@ -262,7 +261,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 2;
+            return 0;
         }
         @Override
         public String getClassName() {
@@ -270,12 +269,12 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
     }
     public static class requestLeave extends Event {
-        public requestLeave(IRunContext runContext, int populationId,  final TimeStamp p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) {
+        public requestLeave(IRunContext runContext, int populationId,  final long p_Starting,  final String p_Ending,  final int p_National_ID,  final String p_Name ) {
             super(runContext, populationId, new Object[]{p_Starting,  p_Ending,  p_National_ID,  p_Name});
         }
         @Override
         public int getId() {
-            return 1;
+            return 3;
         }
         @Override
         public String getClassName() {
@@ -288,7 +287,7 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
         }
         @Override
         public int getId() {
-            return 0;
+            return 1;
         }
         @Override
         public String getClassName() {
@@ -397,11 +396,11 @@ public class EmployeeImpl extends ModelInstance<Employee,Hr> implements Employee
 class EmptyEmployee extends ModelInstance<Employee,Hr> implements Employee {
 
     // attributes
-    public void setFName( String m_FName ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getFName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setFName( String m_FName ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
     public int getNational_ID() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -415,11 +414,11 @@ class EmptyEmployee extends ModelInstance<Employee,Hr> implements Employee {
     public String getLName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
-    public Date getStart_Date() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setStart_Date( Date m_Start_Date ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public Date getStart_Date() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
 
 

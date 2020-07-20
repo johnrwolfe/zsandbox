@@ -104,12 +104,12 @@ INSERT INTO O_ATTR
 	VALUES ("c3dc56e2-770b-4d64-9b91-73e63a341ae3",
 	"8d573586-4a25-4fe7-bafb-7ed461272459",
 	"3e5c70a5-c494-4fa5-a943-956e8004a992",
-	'Amount',
+	'Percentage',
 	'',
 	'',
-	'Amount',
+	'Percentage',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000003",
 	'',
 	'');
 INSERT INTO O_ID

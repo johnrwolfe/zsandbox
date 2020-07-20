@@ -63,9 +63,9 @@ public class PaymentImpl extends ModelInstance<Payment,Hr> implements Payment {
     // attributes
     private double m_Amount;
     @Override
-    public void setAmount( double m_Amount ) throws XtumlException {
+    public void setAmount(double m_Amount) throws XtumlException {
         checkLiving();
-        if ( m_Amount != this.m_Amount ) {
+        if (m_Amount != this.m_Amount) {
             final double oldValue = this.m_Amount;
             this.m_Amount = m_Amount;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Amount", oldValue, this.m_Amount));
@@ -74,7 +74,7 @@ public class PaymentImpl extends ModelInstance<Payment,Hr> implements Payment {
     @Override
     public double getAmount() throws XtumlException {
         checkLiving();
-                return m_Amount;
+        return m_Amount;
     }
 
 

@@ -35,12 +35,12 @@ INSERT INTO O_ATTR
 	VALUES ("a42547d6-83fe-4a21-a308-81392c899e29",
 	"bcefdb77-7c37-4a75-ac84-87eef93082be",
 	"122ebfb9-a06b-43c5-bcf0-e9110b5faafa",
-	'Start',
+	'Starting',
 	'',
 	'',
-	'Start',
+	'Starting',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000010",
 	'',
 	'');
 INSERT INTO O_NBATTR
@@ -53,12 +53,12 @@ INSERT INTO O_ATTR
 	VALUES ("1b1694bc-6409-4755-9015-e2254899d50d",
 	"bcefdb77-7c37-4a75-ac84-87eef93082be",
 	"a42547d6-83fe-4a21-a308-81392c899e29",
-	'End',
+	'Ending',
 	'',
 	'',
-	'End',
+	'Ending',
 	0,
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000010",
 	'',
 	'');
 INSERT INTO O_ID

@@ -77,29 +77,29 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
     // attributes
     private UniqueId m_Job_ID;
     @Override
-    public UniqueId getJob_ID() throws XtumlException {
+    public void setJob_ID(UniqueId m_Job_ID) throws XtumlException {
         checkLiving();
-                return m_Job_ID;
-    }
-    @Override
-    public void setJob_ID( UniqueId m_Job_ID ) throws XtumlException {
-        checkLiving();
-        if ( m_Job_ID.inequality( this.m_Job_ID ) ) {
+        if (m_Job_ID.inequality( this.m_Job_ID)) {
             final UniqueId oldValue = this.m_Job_ID;
             this.m_Job_ID = m_Job_ID;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Job_ID", oldValue, this.m_Job_ID));
         }
     }
+    @Override
+    public UniqueId getJob_ID() throws XtumlException {
+        checkLiving();
+        return m_Job_ID;
+    }
     private double m_Amount;
     @Override
     public double getAmount() throws XtumlException {
         checkLiving();
-                return m_Amount;
+        return m_Amount;
     }
     @Override
-    public void setAmount( double m_Amount ) throws XtumlException {
+    public void setAmount(double m_Amount) throws XtumlException {
         checkLiving();
-        if ( m_Amount != this.m_Amount ) {
+        if (m_Amount != this.m_Amount) {
             final double oldValue = this.m_Amount;
             this.m_Amount = m_Amount;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Amount", oldValue, this.m_Amount));
@@ -107,18 +107,18 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
     }
     private String m_Name;
     @Override
-    public void setName( String m_Name ) throws XtumlException {
+    public String getName() throws XtumlException {
         checkLiving();
-        if ( StringUtil.inequality( m_Name, this.m_Name ) ) {
+        return m_Name;
+    }
+    @Override
+    public void setName(String m_Name) throws XtumlException {
+        checkLiving();
+        if (StringUtil.inequality(m_Name, this.m_Name)) {
             final String oldValue = this.m_Name;
             this.m_Name = m_Name;
             getRunContext().addChange(new AttributeChangedDelta(this, KEY_LETTERS, "m_Name", oldValue, this.m_Name));
         }
-    }
-    @Override
-    public String getName() throws XtumlException {
-        checkLiving();
-                return m_Name;
     }
 
 
@@ -210,11 +210,11 @@ public class JobImpl extends ModelInstance<Job,Hr> implements Job {
 class EmptyJob extends ModelInstance<Job,Hr> implements Job {
 
     // attributes
-    public UniqueId getJob_ID() throws XtumlException {
-        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
-    }
     public void setJob_ID( UniqueId m_Job_ID ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
+    }
+    public UniqueId getJob_ID() throws XtumlException {
+        throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
     }
     public double getAmount() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
@@ -222,11 +222,11 @@ class EmptyJob extends ModelInstance<Job,Hr> implements Job {
     public void setAmount( double m_Amount ) throws XtumlException {
         throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
-    public void setName( String m_Name ) throws XtumlException {
-        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
-    }
     public String getName() throws XtumlException {
         throw new EmptyInstanceException( "Cannot get attribute of empty instance." );
+    }
+    public void setName( String m_Name ) throws XtumlException {
+        throw new EmptyInstanceException( "Cannot set attribute of empty instance." );
     }
 
 

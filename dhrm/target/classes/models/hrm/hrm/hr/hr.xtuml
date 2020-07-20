@@ -403,8 +403,27 @@ INSERT INTO SPR_PS
 	VALUES ("f955850d-2260-4a90-9cd5-019206d596d9",
 	'Overtime',
 	'',
-	'',
-	3,
+	'//Select an employee using the National ID and create an 
+//instance of overtime. Note that creating an instance is done without approval under
+// the assumption that approval process is outised the system scope.
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+
+if ( empty employee )
+	LOG::LogFailure(message:"Employee is not found or bonus does not exist!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
+else 
+	create object instance assignTo of Overtime;
+	relate employee to assignTo across R6;  
+	
+	assignTo.Starting = param.Starting;
+	assignTo.Ending = param.Ending;
+	
+	LOG::LogInfo(message:"Employee: "+ employee.LName+","+employee.FName+" has been assigned overtime");
+	UI::Reply( msg:"Employee has been assigned bonus successfully ", state:True);
+end if;
+
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("013d2f56-f975-451b-9038-3abf29c3a4b3",
@@ -485,7 +504,7 @@ INSERT INTO SPR_PS
 	'Job',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("2939637f-2fdc-492b-8b9d-ab2e7a6ba54d",
@@ -503,7 +522,7 @@ INSERT INTO SPR_PS
 	'Payment',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("18f560c3-1abf-4000-98e6-60040c2bfc5a",
@@ -521,7 +540,7 @@ INSERT INTO SPR_PS
 	'Employee_Read',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("7f4c18b1-3bc8-4213-936d-02ec4ccf8118",
@@ -539,7 +558,7 @@ INSERT INTO SPR_PS
 	'Reply',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("f9a937a7-d069-4e99-a65b-e388e1432836",
@@ -682,7 +701,7 @@ INSERT INTO SPR_PS
 	'Employee_Payments',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("40f05a9b-0bca-4c34-94ee-f94a4cb0a66d",
@@ -700,7 +719,7 @@ INSERT INTO SPR_PS
 	'Employee_Job',
 	'',
 	'',
-	3,
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4bf98d8b-56f1-4379-a4ff-ca46610d043a",
@@ -717,8 +736,31 @@ INSERT INTO SPR_PS
 	VALUES ("b928eb5e-6458-44e8-82e4-b44694eeb3e8",
 	'Employee_Bonus',
 	'',
-	'',
-	3,
+	'//Select an employee using the National ID to and choose a bonus using Name to create an 
+//instance of bonus_payment. Note that creating an instance is done without approval under
+// the assumption that approval process is outised the system scope.
+select any employee from instances of EM where selected.National_ID==param.National_ID;
+
+select any bonus from instances of Bonus where selected.Name==param.Name;
+
+if ( empty employee ) or (empty bonus)
+	
+	LOG::LogFailure(message:"Employee is not found or bonus does not exist!" );
+	UI::Reply( msg:"Employee is not found.", state:False);
+
+else 
+	create object instance assignTo of Bonus_Payment;
+	relate employee to bonus across R5 using assignTo;  
+	
+	assignTo.starting = param.Starting;
+	assignTo.ending = param.Ending;
+	
+	LOG::LogInfo(message:"Employee: "+ employee.LName+","+employee.FName+" has been assigned "+ bonus.Name+" bonus");
+	UI::Reply( msg:"Employee has been assigned bonus successfully ", state:True);
+end if;
+
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("4e42f802-8ad4-4d21-8dfe-5fc8500e58a3",
