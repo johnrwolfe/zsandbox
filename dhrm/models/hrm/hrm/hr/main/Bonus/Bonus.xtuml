@@ -61,8 +61,8 @@ INSERT INTO O_TPARM
 INSERT INTO O_TPARM
 	VALUES ("eb31c0d2-55e8-4bdb-b55f-45a7c142d1b8",
 	"31dcc9a5-986a-490c-b8e0-aac9db80261b",
-	'Amount',
-	"ba5eda7a-def5-0000-0000-000000000002",
+	'Percentage',
+	"ba5eda7a-def5-0000-0000-000000000003",
 	0,
 	'',
 	"9fa6cb10-6696-473d-b28e-c31aa22ff8f2",

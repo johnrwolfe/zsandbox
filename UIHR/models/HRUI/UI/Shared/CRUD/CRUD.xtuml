@@ -110,7 +110,7 @@ INSERT INTO C_PP
 	VALUES ("3f717dd3-accb-4229-8c75-a977d17b3347",
 	"bf9503bc-cd03-4d64-baa9-72fe60d4a50d",
 	"ba5eda7a-def5-0000-0000-000000000002",
-	'Amount',
+	'Percentage',
 	'',
 	0,
 	'',

@@ -39,16 +39,22 @@ INSERT INTO S_SYNC
 	'getPartialPayment',
 	'',
 	'
-//The funtion returns the payment amount based on the payment time and the ending time
-// for a given payment (salary, bonus, etc.). The ending time has to occur, otherwise
-// the funtion will return zero.  
-if  (param.Payment_Time >= param.Ending_Time)
+//The funtion returns the payment amount based on the payment time and the ending time or starting time
+// for a given payment (salary, bonus, etc.), given that the time lapsed is less than 30 days 
+// If the starting/ending is more than a month the function will return zero.
+  
+if  (param.Payment_Time >= param.Ending_Time) and ( ::isLessThanMonth(Starting:param.Payment_Time, Ending:param.Ending_Time))
 	days = 30 - ((param.Payment_Time - param.Ending_Time) /24*60*60);
 	return days * (param.Payment/30);
-else 
-	return 0; 
+	
+// If the starting time is less than payment time
+elif  (param.Payment_Time >= param.Starting_Time) and ( ::isLessThanMonth(Starting:param.Starting_Time, Ending:param.Payment_Time))
+	days = ((param.Payment_Time - param.Starting_Time) /24*60*60);
+	return days * (param.Payment/30); 
+else
+	return 0;
 end if;',
-	"ba5eda7a-def5-0000-0000-000000000002",
+	"ba5eda7a-def5-0000-0000-000000000003",
 	1,
 	'',
 	0);
@@ -68,7 +74,7 @@ INSERT INTO S_SPARM
 	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
 	'',
-	"e9895a7f-2f86-4c31-9180-6f3fa7c36ad1",
+	"aa70ae7c-cc33-4a39-8130-c5e99a673452",
 	'');
 INSERT INTO S_SPARM
 	VALUES ("d1309c7a-3ad1-41f2-9cd2-61ff87c0b6a4",
@@ -79,8 +85,57 @@ INSERT INTO S_SPARM
 	'',
 	"e45f2af5-24b2-4cca-b388-0c6f398c4110",
 	'');
+INSERT INTO S_SPARM
+	VALUES ("aa70ae7c-cc33-4a39-8130-c5e99a673452",
+	"0914f23b-5838-4f75-aaeb-e144750b76ae",
+	'Starting_Time',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"e9895a7f-2f86-4c31-9180-6f3fa7c36ad1",
+	'');
 INSERT INTO PE_PE
 	VALUES ("0914f23b-5838-4f75-aaeb-e144750b76ae",
+	1,
+	"68793a29-d7ed-41ef-ba0d-17ad78f2c0bb",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("35b83c67-8250-417d-a3f5-2cbbe6907081",
+	"00000000-0000-0000-0000-000000000000",
+	'isLessThanMonth',
+	'',
+	'	time = ( param.Ending - param.Starting) /24*60*60;
+	month = 30;
+	if (time <= month )
+		return true;
+	else
+		return false;
+	end if;',
+	"ba5eda7a-def5-0000-0000-000000000001",
+	1,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("5558477d-98f1-4f7c-8e65-791b0e54f382",
+	"35b83c67-8250-417d-a3f5-2cbbe6907081",
+	'Starting',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("dc610e3a-fe91-4413-8c6e-b1e83dee91d2",
+	"35b83c67-8250-417d-a3f5-2cbbe6907081",
+	'Ending',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"5558477d-98f1-4f7c-8e65-791b0e54f382",
+	'');
+INSERT INTO PE_PE
+	VALUES ("35b83c67-8250-417d-a3f5-2cbbe6907081",
 	1,
 	"68793a29-d7ed-41ef-ba0d-17ad78f2c0bb",
 	"00000000-0000-0000-0000-000000000000",

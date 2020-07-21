@@ -303,7 +303,7 @@ INSERT INTO GD_GE
 	"68793a29-d7ed-41ef-ba0d-17ad78f2c0bb",
 	108,
 	0,
-	'hrm::hrm::hr::Utilties');
+	'hrm::hrm::hr::Utl');
 INSERT INTO GD_SHP
 	VALUES ("4080f938-76ce-4e58-b974-286efac3a5ba");
 INSERT INTO GD_NCS
@@ -362,8 +362,9 @@ end if;
 
 
  ',
-	'',
-	3,
+	' EM::crudEmployee(FName:param.FName, LName:param.LName, National_ID:param.National_ID, Action:param.Action);
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("cd0e9545-1bf3-49dd-a675-38adeb2a85dc",
@@ -396,8 +397,9 @@ elif (param.Action == "DELETE")
  EM::deleteBonus(Name:param.Name);
 end if;
 ',
-	'',
-	3,
+	' Bonus::crudBonus(Name:param.Name, Amount:param.Amount, Action:param.Action);
+',
+	1,
 	0);
 INSERT INTO C_EP_PROXY
 	VALUES ("bf9503bc-cd03-4d64-baa9-72fe60d4a50d",

@@ -14,7 +14,7 @@ INSERT INTO SM_EVTDI
 	"81470f21-7387-4b63-a341-e1e885669917",
 	'starting',
 	'',
-	"ba5eda7a-def5-0000-0000-000000000010",
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	"c0bff1bc-ea8a-4461-99e6-ee4ac2a8e679",
 	"00000000-0000-0000-0000-000000000000");
@@ -23,7 +23,7 @@ INSERT INTO SM_EVTDI
 	"81470f21-7387-4b63-a341-e1e885669917",
 	'ending',
 	'',
-	"ba5eda7a-def5-0000-0000-000000000010",
+	"ba5eda7a-def5-0000-0000-000000000002",
 	'',
 	"c0bff1bc-ea8a-4461-99e6-ee4ac2a8e679",
 	"5459a4ac-cf62-4592-9d3d-65c6cecf9917");
@@ -305,25 +305,35 @@ INSERT INTO SM_ACT
 //  5. If the bonus starting date has not arrived, do nothing. Adding
 
 	select one employee related by self->EM[R5] ;
-	salary = employee.getSalary();
 	select one bonus related by self->Bonus[R5];
 	payment_time = TIM::current_seconds();
+	bonus_payment = employee.getSalary() * bonus.Percentage;
 	
-if (TIM::current_seconds() >= self.Ending) 
-	// if the bonus ended and the day of the month is less than today by at least one
-	
-	self.Amount = Utl::getPartialPayment(Payment_Time:payment_time, Ending_Time:self.Ending, Payment:salary);
-	//EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_date());	
+	//Check for partial payment and return the amount to equal partial or full amount
+	self.Amount = ::getPartialPayment(Payment_Time:payment_time, Starting_Time:self.Starting, Ending_Time:self.Ending, Payment:bonus_payment);
 
-		
-//	self.Amount = salary * bonus.Percentage;
+// if the difference between the payment time (now) and the starting time is a month or less
+// create the first payment
+if  (::isLessThanMonth( Starting:self.Starting, Ending:payment_time)) 
+	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_seconds());
+	LOG::LogInfo(message:"Bonus is paid partially because payment started less than a month");	
+
+// if the difference between the payment time (now) and the ending time is less or equal to a month	
+// create a payment and deactivate the bonus		
+elif (::isLessThanMonth( Starting:payment_time, Ending:self.Ending))
 	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_seconds());
 	generate BP2:deactivateBonusRcvd() to self;
-	LOG::LogInfo(message:"Bonus stopped because ending is passed");	
-else
-	//create bonus payment for starting >= 30 and ending >= 30
-	self.Amount = salary * bonus.Percentage;
-	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:TIM::current_seconds());	
+	LOG::LogInfo(message:"Bonus is schedualed for payment");	
+	LOG::LogInfo(message:"Bonus stopped because bonus ending date has passed");	
+
+// if the starting time is smaller than payment time (now) and the ending time is larger than payment time (now)
+// create a bonus payment 
+elif (payment_time > self.Starting) and (payment_time < self.Ending) 
+	EM::createPayment(Name:bonus.Name, National_ID:employee.National_ID, Amount:self.Amount, Date:payment_time);	
+	LOG::LogInfo(message:"Bonus is schedualed for payment");	
+
+// if the starting time is larger than the payment time
+// the bonus payment is not due, and it is better to do nothing
 end if;
 ',
 	'',
@@ -354,16 +364,9 @@ INSERT INTO SM_ACT
 	"81470f21-7387-4b63-a341-e1e885669917",
 	1,
 	'
-// if the current date is passed ending date or if starting date has not arrived
-// stay inactive
  
-if (TIM::current_date() > rcvd_evt.Ending) or (TIM::current_date() < self.Starting) 
-		self.Ending = rcvd_evt.Ending;
-		//ending the 
-elif (TIM::current_date() < self.Ending) or (TIM::current_date() > self.Starting) 
-	generate BP4:activateBonusRcvd() to self;
-	LOG::LogInfo(message:"Bonus stopped because ending is passed");
-end if;
+LOG::LogInfo(message:"Bonus is now deactivated");
+
 ',
 	'',
 	0);
