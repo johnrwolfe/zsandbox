@@ -3,10 +3,7 @@
 	<name>hrm</name>
 	<comment></comment>
 	<projects>
-		<project>Authenticate</project>
-		<project>HRsystem</project>
-		<project>runtime</project>
-		<project>UIHR</project>
+		
 	</projects>
 	<buildSpec>
 	</buildSpec>
