@@ -3,9 +3,7 @@
 	<name>HRsystem</name>
 	<comment></comment>
 	<projects>
-		<project>dhrm</project>
-		<project>runtime</project>
-		<project>UIHR</project>
+		
 	</projects>
 	<buildSpec>
 	</buildSpec>
